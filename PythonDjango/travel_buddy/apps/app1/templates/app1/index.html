@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Travel Buddy</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <style media="screen">
+  .style-two { /* <hr> line that fades out on both ends */
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+      margin-top: 30px;
+  }
+  </style>
+  <body>
+
+    <div class="jumbotron">
+        <h1 class="display-3">Hey Travel Buddy!</h1>
+            <p class="lead">Join us in planning awesome trips for you and your buddies. You can also join trips other buddies have planned. We provide an easy way for you to see what trips are avaialble to you, and tell you which buddy planned the trip and where the trip will take you.</p>
+        <hr class="my-4">
+            <p>*I've used Python's Django Framework and its Object-Relational Mapping technologies in developing the platform's back-end, while utilizing Bootstrap for the front-end.</p>
+            <p class="lead">
+            <a class="btn btn-info" href="https://github.com/refayathaque/PythonBeltDeployment" role="button">Check out my code here</a></p>
+    </div>
+
+    <div class="container-fluid">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger text-center" role="alert">
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <h3 class="text-center" style="margin-top:30px;">New user? Register here</h3>
+
+    <div class="container-fluid">
+        <form class="" action="/registration" method="post">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" placeholder="Enter your full name" name="name" value="">
+                <small class="form-text text-muted">We'll never share your information with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" placeholder="No signs or punctuation marks please" name="username" value="">
+                <small class="form-text text-muted">This is what your buddies will see.</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" placeholder="" name="password" value="">
+                <small class="form-text text-muted">Must have at least eight or more characters.</small>
+            </div>
+            <div class="form-group">
+                <label for="password_confirmation">Confirm Password</label>
+                <input type="password" class="form-control" placeholder="" name="password_confirmation" value="">
+                <small class="form-text text-muted">Must match what was input above</small>
+            </div>
+            <button type="submit" name="submit" class="btn btn-success">Register</button>
+        </form>
+    </div>
+
+    <h3 class="text-center" style="margin-top:30px;">Exisiting user? Login here</h3>
+
+    <div class="container-fluid">
+        <form class="" action="/login" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" placeholder="" name="username" value="">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" placeholder="" name="password" value="">
+        </div>
+        <button type="submit" name="submit" class="btn btn-success">Login</button>
+        </form>
+    </div>
+
+    <hr class="style-two">
+
+    <p style="text-align:center; margin-bottom:3px; margin-top:30px;">Designed and Developed by <a href="https://refayathaque.github.io/" target="_blank">Refayat Haque</a></p>
+
+    <p style="text-align:center; margin-bottom:30px; margin-top:3px;">Hosted with <i class="fa fa-heart" aria-hidden="true"></i> on <i class="fa fa-github" aria-hidden="true"></i> and <i class="fa fa-amazon" aria-hidden="true"></i>WS</p>
+
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Radio Today Bangladesh Internal Forum</title>
+        <link rel="stylesheet" href="../static/css/style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    </head>
+    <body>
+        <h1>Radio Today Bangladesh Internal Forum</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Registration</h2>
+                    <form class="" action="/create_user" method="post">
+                        <br>
+                        <input type="text" name="first_name" value="">
+                        <p>First Name</p>
+                        <input type="text" name="last_name" value="">
+                        <p>Last Name</p>
+                        <input type="text" name="email" value="">
+                        <p>Email</p>
+                        <p><em>Must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit</em></p>
+                        <input type="password" name="password" value="">
+                        <p>Password</p>
+                        <p><em>Must match field above</em></p>
+                        <input type="password" name="confirm_password" value="">
+                        <p>Confirm Password</p>
+                        <div class="g-recaptcha" data-sitekey="{{ reCaptcha_site_key }}"></div>
+                        <br>
+                        <input type="submit" name="submit" value="Register">
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h2>Login</h2>
+                    <form class="" action="/login" method="post">
+                        <br>
+                        <input type="text" name="email" value="">
+                        <p>Email</p>
+                        <input type="password" name="password" value="">
+                        <p>Password</p>
+                        <input type="submit" name="submit" value="Login">
+                    </form>
+                    <br>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <h3 id = 'error'>{{ message }}</h3>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

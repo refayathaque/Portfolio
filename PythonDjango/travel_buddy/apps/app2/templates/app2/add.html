@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add a Trip</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Add a Trip</h1>
+            <p class="lead">This trip you add will be viewed by all your other buddies. So make sure your description is as exciting as it can be. It should be so exciting that it entices all your buddies to join you in your adventures!</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger text-center" role="alert">
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="container-fluid">
+        <form class="" action="/app2/make_trip" method="post">
+        {% csrf_token %}
+            <div class="form-group">
+                <label>Destination</label>
+                <input type="text" class="form-control" name="destination" placeholder="No numbers, signs or punctuations please">
+                <small class="form-text text-muted">Pick anywhere in the world, let your imagination roam free!</small>
+            </div>
+            <div class="form-group">
+                <label>Travel Start</label>
+                <input type="date" class="form-control" name="travel_start">
+            </div>
+            <div class="form-group">
+                <label>Travel End</label>
+                <input type="date" class="form-control" name="travel_end">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" class="form-control" id="exampleTextarea" rows="5"></textarea>
+                <small class="form-text text-muted">Be thorough over here, provide enough information for your buddies to know exactly how exciting this trip will be!</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Add trip</button>
+        </form>
+    </div>
+
+    <div class="container-fluid">
+    <form class="" action="/app2/travels" method="post">
+      {% csrf_token %}
+      <input style="margin-top: 15px; margin-bottom: 15px;"class="btn btn-info" type="submit" name="submit" value="Back to Dashboard">
+    </form>
+    <form class="" action="/app2/log_out" method="post">
+      {% csrf_token %}
+      <input class="btn btn-warning" type="submit" name="submit" value="Log out">
+    </form>
+    </div>
+
+  </body>
+</html>

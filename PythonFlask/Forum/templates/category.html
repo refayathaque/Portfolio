@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="../static/css/style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    </head>
+    <body>
+    <h3>Threads on '{{ category_name }}'</h3>
+    {% if category_threads %}
+        <ol>
+            {% for thread in category_threads %}
+                <li><p><span class="green_text">{{ thread.title }}</span> \ {{ thread.content }} \ <em class="blue_text">{{ thread.created_at.strftime('%a, %d %b %Y, %-I:%M %p') }}</em> \ by: {{ thread.first_name }} {{ thread.last_name }}</p></li>
+                    <ol type="a">
+                        {% for response in all_responses %}
+                            {% if response.thread_id == thread.id %}
+                                <li><p><span class="green_text">{{ response.content }}</span> \ <em class="blue_text">{{ response.created_at.strftime('%a, %d %b %Y, %-I:%M %p') }}</em> \ by: {{ response.first_name }} {{ response.last_name }}</p></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ol>
+                    <a href="/show/{{ thread['id'] }}"><h3>Respond</h3></a>
+                    <br>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <h4><em>***No threads on {{ category_name }}</em></h4>
+    {% endif %}
+    <br>
+    <form class="" action="/dashboard">
+        <input type="submit" name="submit" value="Return to Dashboard">
+    </form>
+    <br>
+    <form class="" action="/logout" method="post">
+        <input type="submit" name="submit" value="Log Out">
+    </form>
+    </body>
+</html>

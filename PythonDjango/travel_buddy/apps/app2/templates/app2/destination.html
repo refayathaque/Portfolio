@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Destination</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="jumbotron">
+    {% for i in trip %}
+        <h1 class="display-3">{{ i.destination }}</h1>
+            <p class="lead">{{ i.description }}</p>
+        <hr class="my-4">
+            <h4>{{ i.travel_start }} - {{ i.travel_end }}</h4>
+            <h5><i>{{ i.created_by }}</i> (Organizer)</h5>
+    </div>
+    {% endfor %}
+
+    <div class="container-fluid">
+    {% if all_trip_users_minus_current_user %}
+        <h2 style="margin-bottom: 20px;">Buddies on this trip:</h2>
+    {% endif %}
+    {% for i in all_trip_users_minus_current_user %}
+        <ul>
+            <li><h4><i>{{ i.name }}</i></h4></li>
+        </ul>
+    {% endfor %}
+    </div>
+
+    <div class="container-fluid">
+    <form class="" action="/app2/travels" method="post">
+      {% csrf_token %}
+      <input style="margin-top: 15px; margin-bottom: 15px;"class="btn btn-info" type="submit" name="submit" value="Back to Dashboard">
+    </form>
+    <form class="" action="/app2/log_out" method="post">
+      {% csrf_token %}
+      <input class="btn btn-warning" type="submit" name="submit" value="Log out">
+    </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="../static/css/style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    </head>
+    <body>
+        {% for thread in thread %}
+            <h2>{{ thread.title }}</h2>
+            {% for category in categories %}
+                {% if category.id == thread.category_id %}
+                    <p><strong>{{ category.name }}</strong></p>
+                {% endif %}
+            {% endfor %}
+            <p class="green_text"><em>{{ thread.content }}</em></p>
+            <form class="" action="/create_response/{{ thread.id }}" method="post">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <h3 id = 'error'>{{ message }}</h3>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <textarea name="content" cols="70" rows="5"></textarea>
+                <p>Response</p>
+                <input type="submit" name="submit" value="Submit">
+            </form>
+        {% if thread_responses %}
+            <br>
+            <h3>Responses</h3>
+            <ol>
+                {% for response in thread_responses %}
+                    <li><p>{{ response.content }} \ <em class = "blue_text">{{ thread['created_at'].strftime('%a, %d %b %Y, %-I:%M %p') }}</em> \ by:
+                        {% for user in all_users %}
+                            {% if user['id'] == response['user_id'] %}
+                                {{ user['first_name'] }} {{ user['last_name'] }}
+                            {% endif %}
+                        {% endfor %}
+                    </p></li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+        {% endfor %}
+        <br>
+        <form class="" action="/dashboard">
+            <input type="submit" name="submit" value="Return to Dashboard">
+        </form>
+    </body>
+</html>

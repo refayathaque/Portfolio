@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Itineraries</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="jumbotron">
+        <h1 class="display-3">Itineraries</h1>
+            <p class="lead">Here you'll find all the trips you are scheduled to join, and also a list of trips other buddies have added which you have yet to sign up for.</p>
+        <hr class="my-4">
+            <p>If you want to add a trip, click below. FYI, you will automatically be added to the trip you just made.</p>
+            <p class="lead">
+            <a class="btn btn-primary" href="/app2/add" role="button">Add a Trip</a></p>
+    </div>
+
+    <div class="container-fluid" style="margin-bottom: 25px;">
+    <!-- GREETING -->
+    {% if request.session.logged_in_user_username %}
+      {% for i in user_information %}
+        <h3><i>{{ i.name }}</i></h3>
+      {% endfor %}
+    {%  endif %}
+
+    {% if request.session.registered_user_username %}
+      {% for i in user_information %}
+        <h3><i>{{ i.name }}</i></h3>
+      {% endfor %}
+    {%  endif %}
+    </div>
+
+    <div class="container-fluid">
+    <!-- TRIP SCHEDULES -->
+    {% if request.session.logged_in_user_username %}
+        {% if all_user_trips %}
+        <h2>Your trips are:</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th>Travel Start</th>
+                        <th>Travel End</th>
+                        <th>Description</th>
+                    </tr>
+        {% for i in all_user_trips %}
+            </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="/app2/display_trip/{{ i.trip_id.destination }}">{{ i.trip_id.destination }}</a></td>
+                        <td>{{ i.trip_id.travel_start }}</td>
+                        <td>{{ i.trip_id.travel_end }}</td>
+                        <td>{{ i.trip_id.description }}</td>
+                    </tr>
+        {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endif %}
+
+    {% if request.session.registered_user_username %}
+        {% if all_user_trips %}
+        <h2>Your trips are:</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th>Travel Start</th>
+                        <th>Travel End</th>
+                        <th>Description</th>
+                    </tr>
+        {% for i in all_user_trips %}
+            </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="/app2/display_trip/{{ i.trip_id.destination }}">{{ i.trip_id.destination }}</a></td>
+                        <td>{{ i.trip_id.travel_start }}</td>
+                        <td>{{ i.trip_id.travel_end }}</td>
+                        <td>{{ i.trip_id.description }}</td>
+                    </tr>
+        {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endif %}
+    </div>
+
+    <!-- ALL TRIPS -->
+    <div class="container-fluid">
+        {% if all_trips_minus_what_users_are_part_of %}
+        <h2>Join a buddy's trip:</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Organizer</th>
+                        <th>Destination</th>
+                        <th>Travel Start Date</th>
+                        <th>Travel End Date</th>
+                        <th>Do you want to join?</th>
+                </tr>
+        {% for i in all_trips_minus_what_users_are_part_of %}
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ i.created_by }}</td>
+                            <td><a href="/app2/display_trip/{{ i.destination }}">{{ i.destination }}</a></td>
+                            <td>{{ i.travel_start }}</td>
+                            <td>{{ i.travel_end }}</td>
+                            <td><a href="/app2/join_trip/{{ i.destination }}">Join</a></td>
+                        </tr>
+        {% endfor %}
+            </table>
+        {% endif %}
+    </div>
+
+    <div class="container-fluid" style="margin-bottom: 30px;">
+    <form class="" action="/app2/log_out" method="post">
+      {% csrf_token %}
+      <input class="btn btn-warning" type="submit" name="submit" value="Log out">
+    </form>
+    </div>
+
+  </body>
+</html>

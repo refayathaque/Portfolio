@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="../static/css/style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <h3>You are logged in <em class = "green_text">{{ session_user[0].first_name }} {{ session_user[0].last_name }}</em></h2>
+        <h4>Your account is registered to <em class = "green_text">{{ session_user[0].email }}</em></h3>
+        <br>
+        <h3>Begin a thread</h3>
+        <form action="/create_thread" method="post">
+            <select name="category">
+                {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+            <p>Choose topic</p>
+            <input type="text" name="title" value="">
+            <p>Title</p>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <h3 id = 'error'>{{ message }}</h3>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <textarea name="content" cols="70" rows="5"></textarea>
+            <p>Content</p>
+            <input type="submit" value="Submit"/>
+        </form>
+        {% if user_threads %}
+            <br>
+            <h3>Your threads</h3>
+        {% endif %}
+        <ol>
+            {% for thread in user_threads %}
+                <li><p><span class="green_text">{{ thread['title'] }}</span> \ {{ thread['content'] }} \ <em class = "blue_text">{{ thread['created_at'].strftime('%a, %d %b %Y, %-I:%M %p') }}</em> \ category:
+                    {% for category in categories %}
+                        {% if category['id'] == thread['category_id']%}
+                            <strong>{{ category['name'] }}</strong>
+                        {% endif %}
+                    {% endfor %}
+                \ <a href="/show/{{ thread['id'] }}">Responses</a>
+                </p></li>
+            {% endfor %}
+        </ol>
+
+        {% if all_threads %}
+            <h3>Select category to see specific threads</h3>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                {% for category in categories %}
+                    <button onclick="window.location.href='/show_category/{{ category['id'] }}'" type="button" class="btn btn-secondary">{{ category['name'] }}</button>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if all_threads %}
+            <h3>All threads</h3>
+        {% endif %}
+        <ol>
+            {% for thread in all_threads %}
+                <li><p><span class = "green_text">{{ thread['title'] }}</span> \ {{ thread['content'] }} \ <em class = "blue_text">{{ thread['created_at'].strftime('%a, %d %b %Y, %-I:%M %p') }}</em> \ by:
+                    {% for user in all_users %}
+                        {% if user['id'] == thread['user_id']%}
+                            {{ user['first_name'] }} {{ user['last_name'] }}
+                        {% endif %}
+                    {% endfor %}
+                \ category:
+                    {% for category in categories %}
+                        {% if category['id'] == thread['category_id']%}
+                            <strong>{{ category['name'] }}</strong>
+                        {% endif %}
+                    {% endfor %}
+                \ <a href="/show/{{ thread['id'] }}">Responses</a>
+                </p></li>
+            {% endfor %}
+        </ol>
+        <br>
+        <br>
+        <form class="" action="/logout" method="post">
+            <input type="submit" name="submit" value="Log Out">
+        </form>
+    </body>
+</html>
