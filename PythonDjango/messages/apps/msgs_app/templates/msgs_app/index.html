@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Messages Dashboard</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'msgs_app/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+    <div id="container">
+        <h1>Messages Dashboard</h1>
+        <h3>Welcome {{ session_user.username }}, you are logged in</h3>
+        <br>
+        {% if session_user.to_user.all %}
+        <div class="table">
+        <table class="table table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>From</th>
+                    <th>Message</th>
+                    <th>Time / Date</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in session_user.to_user.all reversed %}
+                <tr>
+                    <td>{{ message.user_from.username }}</td>
+                    <td>{{ message.message }}</td>
+                    <td>{{ message.created_at | date:'f A, D j N o'}}</td>
+                    <td><a href="{% url 'msgs:show_conversation' user_id=message.user_from.id %}"><i class="fa fa-comments-o" aria-hidden="true"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        {% endif %}
+
+        {% if session_user.from_user.all %}
+        <div class="table">
+        <h2>Sent Messages</h2>
+        <table class="table table-hover">
+            <thead class="thead-default">
+                <tr>
+                    <th>To</th>
+                    <th>Message</th>
+                    <th>Time / Date</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message in session_user.from_user.all reversed %}
+                <tr>
+                    <td>{{ message.user_to.username }}</td>
+                    <td>{{ message.message }}</td>
+                    <td>{{ message.created_at | date:'f A, D j N o'}}</td>
+                    <td><a href="{% url 'msgs:show_conversation' user_id=message.user_to.id %}"><i class="fa fa-comments-o" aria-hidden="true"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        {% endif %}
+
+        {% if users %}
+        <h2><em>New Message</em></h2>
+        <form class="" action="{% url 'msgs:send_message' %}" method="post">
+        {% csrf_token %}
+        <textarea name="message" rows="4" cols="80"></textarea>
+        <br>
+        <select class="" name="user_to">
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <p>Select message recipient</p>
+        <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-envelope" aria-hidden="true"></i> Send Message</button>
+        </form>
+        {% endif %}
+
+        {% if messages %}
+        <br>
+            {% for message in messages %}
+                <h4 id='error_message'>{{ message }}</h4>
+            {% endfor %}
+        {% endif %}
+
+        <br>
+        <form class="" action="{% url 'msgs:log_out' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-warning"><i class="fa fa-power-off" aria-hidden="true"></i> Log Out</button>
+        </form>
+        </div>
+        <hr id="page_bottom_line">
+        <p style="text-align:center; margin-bottom:3px; margin-top:30px;">Designed and Developed by <a href="https://refayathaque.github.io/" target="_blank">Refayat Haque</a></p>
+        <p style="text-align:center; margin-bottom:30px; margin-top:3px;">Hosted with <i class="fa fa-heart" aria-hidden="true"></i> on <i class="fa fa-github" aria-hidden="true"></i> and <i class="fa fa-amazon" aria-hidden="true"></i>WS</p>
+    </body>
+</html>

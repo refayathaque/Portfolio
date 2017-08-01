@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Messages</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'msgs_app/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    <body>
+    <div id="container">
+        <h1>Messages</h1>
+        <h3>{{ session_user.username }}, you are logged in</h3>
+        <br>
+        {% for i in conversation %}
+            {% if i.user_from.id == request.session.user_id %}
+                <div class="bg-success text-white">
+                    <p class="conversation">{{ i.message }} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ i.created_at | date:'f A, D j N o'}}</p>
+                </div>
+            {% else %}
+                <div class="bg-info text-white">
+                    <p class="conversation"><em>{{i.user_from.username}} </em>: {{ i.message }} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp {{ i.created_at | date:'f A, D j N o'}}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+        <h4><em>Your response</em></h4>
+        <form class="" action="{% url 'msgs:send_msg_in_conversation' user_id=user_id %}" method="post">
+        {% csrf_token %}
+        <textarea name="message" rows="4" cols="80"></textarea>
+        <br>
+        <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-envelope" aria-hidden="true"></i> Send</button>
+        </form>
+        {% if messages %}
+        <br>
+            {% for message in messages %}
+                <h4 id='error_message'>{{ message }}</h4>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <form class="" action="{% url 'msgs:index' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-info"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</button>
+        </form>
+        <br>
+        <form class="" action="{% url 'msgs:log_out' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-warning"><i class="fa fa-power-off" aria-hidden="true"></i> Log Out</button>
+        </form>
+    </div>
+    <hr id="page_bottom_line">
+    <p style="text-align:center; margin-bottom:3px; margin-top:30px;">Designed and Developed by <a href="https://refayathaque.github.io/" target="_blank">Refayat Haque</a></p>
+    <p style="text-align:center; margin-bottom:30px; margin-top:3px;">Hosted with <i class="fa fa-heart" aria-hidden="true"></i> on <i class="fa fa-github" aria-hidden="true"></i> and <i class="fa fa-amazon" aria-hidden="true"></i>WS</p>
+    </body>
+</html>

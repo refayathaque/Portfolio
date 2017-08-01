@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>RTD Messaging</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'log_reg_app/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        var dateControler = {
+            currentDate : null
+        }
+        $(document).on("change", "#date_of_birth",function(event, ui) {
+            var now = new Date();
+            var selectedDate = new Date($(this).val());
+            if(selectedDate > now) {
+                $(this).val(dateControler.currentDate)
+            } else {
+                dateControler.currentDate = $(this).val();
+            }
+        });
+        </script>
+    </head>
+    <body>
+    <div id="container">
+        <h1 id="title">RTD Bangladesh Messaging Application</h1>
+        <br>
+        <div class="container">
+        <div class="row">
+        <div class="col-sm-6">
+        <h2>Login</h2>
+        <form class="" action="{% url 'log_reg:login_processing' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="email" value="">
+            <p>Email</p>
+            <input type="password" name="password" value="">
+            <p>Password</p>
+            <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-user-circle" aria-hidden="true"></i> Login</button>
+        </form>
+        <br>
+        {% if messages %}
+            {% for message in messages %}
+                <h4 id='error_message'>{{ message }}</h4>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <img src="{% static 'log_reg_app/images/RTDLogo.png' %}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-sm-6">
+        <h2>Register</h2>
+        <form class="" action="{% url 'log_reg:registration_processing' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" value="">
+            <p>Username</p>
+            <input id="date_of_birth" type='date' min='1899-01-01' max='2000-13-13' name='date_of_birth'></input>
+            <p>Date of Birth</p>
+            <input type="text" name="email" value="">
+            <p>Email</p>
+            <input type="password" name="password" value="">
+            <small id="emailHelp" class="form-text text-muted"><em>must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit</em></small>
+            <p>Password</p>
+            <input type="password" name="c_password" value="">
+            <p>Confirm Password</p>
+            <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</button>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        <hr id="page_bottom_line">
+        <p style="text-align:center; margin-bottom:3px; margin-top:30px;">Designed and Developed by <a href="https://refayathaque.github.io/" target="_blank">Refayat Haque</a></p>
+        <p style="text-align:center; margin-bottom:30px; margin-top:3px;">Hosted with <i class="fa fa-heart" aria-hidden="true"></i> on <i class="fa fa-github" aria-hidden="true"></i> and <i class="fa fa-amazon" aria-hidden="true"></i>WS</p>
+    </body>
+</html>

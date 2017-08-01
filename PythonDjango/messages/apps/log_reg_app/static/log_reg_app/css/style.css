@@ -1,0 +1,30 @@
+body {
+    padding: 20px;
+}
+#container {
+    width: 800px;
+    background-image: url("../images/background.png");
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 5px;
+}
+#title {
+    text-align: center;
+}
+#error_message {
+    color: #FFA500;
+}
+img {
+    width: 85%;
+    height: auto;
+}
+#page_bottom_line {
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+      margin-top: 30px;
+}
