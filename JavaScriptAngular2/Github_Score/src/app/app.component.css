@@ -1,0 +1,7 @@
+.ng-valid {
+    color: green;
+}
+.ng-invalid {
+    color: purple;
+    font-weight: bold;
+}
