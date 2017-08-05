@@ -1,0 +1,74 @@
+<div class="container">
+
+    <fieldset>
+
+        <legend><h2>Registration</h2></legend>
+
+        <form (submit)='registration()' #formData='ngForm'>
+
+            <p><em>First Name</em></p>
+            <input type="text" name="firstname" required minlength="2" [(ngModel)]="user.firstname" #firstname='ngModel'>
+
+            <br>
+            <div [hidden]='!firstname.errors'>
+                {{ firstname.errors | json }}
+            </div>
+
+            <p><em>Last Name</em></p>
+            <input type="text" name="lastname" required minlength="2" [(ngModel)]="user.lastname" #lastname='ngModel'>
+
+            <br>
+            <div [hidden]='!lastname.errors'>
+                {{ lastname.errors | json }}
+            </div>
+
+            <p><em>Birth Date</em></p>
+            <input type="date" name="birthdate" required [(ngModel)]="user.birthdate" #birthdate='ngModel'>
+
+            <br>
+            <div [hidden]='!birthdate.errors'>
+                {{ birthdate.errors | json }}
+            </div>
+
+            <p><em>Username</em></p>
+            <input type="text" name="username" required minlength="4" [(ngModel)]="user.username" #username='ngModel'>
+
+            <br>
+            <div [hidden]='!username.errors'>
+                {{ username.errors | json }}
+            </div>
+
+            <p><em>Email</em></p>
+            <input type="text" name="email" required minlength="6" pattern='^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'[(ngModel)]="user.email" #email='ngModel'>
+
+            <br>
+            <div [hidden]='!email.errors'>
+                {{ email.errors | json }}
+            </div>
+
+            <p><em>Password</em></p>
+            <input type="text" name="password" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,14}$' [(ngModel)]="user.password" #password='ngModel'>
+
+            <br>
+            <div [hidden]='!password.errors'>
+                {{ password.errors | json }}
+            </div>
+
+            <p [ngStyle]="{'color': 'blue'}">Must be at least 8 characters, no more than 14 characters, and must include at least one uppercase letter, one lowercase letter, and one numeric digit</p>
+
+            <p><em>Password Confirmation</em></p>
+            <input type="text" name="confirmpassword" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel'>
+
+            <br>
+            <div [hidden]='!confirmpassword.errors'>
+                {{ confirmpassword.errors | json }}
+            </div>
+
+            <br>
+            <button [disabled]="!formData.valid" type="submit" value="submit" name="submit">Register</button>
+
+        </form>
+
+    </fieldset>
+
+</div>

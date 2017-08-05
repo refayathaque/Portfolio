@@ -1,0 +1,32 @@
+<div class="container">
+
+    <fieldset>
+
+        <legend><h2>Login</h2></legend>
+
+        <form (submit)='login()' #formData='ngForm'>
+
+            <p><em>Username</em></p>
+            <input type="text" name="username" required minlength="4" [(ngModel)]="user.username" #username='ngModel'>
+
+            <br>
+            <div [hidden]='!username.errors'>
+                {{ username.errors | json }}
+            </div>
+
+            <p><em>Password</em></p>
+            <input type="text" name="password" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,14}$' [(ngModel)]="user.password" #password='ngModel'>
+
+            <br>
+            <div [hidden]='!password.errors'>
+                {{ password.errors | json }}
+            </div>
+
+            <br>
+            <button [disabled]="!formData.valid" type="submit" value="submit" name="submit">Login</button>
+
+        </form>
+
+    </fieldset>
+
+</div>

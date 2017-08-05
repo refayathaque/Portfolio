@@ -1,0 +1,28 @@
+<div class="container">
+
+    <fieldset>
+
+        <legend><h2>Home</h2></legend>
+
+        <h3>You are logged in {{ username }}!</h3>
+
+        <button (click)='logout()' type="button" name="button">Logout</button>
+
+        <button (click)='addquestion()' type="button" name="button">Add a Question</button>
+
+        <table>
+          <tr>
+            <th>Question</th>
+            <th>Answers</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor='let question of questions'>
+            <td>{{ question.content }}</td>
+            <td>{{ question.answers.length }}</td>
+            <td><a [routerLink]="['/show', question._id]">Show</a> | <a [routerLink]="['/answer', question._id]">Answer</a></td>
+          </tr>
+        </table>
+
+    </fieldset>
+
+</div>

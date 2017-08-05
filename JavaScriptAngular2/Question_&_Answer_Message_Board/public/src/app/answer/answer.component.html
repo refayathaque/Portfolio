@@ -1,0 +1,34 @@
+<div class="container">
+
+    <fieldset>
+
+        <legend><h2>{{ question.content }}</h2></legend>
+        <h3>{{ question.description }}</h3>
+
+        <a routerLink='/home' >Home</a>
+        <router-outlet></router-outlet>
+
+        <a [routerLink]="['/show', question._id]">Show</a>
+
+        <button (click)='logout()' type="button" name="button">Logout</button>
+
+        <form (submit)='submitanswer()' #formData='ngForm'>
+
+            <p>Your Answer</p>
+            <textarea type="text" name="content" required minlength="5" rows="6" cols="60" [(ngModel)]="answer.content" #content='ngModel'></textarea>
+
+            <div [hidden]='!answer.errors'>
+                {{ answer.errors | json }}
+            </div>
+
+            <p>Supporting details for your answer (Optional)</p>
+            <textarea type="text" name="detail" [(ngModel)]="answer.detail" rows="6" cols="60"></textarea>
+
+            <br>
+            <button [disabled]="!formData.valid" value="submit" type="submit" name="submit">Submit</button>
+
+        </form>
+
+    </fieldset>
+
+</div>
