@@ -20,5 +20,6 @@
   <h2 [ngStyle]="{'color':'purple'}" *ngIf='score < 100 && score >= 50'>Doing good!</h2>
   <h2 [ngStyle]="{'color':'green'}" *ngIf='score < 200 && score >= 100'>Great job!</h2>
   <h2 [ngStyle]="{'color':'blue'}" *ngIf='score >= 200'>Github Elite!</h2>
+  <img src="{{ GitHubInfo.avatar_url }}" alt="">
   
 </div>
