@@ -2,20 +2,20 @@
   <h1 class="display-3">{{title}}</h1>
   <p class="lead">Click on a city to get its weather information</p>
   <hr class="my-4">
-  <p>This application is built on Angular2, Bootstrap4, and with data provided by the OpenWeatherMap API</p>
+  <p>This application is built on Angular2, Bootstrap4, and with data from the OpenWeatherMap API</p>
   <p class="lead">
     <a class="btn btn-primary btn-sm" href="https://github.com/refayathaque/Portfolio/tree/master/JavaScriptAngular2/Weather-App" role="button">See code on Github <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
   </p>
 </div>
 
 <div class="buttons">
-    <button type="button" class="btn btn-outline-secondary">Chicago</button>
-    <button type="button" class="btn btn-outline-primary">Boston</button>
-    <button type="button" class="btn btn-outline-danger">New York City</button>
-    <button type="button" class="btn btn-outline-dark">Philadelphia</button>
-    <button type="button" class="btn btn-outline-success">Washington, DC</button>
-    <button type="button" class="btn btn-outline-warning">Atlanta</button>
-    <button type="button" class="btn btn-outline-info">Miami</button>
+    <button type="button" class="btn btn-outline-secondary" [routerLink]="['/chicago']">Chicago</button>
+    <button type="button" class="btn btn-outline-primary" [routerLink]="['/boston']">Boston</button>
+    <button type="button" class="btn btn-outline-danger" [routerLink]="['/newyorkcity']">New York City</button>
+    <button type="button" class="btn btn-outline-dark" [routerLink]="['/philadelphia']">Philadelphia</button>
+    <button type="button" class="btn btn-outline-success" [routerLink]="['/washingtondc']">Washington, DC</button>
+    <button type="button" class="btn btn-outline-warning" [routerLink]="['/atlanta']">Atlanta</button>
+    <button type="button" class="btn btn-outline-info" [routerLink]="['/miami']">Miami</button>
 </div>
 
 <router-outlet></router-outlet>
