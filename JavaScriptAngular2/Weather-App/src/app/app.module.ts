@@ -14,6 +14,8 @@ import { DcComponent } from './dc/dc.component';
 import { AtlantaComponent } from './atlanta/atlanta.component';
 import { MiamiComponent } from './miami/miami.component'; // <-- Import HttpModule
 
+import { CitiesService } from './cities.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,7 @@ import { MiamiComponent } from './miami/miami.component'; // <-- Import HttpModu
     FormsModule, // <-- Include module in our AppModules
     HttpModule // <-- Include module in our AppModules
   ],
-  providers: [],
+  providers: [CitiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

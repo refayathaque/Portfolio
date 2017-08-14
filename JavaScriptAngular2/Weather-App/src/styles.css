@@ -1,3 +1,12 @@
 .buttons {
     text-align: center;
 }
+
+#spacing {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#border {
+    border: 1px dotted red;
+}

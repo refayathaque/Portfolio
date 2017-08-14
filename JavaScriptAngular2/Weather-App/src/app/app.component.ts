@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CitiesService } from './cities.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'East Coast Weather Forecast';
+
+  weather_data = [];
+
+  constructor(private _citiesService: CitiesService) {}
+
+  getWeatherData() {
+      this._citiesService.retrieveWeatherData()
+      .then(data => { this.data = data })
+      .catch(err => {console.log('Error!')})
+  }
+
 }
