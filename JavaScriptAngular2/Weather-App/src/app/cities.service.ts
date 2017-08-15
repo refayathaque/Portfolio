@@ -12,8 +12,8 @@ export class CitiesService {
   constructor(private _http: Http) {}
 
   retrieveCitySpecificWeatherData(city_id) {
-      console.log('City Specific Retrieval working')
-      return this._http.get('http://api.openweathermap.org/data/2.5/weather?id=4887398&units=metric&APPID=6ae4507d555f1bc2f4e00792f1eaba1f')
+      console.log('City Specific Retrieval working, city_id = ', city_id)
+      return this._http.get('http://api.openweathermap.org/data/2.5/weather?id='+city_id+'&units=metric&APPID=6ae4507d555f1bc2f4e00792f1eaba1f')
         .map(data => data.json())
         .toPromise();
   }
