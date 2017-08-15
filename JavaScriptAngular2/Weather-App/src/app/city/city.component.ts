@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { CitiesService } from '../cities.service';
 
+import { Router, ActivatedRoute } from '@angular/router';
+
+import 'rxjs/add/operator/switchMap';
+
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
@@ -9,13 +13,23 @@ import { CitiesService } from '../cities.service';
 })
 export class CityComponent implements OnInit {
 
-  constructor(private _citiesService: CitiesService) { }
+  city_specific_weather_data = [];
 
-  getCitySpecificWeatherData() {
-      this._citiesService.retrieveCitySpecific
-  }
+  city_id: string = "";
+
+  constructor(private _citiesService: CitiesService, private _route: ActivatedRoute) { }
 
   ngOnInit() {
+
+      this._route.paramMap
+        .switchMap(params => {
+            console.log("City id is", params.get('city_id'))
+            return params.get('city_id');
+        })
+
+      this._citiesService.retrieveCitySpecificWeatherData(this.city_id)
+        .then(data => { this.city_specific_weather_data})
+        .catch(err => { console.log('Error!'); })
   }
 
 }
