@@ -5,13 +5,13 @@ import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { CityComponent } from './city/city.component';
 
 const routes: Routes = [
-  { path: 'atlanta', component: CityComponent },
-  { path: 'boston', component: CityComponent },
-  { path: 'chicago', component: CityComponent },
-  { path: 'washingtondc', component: CityComponent },
-  { path: 'miami', component: CityComponent },
-  { path: 'philadelphia', component: CityComponent },
-  { path: 'newyorkcity', component: CityComponent }
+  { path: 'atlanta/:city_id', component: CityComponent },
+  { path: 'boston/:city_id', component: CityComponent },
+  { path: 'chicago/:city_id', component: CityComponent },
+  { path: 'washingtondc/:city_id', component: CityComponent },
+  { path: 'miami/:city_id', component: CityComponent },
+  { path: 'philadelphia/:city_id', component: CityComponent },
+  { path: 'newyorkcity/:city_id', component: CityComponent }
 ];
 
 @NgModule({

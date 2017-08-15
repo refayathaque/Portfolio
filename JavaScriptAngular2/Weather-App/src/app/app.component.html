@@ -9,13 +9,13 @@
 </div>
 
 <div class="buttons">
-    <button type="button" class="btn btn-outline-secondary" [routerLink]="['/chicago']">Chicago</button>
-    <button type="button" class="btn btn-outline-primary" [routerLink]="['/boston']">Boston</button>
-    <button type="button" class="btn btn-outline-danger" [routerLink]="['/newyorkcity']">New York City</button>
-    <button type="button" class="btn btn-outline-dark" [routerLink]="['/philadelphia']">Philadelphia</button>
-    <button type="button" class="btn btn-outline-success" [routerLink]="['/washingtondc']">Washington, DC</button>
-    <button type="button" class="btn btn-outline-warning" [routerLink]="['/atlanta']">Atlanta</button>
-    <button type="button" class="btn btn-outline-info" [routerLink]="['/miami']">Miami</button>
+    <button type="button" (click)="getWeatherData()" class="btn btn-outline-secondary" [routerLink]="['/chicago', 4887398]">Chicago</button>
+    <button type="button" (click)="getWeatherData()" class="btn btn-outline-primary" [routerLink]="['/boston', 4317656]">Boston</button>
+    <button type="button" (click)="getWeatherData()" class="btn btn-outline-danger" [routerLink]="['/newyorkcity', 5128638]">New York City</button>
+    <button type="button" (click)="getWeatherData()" class="btn btn-outline-dark" [routerLink]="['/philadelphia', 4560349]">Philadelphia</button>
+    <button type="button" (click)="getWeatherData()" class="btn btn-outline-success" [routerLink]="['/washingtondc', 4140963]">Washington, DC</button>
+    <button type="button" (click)="getWeatherData()" class="btn btn-outline-warning" [routerLink]="['/atlanta', 4671576]">Atlanta</button>
+    <button type="button" (click)="getWeatherData()" class="btn btn-outline-info" [routerLink]="['/miami', 4542692]">Miami</button>
 </div>
 
 <button type="button" name="button" (click)="getWeatherData()">TEST</button>
