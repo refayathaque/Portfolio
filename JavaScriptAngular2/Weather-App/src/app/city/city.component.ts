@@ -23,7 +23,7 @@ export class CityComponent implements OnInit {
         .switchMap(params => {
             return this._citiesService.retrieveCitySpecificWeatherData(params.get('city_id'))
         })
-      .subscribe(data => this.city_specific_weather_data = data);
+      .subscribe(data => this.city_specific_weather_data.push(data));
 
   }
 

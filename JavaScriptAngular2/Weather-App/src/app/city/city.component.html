@@ -1,5 +1,9 @@
-<p>
-  city works!
-</p>
+<p *ngFor="let i of city_specific_weather_data">Description: {{ i.weather[0].description | json }}</p>
 
-<p>{{ city_specific_weather_data | json }}</p>
+<p *ngFor="let i of city_specific_weather_data">Main temp: {{ i.main.temp | json }}</p>
+
+<p *ngFor="let i of city_specific_weather_data">MIN temp: {{ i.main.temp_min | json }}</p>
+
+<p *ngFor="let i of city_specific_weather_data">MAX temp: {{ i.main.temp_max | json }}</p>
+
+<p *ngFor="let i of city_specific_weather_data">City: {{ i.name | json }}</p>
