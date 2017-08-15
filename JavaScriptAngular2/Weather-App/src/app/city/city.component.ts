@@ -14,6 +14,7 @@ import 'rxjs/add/operator/switchMap';
 export class CityComponent implements OnInit {
 
   city_specific_weather_data = {name: ""};
+  city_name = "";
 
   constructor(private _route: ActivatedRoute, private _citiesService: CitiesService) { }
 
@@ -26,7 +27,11 @@ export class CityComponent implements OnInit {
       .subscribe(data => {
           this.city_specific_weather_data = data
           console.log(this.city_specific_weather_data.name);
+          this.city_name = this.city_specific_weather_data.name;
+          console.log(this.city_name)
       })
+
+
 
   }
 

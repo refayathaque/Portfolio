@@ -7,3 +7,7 @@
 </div>
 
  <p>City: {{ city_specific_weather_data.name | json }}</p>
+
+<div *ngIf='city_name === "Boston"'>
+    <img src="../../assets/images/boston.jpg">
+</div>
