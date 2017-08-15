@@ -17,5 +17,5 @@ export class AppComponent {
       this._citiesService.retrieveWeatherData()
         .then(data => { this.weather_data = data })
         .catch(err => { console.log('Error!'); })
-}
+  }
 }
