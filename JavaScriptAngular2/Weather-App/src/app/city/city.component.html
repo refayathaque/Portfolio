@@ -3,10 +3,7 @@
     src="../../assets/images/newyorkcity.jpg"
   alt="Card image cap">
   <div class="card-body">
-      <p *ngFor="let i of city_specific_weather_data">Description: {{ i.weather[0].description | json }}</p>
-      <p *ngFor="let i of city_specific_weather_data">Main temp: {{ i.main.temp | json }}</p>
-      <p *ngFor="let i of city_specific_weather_data">MIN temp: {{ i.main.temp_min | json }}</p>
-      <p *ngFor="let i of city_specific_weather_data">MAX temp: {{ i.main.temp_max | json }}</p>
-      <p *ngFor="let i of city_specific_weather_data">City: {{ i.name | json }}</p>
   </div>
 </div>
+
+ <p>City: {{ city_specific_weather_data.name | json }}</p>
