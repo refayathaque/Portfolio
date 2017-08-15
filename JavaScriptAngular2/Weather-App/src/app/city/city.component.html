@@ -1,13 +1,13 @@
 <div class="card" style="width: 20rem;">
-  <img class="card-img-top"
-    src="../../assets/images/newyorkcity.jpg"
-  alt="Card image cap">
+    <img class="card-img-top" *ngIf='city_name === "Boston"' src="../../assets/images/boston.jpg">
+    <img class="card-img-top" *ngIf='city_name === "New York"' src="../../assets/images/newyorkcity.jpg">
+    <img class="card-img-top" *ngIf='city_name === "Philadelphia"' src="../../assets/images/philadelphia.jpg">
+    <img class="card-img-top" *ngIf='city_name === "Miami"' src="../../assets/images/miami.jpg">
+    <img class="card-img-top" *ngIf='city_name === "Washington, D. C."' src="../../assets/images/washingtondc.jpg">
+    <img class="card-img-top" *ngIf='city_name === "Atlanta"' src="../../assets/images/atlanta.jpg">
+    <img class="card-img-top" *ngIf='city_name === "Chicago"' src="../../assets/images/chicago.jpg">
   <div class="card-body">
   </div>
 </div>
 
  <p>City: {{ city_specific_weather_data.name | json }}</p>
-
-<div *ngIf='city_name === "Boston"'>
-    <img src="../../assets/images/boston.jpg">
-</div>
