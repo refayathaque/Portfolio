@@ -24,12 +24,15 @@ export class CityComponent implements OnInit {
       this._route.paramMap
         .switchMap(params => {
             console.log("City id is", params.get('city_id'))
+            this.city_id = params.get('city_id')
             return params.get('city_id');
         })
 
       this._citiesService.retrieveCitySpecificWeatherData(this.city_id)
-        .then(data => { this.city_specific_weather_data})
+        .then(data => { this.city_specific_weather_data = data })
         .catch(err => { console.log('Error!'); })
+
+        console.log(this.city_specific_weather_data);
   }
 
 }
