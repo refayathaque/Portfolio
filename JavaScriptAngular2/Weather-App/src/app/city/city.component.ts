@@ -15,22 +15,15 @@ export class CityComponent implements OnInit {
 
   city_specific_weather_data = [];
 
-  city_id: string = "";
-
-  constructor(private _citiesService: CitiesService, private _route: ActivatedRoute) { }
+  constructor(private _route: ActivatedRoute, private _citiesService: CitiesService) { }
 
   ngOnInit() {
 
       this._route.paramMap
         .switchMap(params => {
-            console.log(params.get('city_id'))
-            this.city_id = params.get('city_id')
-            return params.get('city_id')
+            return this._citiesService.retrieveCitySpecificWeatherData(params.get('city_id'))
         })
-
-      this._citiesService.retrieveCitySpecificWeatherData(this.city_id)
-        .then(data => { this.city_specific_weather_data = data })
-        .catch(err => { console.log('Error!'); })
+      .subscribe(data => this.city_specific_weather_data = data);
 
   }
 
