@@ -18,4 +18,8 @@
     <button type="button" class="btn btn-outline-info" [routerLink]="['/miami']">Miami</button>
 </div>
 
+<button type="button" name="button" (click)="getWeatherData()">TEST</button>
+
+{{ weather_data | json }}
+
 <router-outlet></router-outlet>

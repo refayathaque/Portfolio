@@ -10,9 +10,9 @@ export class CitiesService {
 
   constructor(private _http: Http) {}
 
-  retrieveWeatherData(city: string) {
-      console.log('Retrieval for ', city, ' works!')
-      return this._http.get(''+city)
+  retrieveWeatherData() {
+      console.log('Retrieval works!')
+      return this._http.get('http://api.openweathermap.org/data/2.5/forecast?id=5815135&APPID=6ae4507d555f1bc2f4e00792f1eaba1f')
         .map(data => data.json())
         .toPromise();
   }
