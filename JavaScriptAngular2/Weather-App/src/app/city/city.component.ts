@@ -51,5 +51,7 @@ export class CityComponent implements OnInit {
             this.high_in_f = (convert_to_f(this.high_in_c));
             this.low_in_f = (convert_to_f(this.low_in_c));
         })
+
     }
+
 }
