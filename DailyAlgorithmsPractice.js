@@ -18,5 +18,5 @@ function fizzbuzz(){
         }
     }
 }
-
 fizzbuzz();
+console.log('---------------------')
