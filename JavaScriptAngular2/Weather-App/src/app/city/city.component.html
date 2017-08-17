@@ -1,6 +1,4 @@
 <div class="wrapper">
-
-
 <div class="media">
     <img class="d-flex align-self-start mr-3 image .img-fluid" *ngIf='city_name === "Boston"' src="../../assets/images/boston.jpg">
     <img class="d-flex align-self-start mr-3 image .img-fluid" *ngIf='city_name === "New York"' src="../../assets/images/newyorkcity.jpg">
@@ -12,11 +10,11 @@
     <div class="media-body">
         <h2 class="mt-0">{{ city_specific_weather_data.name }}</h2>
         <h3><i>{{ city_specific_weather_data.weather[0].description }}</i></h3>
-        <p>Average: {{ city_specific_weather_data.main.temp | json }} C</p>
-        <p>High: {{ city_specific_weather_data.main.temp_max | json }} C</p>
-        <p>Low: Temperature: {{ city_specific_weather_data.main.temp_min | json }} C</p>
-        <p>Humidity: {{ city_specific_weather_data.main.humidity | json }}</p>
+        <br>
+        <p>Average: {{ city_specific_weather_data.main.temp | json }} C | <strong>{{ avg_in_f }}</strong> F</p>
+        <p>High: {{ city_specific_weather_data.main.temp_max | json }} C | <strong>{{ high_in_f }}</strong> F</p>
+        <p>Low: Temperature: {{ city_specific_weather_data.main.temp_min | json }} C | <strong>{{ low_in_f }}</strong> F</p>
+        <p>Humidity: {{ city_specific_weather_data.main.humidity | json }}%</p>
     </div>
 </div>
-
 </div>
