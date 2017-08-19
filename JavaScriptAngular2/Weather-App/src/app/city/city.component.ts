@@ -32,7 +32,7 @@ export class CityComponent implements OnInit {
             this.city_specific_weather_data = data
             this.city_name = this.city_specific_weather_data.name;
             console.log(this.city_name);
-            this.avg_in_c = data.main.temp;
+            this.avg_in_c = Math.ceil(data.main.temp);
             console.log(this.avg_in_c);
             this.high_in_c = data.main.temp_max;
             console.log(this.high_in_c);
@@ -42,10 +42,11 @@ export class CityComponent implements OnInit {
         // Function within subscribe method bc of reasons dealing with call stacks, we need the function below to run 'OnInit' but it won't work if it's outside the subscribe method's block. Has something to do with order or operations related to stacks and queues, need to look into callbacks and observables to understand this better.
         function convert_to_f(temp_in_c) {
             let f: number;
+            Math.ecil
             f = temp_in_c * 9;
             f /= 5;
             f += 32;
-            return f;
+            return Math.ceil(f);
         }
             this.avg_in_f = convert_to_f(this.avg_in_c);
             this.high_in_f = (convert_to_f(this.high_in_c));
