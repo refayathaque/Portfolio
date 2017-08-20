@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
             }
             else {
                 this._router.navigateByUrl('dashboard')
+                console.log('User succesfully registered')
             }
         })
         .catch((err) => {

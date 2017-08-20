@@ -6,8 +6,8 @@ var UserSchema = new mongoose.Schema({
     email: {type: String, required: true, validate: {validator: function(value) { return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$/.test(value);}, message: '{value} invalid email'}},
     password: {type: String, required: true, validate: {validator: function(value) { return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$/.test(value);}, message: '{value} invalid password'}},
     confirmpassword: {type: String, required: true},
-    username: {type: String, required: true, validate: {validator: function(value) { return /^[a-zA-Z]{8,}$/.test(value);}, message: '{value} invalid username'}}},
-    date_of_birth: {type: Date, required: true},
+    username: {type: String, required: true, validate: {validator: function(value) { return /^[a-zA-Z]{8,}$/.test(value);}, message: '{value} invalid username'}},
+    date_of_birth: {type: Date, required: true}
 }, {timestamps: true});
 
 // Bcrypt password hashing
