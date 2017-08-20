@@ -3,22 +3,24 @@
     <form (submit)='register()' #formData='ngForm'>
 
         <p>Email</p>
-        <input type="text" name="email" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.email" #email='ngModel'>
+        <input type="text" name="email" size="35" required pattern='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$' [(ngModel)]="user.email" #email='ngModel'>
 
         <p>Password</p>
-        <p><i>Must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit</i></p>
-        <input type="text" name="password" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,14}$' [(ngModel)]="user.password" #password='ngModel'>
+        <p class='message' [hidden]='!password.errors'><i>Must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit</i></p>
+        <input type="text" name="password" size="35" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.password" #password='ngModel'>
 
         <p>Confirm password</p>
-        <input type="text" name="confirmpassword" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel'>
+        <input type="text" name="confirmpassword" size="35" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel'>
 
         <p>Username</p>
         <p><i>Must be at least 8 letters long, and cannot have numbers</i></p>
-        <input type="text" name="username" required pattern='^[a-zA-Z]{8,}$' [(ngModel)]="user.username" #username='ngModel'>
+        <input type="text" name="username" size="35" required pattern='^[a-zA-Z]{8,}$' [(ngModel)]="user.username" #username='ngModel'>
 
         <p>Date of Birth</p>
         <input type="date" name="date_of_birth" value="">
 
-        <button type="button" name="button"></button>
+        <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Register</button>
+
     </form>
+    <button (click)='test()' type="button" name="button">Click to print 'hello' in console</button>
 </div>
