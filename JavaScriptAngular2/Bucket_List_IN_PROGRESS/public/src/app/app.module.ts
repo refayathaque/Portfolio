@@ -9,6 +9,7 @@ import { BucketListService } from "app/bucket-list.service";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { EqualDirective } from './equal.directive';
 
@@ -17,7 +18,8 @@ import { EqualDirective } from './equal.directive';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    EqualDirective
+    EqualDirective,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

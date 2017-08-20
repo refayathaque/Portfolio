@@ -13,7 +13,7 @@ import { BucketListService } from "app/bucket-list.service";
 
 export class RegisterComponent implements OnInit {
 
-    constructor() { }
+    constructor(private _service : BucketListService, private _router : Router) { }
 
     user = new User();
 
@@ -22,6 +22,17 @@ export class RegisterComponent implements OnInit {
 
     register() {
         console.log(this.user);
+        this._service.register(this.user)
+        .then((data) => {
+            if(data.error) {
+                alert(data.messages)
+            }
+            else {
+                this._router.navigateByUrl('dashboard')
+            }
+        })
+        .catch((err) => {
+            console.log('Error with .then callback in RegisterComponent')
+        })
     }
-
 }

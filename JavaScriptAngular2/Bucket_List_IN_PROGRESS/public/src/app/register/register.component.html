@@ -6,19 +6,18 @@
         <input type="text" name="email" size="35" required pattern='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$' [(ngModel)]="user.email" #email='ngModel'>
 
         <p>Password</p>
-        <p class='message' [hidden]='!password.errors'><i>Must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit</i></p>
-
+        <p class='message' [hidden]='!password.errors'><i>Must have at least 8, and no more than 15, characters. Must have at least one uppercase letter, one lowercase letter, and one number</i></p>
         <input type="password" name="password" size="35" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.password" #password='ngModel' validateEqual='confirmpassword' reverse='true'>
 
         <p>Confirm password</p>
         <input type="password" name="confirmpassword" size="35" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel' validateEqual='password'>
 
         <p>Username</p>
-        <p [hidden]='!username.errors'><i>Must be at least 8 letters long, and cannot have numbers</i></p>
+        <p [hidden]='!username.errors'><i>Must have at least 8 letters, and no numbers</i></p>
         <input type="text" name="username" size="35" required pattern='^[a-zA-Z]{8,}$' [(ngModel)]="user.username" #username='ngModel'>
 
         <p>Date of Birth</p>
-        <p [hidden]='!date_of_birth.errors'><i>Must be at least 21</i></p>
+        <p [hidden]='!date_of_birth.errors'><i>Must be at least 21 years old</i></p>
         <input type="date" name="date_of_birth" required [(ngModel)]="user.date_of_birth" #date_of_birth='ngModel' id="date_of_birth">
 
         <br>

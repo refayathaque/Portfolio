@@ -1,16 +1,14 @@
-// var users = require('../controllers/users.js')
-//
+var users = require('../controllers/users.js')
 // var questions = require('../controllers/questions.js')
-//
 // var answers = require('../controllers/answers.js')
-// IMPORTANT TO HAVE ALL CONTROLLERS HERE!
+// HAVE ALL CONTROLLERS ABOVE!
 
 module.exports = function(app) {
 
-    // app.post('/users', (req, res) => {
-    //     console.log('REQ BODY : ', req.body)
-    //     users.create(req, res)
-    // })
+    app.post('/register', (req, res) => {
+        console.log('Data in req.body : ', req.body)
+        users.create(req, res)
+    })
     //
     // app.post('/login', (req,res) => {
     //     console.log('REQ BODY : ', req.body)
