@@ -6,22 +6,22 @@ import { User } from '../user'; // MUST IMPORT CONSTRUCTOR CLASSES
 import { BucketListService } from "app/bucket-list.service";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css']
 })
 
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  user = new User();
+    user = new User();
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  register() {
-      console.log(this.user);
-  }
+    register() {
+        console.log(this.user);
+    }
 
 }

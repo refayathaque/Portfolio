@@ -1,14 +1,35 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Bucket List</title>
-  <base href="/">
+    <meta charset="utf-8">
+    <title>Bucket List</title>
+    <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var dateController = {
+            currentDate : null
+        }
+        $(document).on("change", "#date_of_birth",function(event, ui) {
+            var min_age = new Date();
+            var selectedDate = new Date($(this).val());
+
+            min_age.setYear(min_age.getYear() - 21);
+
+            if(selectedDate > min_age) {
+                $(this).val(dateController.currentDate)
+            } else {
+                dateController.currentDate = $(this).val();
+            }
+        });
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+
+    <app-root></app-root>
+
 </body>
 </html>
