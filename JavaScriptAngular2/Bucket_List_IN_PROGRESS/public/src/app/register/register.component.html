@@ -1,3 +1,24 @@
-<p>
-  register works!
-</p>
+<div class="wrapper">
+    <h3><i>Sign up</i></h3>
+    <form (submit)='register()' #formData='ngForm'>
+
+        <p>Email</p>
+        <input type="text" name="email" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.email" #email='ngModel'>
+
+        <p>Password</p>
+        <p><i>Must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit</i></p>
+        <input type="text" name="password" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,14}$' [(ngModel)]="user.password" #password='ngModel'>
+
+        <p>Confirm password</p>
+        <input type="text" name="confirmpassword" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel'>
+
+        <p>Username</p>
+        <p><i>Must be at least 8 letters long, and cannot have numbers</i></p>
+        <input type="text" name="username" required pattern='^[a-zA-Z]{8,}$' [(ngModel)]="user.username" #username='ngModel'>
+
+        <p>Date of Birth</p>
+        <input type="date" name="date_of_birth" value="">
+
+        <button type="button" name="button"></button>
+    </form>
+</div>
