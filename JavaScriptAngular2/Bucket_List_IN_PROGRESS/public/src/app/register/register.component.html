@@ -7,7 +7,8 @@
 
         <p>Password</p>
         <p class='message' [hidden]='!password.errors'><i>Must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit</i></p>
-        <input type="password" name="password" size="35" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.password" #password='ngModel'>
+
+        <input type="password" name="password" size="35" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.password" #password='ngModel' validateEqual='confirmpassword' reverse='true'>
 
         <p>Confirm password</p>
         <input type="password" name="confirmpassword" size="35" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel' validateEqual='password'>
