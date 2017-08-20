@@ -43,3 +43,26 @@ function fizzbuzz2() {
 }
 fizzbuzz2();
 console.log('---------------------')
+
+// FizzBuzz once more
+function fizzbuzz3() {
+    for (i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz3();
+console.log('---------------------')

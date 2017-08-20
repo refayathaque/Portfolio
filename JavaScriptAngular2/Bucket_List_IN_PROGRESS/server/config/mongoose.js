@@ -7,7 +7,7 @@ var path = require('path');
 var models_path = path.join(__dirname, './../models');
 
 // CHANGE DB NAME!
-mongoose.connect('mongodb://localhost/beltAttempt1');
+mongoose.connect('mongodb://localhost/Bucket_List');
 
 fs.readdirSync(models_path).forEach(function(file) {
   if(file.indexOf('.js') >= 0) {
