@@ -10,6 +10,7 @@ import { BucketListService } from "app/bucket-list.service";
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   constructor() { }
@@ -20,11 +21,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-      console.log('hello');
-  }
-
-  test() {
-      console.log('hello')
+      console.log(this.user);
   }
 
 }
