@@ -13,7 +13,7 @@
 
         <p>Friend to add</p>
         <select name="friend" required [(ngModel)]="bucket_list.friend" #friend='ngModel'>
-            <option *ngFor='let friend of friends' value="{{ friend.username }}">{{ friend.username }}</option>
+            <option *ngFor='let friend of friends' value="{{ friend._id }}">{{ friend.username }}</option>
         </select>
 
         <br>
