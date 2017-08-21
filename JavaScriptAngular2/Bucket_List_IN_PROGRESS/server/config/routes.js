@@ -11,7 +11,6 @@ module.exports = function(app) {
     })
 
     app.get('/dashboard', (req, res) => {
-        console.log("Inside Routes (Home)")
         users.getSessionID(req, res)
     })
 

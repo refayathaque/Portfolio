@@ -19,7 +19,7 @@ export class BucketListService {
   dashboard() {
       return this._http.get('/dashboard')
       .map((data) => {
-          console.log("Inside Service after HTTP call loading up dashboard, this is user session ID : ", data)
+          console.log("Inside Service after HTTP call loading up dashboard, this is user session data : ", data)
           return data.json()
       })
       .toPromise();

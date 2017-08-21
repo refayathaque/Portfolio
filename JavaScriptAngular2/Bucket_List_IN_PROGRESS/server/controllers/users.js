@@ -36,8 +36,8 @@ function UsersController() {
                         res.json({error : true, messages : 'Error with inserting data into db'})
                     }
                     else {
-                        req.session.id = user._id;
-                        console.log('User session ID : ', req.session.id);
+                        req.session.user = user;
+                        console.log('User session ID in UsersController : ', req.session.user);
                         res.json({error : false, user : user})
                     }
                 })
@@ -48,8 +48,8 @@ function UsersController() {
         })
     }
 
-    this.getSessionID = function(res, req) {
-        res.json({error : false, data : req.session.id})
+    this.getSessionID = function(req, res) {
+        res.json(req.session.user)
     }
 
 }

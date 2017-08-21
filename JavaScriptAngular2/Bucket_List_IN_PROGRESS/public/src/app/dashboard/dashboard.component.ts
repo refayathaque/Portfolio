@@ -10,22 +10,15 @@ import { BucketListService } from "app/bucket-list.service";
 })
 export class DashboardComponent implements OnInit {
 
-    user_id: string = "";
+    private user = {};
 
     constructor(private _service : BucketListService) { }
 
-    ngOnInit() { }
-
-    load() {
+    ngOnInit() {
         this._service.dashboard()
         .then((data) => {
-            if(data.error) {
-                alert(data.messages)
-            }
-            else {
-                this.user_id = data.user._id;
-                console.log('User session ID : ', this.user_id)
-            }
+            this.user = data;
+            console.log('User session data : ', this.user)
         })
         .catch((err) => {
             console.log('Error with .then callback in DashboardComponent')
