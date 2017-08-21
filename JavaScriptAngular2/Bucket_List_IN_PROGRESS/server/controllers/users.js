@@ -5,13 +5,7 @@ var User = mongoose.model('User');
 function UsersController() {
 
     this.create = function(req, res) {
-
-        // User.findOne({email : req.body.email}, function(err, user){
-        //
-        // })
-
         console.log('Data being sent from Routes to Controller : ', req.body);
-
         User.findOne({
             $or: [
                 {email : req.body.email},
@@ -52,6 +46,16 @@ function UsersController() {
         res.json(req.session.user)
     }
 
+    this.showAllUsers = function(req, res) {
+        User.find({})
+        .then((data) => {
+            console.log('All friends (UsersController) : ', data);
+            res.json({error : false, data : data})
+        })
+        .catch((err) => {
+            console.log('Error in users.js controller', err)
+        })
+    }
 }
 
 module.exports = new UsersController();

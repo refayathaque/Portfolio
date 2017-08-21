@@ -25,4 +25,13 @@ export class BucketListService {
       .toPromise();
   }
 
+  getFriends() {
+      return this._http.get('/getFriends')
+      .map((data) => {
+          console.log("Inside Service after HTTP call getting friends, this is friends array : ", data)
+          return data.json()
+      })
+      .toPromise();
+  }
+
 }

@@ -1,3 +1,24 @@
 <div class="wrapper">
     <h3><i>{{ user.username }} you are logged in</i></h3>
+
+    <h2>Add your bucket list item</h2>
+
+    <form (submit)='addBucketListItem()' #formData='ngForm'>
+
+        <p>Title</p>
+        <input type="text" name="title" size="50" required [(ngModel)]="bucket_list.title" #title='ngModel'>
+
+        <p>Description</p>
+        <input type="text" name="title" size="50" required [(ngModel)]="bucket_list.description" #title='ngModel'>
+
+        <p>Friend to add</p>
+        <select name="friend" required [(ngModel)]="bucket_list.friend" #friend='ngModel'>
+            <option *ngFor='let friend of friends' value="{{ friend.username | json }}">{{ friend.username }}</option>
+        </select>
+
+        <br>
+        <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Add to list</button>
+
+    </form>
+
 </div>

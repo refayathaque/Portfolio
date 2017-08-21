@@ -14,6 +14,10 @@ module.exports = function(app) {
         users.getSessionID(req, res)
     })
 
+    app.get('/getFriends', (req,res) => {
+        users.showAllUsers(req, res)
+    })
+
     //
     // app.post('/login', (req,res) => {
     //     console.log('REQ BODY : ', req.body)
