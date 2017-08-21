@@ -12,6 +12,10 @@ const port = process.env.PORT || '8000';
 
 const app = express();
 
+const session = require('express-session');
+
+app.use(session({secret: 'codingdojorocks'}));  // string for encryption
+
 // Parsers for POST data!
 app.use(bodyParser.json());
 

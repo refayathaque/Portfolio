@@ -19,7 +19,7 @@ function UsersController() {
             ]
         })
         .then((user) => {
-            if(user) {
+            if(user) { // We need to FIRST check if 'user' returned anything from the query above or is null, only after checking to see if 'user' has a value can we go into it to do our email and username checks, if it's null the else statement gets run and we store the req.body data to our db
                 if(user.email === req.body.email) {
                     console.log('EMAIL', user.email);
                     res.json({error : true, messages : 'You are already registered'})
@@ -36,6 +36,8 @@ function UsersController() {
                         res.json({error : true, messages : 'Error with inserting data into db'})
                     }
                     else {
+                        req.session.id = user._id;
+                        console.log('User session ID : ', req.session.id);
                         res.json({error : false, user : user})
                     }
                 })

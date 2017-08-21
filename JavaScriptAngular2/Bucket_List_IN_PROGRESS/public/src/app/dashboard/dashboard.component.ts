@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+    user_id: string = "";
 
-  ngOnInit() {
-  }
+    constructor(private _route: ActivatedRoute) { }
+
+    ngOnInit() {
+
+        this._route.paramMap
+            .switchMap(params => {
+                console.log("DashboardComponent loaded and url ID given is: ", params.get('id'));
+        })
+        .subscribe(data => this.user_id = data);
+
+    }
+
 
 }

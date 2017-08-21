@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from "@angular/router";
 
 import { User } from '../user'; // MUST IMPORT CONSTRUCTOR CLASSES
@@ -16,6 +16,9 @@ export class RegisterComponent implements OnInit {
     constructor(private _service : BucketListService, private _router : Router) { }
 
     user = new User();
+    user_id: string = "";
+
+    // @Output() SendingUpUserID = new EventEmitter();
 
     ngOnInit() {
     }
@@ -28,8 +31,10 @@ export class RegisterComponent implements OnInit {
                 alert(data.messages)
             }
             else {
-                this._router.navigateByUrl('dashboard')
-                console.log('User succesfully registered, id : ', data.user._id)
+                this.user_id = data.user._id;
+                console.log('User succesfully registered, id : ', this.user_id)
+                this._router.navigate(['dashboard/', {id : this.user_id}])
+                // this.SendingUpUserID.emit(this.user_id)
             }
         })
         .catch((err) => {
