@@ -9,6 +9,12 @@ module.exports = function(app) {
         console.log('Data in req.body : ', req.body)
         users.create(req, res)
     })
+
+    app.get('/dashboard', (req, res) => {
+        console.log("Inside Routes (Home)")
+        users.getSessionID(req, res)
+    })
+
     //
     // app.post('/login', (req,res) => {
     //     console.log('REQ BODY : ', req.body)

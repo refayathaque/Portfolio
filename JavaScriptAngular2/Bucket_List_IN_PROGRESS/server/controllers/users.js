@@ -48,6 +48,10 @@ function UsersController() {
         })
     }
 
+    this.getSessionID = function(res, req) {
+        res.json({error : false, data : req.session.id})
+    }
+
 }
 
 module.exports = new UsersController();
