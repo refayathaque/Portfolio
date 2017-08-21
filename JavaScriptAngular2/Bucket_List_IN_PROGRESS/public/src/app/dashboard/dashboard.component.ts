@@ -12,11 +12,16 @@ import { BucketListService } from "app/bucket-list.service";
 })
 export class DashboardComponent implements OnInit {
 
-    constructor(private _service : BucketListService) { }
+    constructor(private _service : BucketListService, private _router : Router) { }
 
     private user = {};
     private friends = [];
     private bucket_list = new Bucket_List();
+
+    addBucketListItem() {
+        console.log(this.bucket_list);
+        this._router.navigateByUrl('dashboard')
+    }
 
     ngOnInit() {
         this._service.dashboard()
