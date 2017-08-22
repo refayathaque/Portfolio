@@ -16,6 +16,15 @@ export class BucketListService {
     .toPromise();
   }
 
+  login(user) {
+    return this._http.post('/login', user)
+    .map((data) => {
+      console.log("Inside Service after HTTP call checking login data, this is the return data : ", data)
+      return data.json()
+    })
+    .toPromise();
+  }
+
   dashboard() {
       return this._http.get('/dashboard')
       .map((data) => {

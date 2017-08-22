@@ -6,8 +6,13 @@ var users = require('../controllers/users.js')
 module.exports = function(app) {
 
     app.post('/register', (req, res) => {
-        console.log('Data in req.body : ', req.body)
+        console.log('Registration data in req.body : ', req.body)
         users.create(req, res)
+    })
+
+    app.post('/login', (req, res) => {
+        console.log('Login data in req.body : ', req.body)
+        users.login(req, res)
     })
 
     app.get('/dashboard', (req, res) => {

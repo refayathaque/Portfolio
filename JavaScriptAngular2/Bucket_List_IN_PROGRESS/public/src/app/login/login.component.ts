@@ -1,15 +1,41 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+
+import { User } from '../user'; // MUST IMPORT CONSTRUCTOR CLASSES
+
+import { BucketListService } from "app/bucket-list.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+    constructor(private _service : BucketListService, private _router : Router) { }
 
-  ngOnInit() {
-  }
+    user = new User();
+    user_id: string = "";
+
+    ngOnInit() {
+    }
+
+    login() {
+        console.log(this.user);
+        this._service.login(this.user)
+        .then((data) => {
+            if(data.error) {
+                alert(data.messages)
+            }
+            else {
+                this.user_id = data.user._id;
+                console.log('User succesfully logged in, id : ', this.user_id)
+                this._router.navigateByUrl('dashboard')
+            }
+        })
+        .catch((err) => {
+            console.log('Error with .then callback in LoginComponent')
+        })
+    }
 
 }

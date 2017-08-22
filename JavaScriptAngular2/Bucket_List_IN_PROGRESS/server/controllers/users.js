@@ -4,6 +4,10 @@ var User = mongoose.model('User');
 
 function UsersController() {
 
+    this.login = function(req, res) {
+        console.log('Data being sent from Routes to Controller : ' req.body)
+    }
+
     this.create = function(req, res) {
         console.log('Data being sent from Routes to Controller : ', req.body);
         User.findOne({

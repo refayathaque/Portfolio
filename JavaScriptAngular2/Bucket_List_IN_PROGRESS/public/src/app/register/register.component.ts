@@ -18,8 +18,6 @@ export class RegisterComponent implements OnInit {
     user = new User();
     user_id: string = "";
 
-    // @Output() SendingUpUserID = new EventEmitter();
-
     ngOnInit() {
     }
 
@@ -34,7 +32,6 @@ export class RegisterComponent implements OnInit {
                 this.user_id = data.user._id;
                 console.log('User succesfully registered, id : ', this.user_id)
                 this._router.navigateByUrl('dashboard')
-                // this.SendingUpUserID.emit(this.user_id)
             }
         })
         .catch((err) => {
