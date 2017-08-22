@@ -5,7 +5,28 @@ var User = mongoose.model('User');
 function UsersController() {
 
     this.login = function(req, res) {
-        console.log('Data being sent from Routes to Controller : ' req.body)
+        console.log('Data being sent from Routes to Controller : ', req.body)
+        User.findOne({email : req.body.email})
+        .then((user) => {
+            if(user.email === req.body.email) {
+                console.log('EMAIL match ', user.email)
+                var validPassword = user.comparePassword(req.body.password)
+                if(validPassword) {
+                    console.log('PASSWORD match ', user.password)
+                    res.json({login: true, user: user})
+                    req.session.user = user;
+                    console.log('User session ID (LOGIN) in UsersController : ', req.session.user);
+                }
+                else {
+                    console.log('PASSWORD NOT MATCHED')
+                    res.json({login: false, error: "Password invalid"})
+                }
+            }
+            else {
+                console.log('EMAIL NOT MATCHED')
+                res.json({login: false, error: "You are not registered"})
+            }
+        })
     }
 
     this.create = function(req, res) {
@@ -35,7 +56,7 @@ function UsersController() {
                     }
                     else {
                         req.session.user = user;
-                        console.log('User session ID in UsersController : ', req.session.user);
+                        console.log('User session ID (REGISTRATION) in UsersController : ', req.session.user);
                         res.json({error : false, user : user})
                     }
                 })

@@ -23,6 +23,10 @@ module.exports = function(app) {
         users.showAllUsers(req, res)
     })
 
+    app.post('/logout'), (req, res) => {
+        users.logout(req, res)
+    }
+
     //
     // app.post('/login', (req,res) => {
     //     console.log('REQ BODY : ', req.body)
