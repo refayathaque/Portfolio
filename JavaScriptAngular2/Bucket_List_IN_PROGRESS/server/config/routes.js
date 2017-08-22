@@ -23,9 +23,10 @@ module.exports = function(app) {
         users.showAllUsers(req, res)
     })
 
-    app.get('/logout'), (req, res) => {
+    app.get('/logout', (req, res) => {
+        console.log('logout in routes.js')
         users.logout(req, res)
-    }
+    })
 
     //
     // app.post('/login', (req,res) => {

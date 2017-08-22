@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
     logout() {
         this._service.logout()
+        console.log('Logout button works')
     }
 
     ngOnInit() {

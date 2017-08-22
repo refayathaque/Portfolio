@@ -5,25 +5,25 @@ var User = mongoose.model('User');
 function UsersController() {
 
     this.login = function(req, res) {
-        console.log('Data being sent from Routes to Controller : ', req.body)
+        // console.log('Data being sent from Routes to Controller : ', req.body)
         User.findOne({email : req.body.email})
         .then((user) => {
             if(user.email === req.body.email) {
-                console.log('EMAIL match ', user.email)
+                // console.log('EMAIL match ', user.email)
                 var validPassword = user.comparePassword(req.body.password)
                 if(validPassword) {
-                    console.log('PASSWORD match ', user.password)
+                    // console.log('PASSWORD match ', user.password)
                     res.json({login: true, user: user})
                     req.session.user = user;
-                    console.log('User session ID (LOGIN) in UsersController : ', req.session.user);
+                    // console.log('User session ID (LOGIN) in UsersController : ', req.session.user);
                 }
                 else {
-                    console.log('PASSWORD NOT MATCHED')
+                    // console.log('PASSWORD NOT MATCHED')
                     res.json({login: false, error: "Password invalid"})
                 }
             }
             else {
-                console.log('EMAIL NOT MATCHED')
+                // console.log('EMAIL NOT MATCHED')
                 res.json({login: false, error: "You are not registered"})
             }
         })
@@ -68,8 +68,8 @@ function UsersController() {
     }
 
     this.logout = function(req, res) {
-        req.session.user = "";
-        console.log(req.session.user)
+        req.session.user.destroy
+        console.log(req.session)
     }
 
     this.getSessionID = function(req, res) {
@@ -79,11 +79,11 @@ function UsersController() {
     this.showAllUsers = function(req, res) {
         User.find({})
         .then((data) => {
-            console.log('All friends (UsersController) : ', data);
+            // console.log('All friends (UsersController) : ', data);
             res.json({error : false, data : data})
         })
         .catch((err) => {
-            console.log('Error in users.js controller', err)
+            // console.log('Error in users.js controller', err)
         })
     }
 }
