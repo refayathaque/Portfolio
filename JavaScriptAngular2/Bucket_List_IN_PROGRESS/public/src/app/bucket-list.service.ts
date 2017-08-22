@@ -25,6 +25,10 @@ export class BucketListService {
     .toPromise();
   }
 
+  logout() {
+      return this._http.get('/logout')
+  }
+
   dashboard() {
       return this._http.get('/dashboard')
       .map((data) => {

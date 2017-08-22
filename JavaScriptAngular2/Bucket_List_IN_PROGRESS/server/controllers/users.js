@@ -67,6 +67,11 @@ function UsersController() {
         })
     }
 
+    this.logout = function(req, res) {
+        req.session.user = "";
+        console.log(req.session.user)
+    }
+
     this.getSessionID = function(req, res) {
         res.json(req.session.user)
     }

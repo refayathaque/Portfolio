@@ -23,7 +23,7 @@ module.exports = function(app) {
         users.showAllUsers(req, res)
     })
 
-    app.post('/logout'), (req, res) => {
+    app.get('/logout'), (req, res) => {
         users.logout(req, res)
     }
 

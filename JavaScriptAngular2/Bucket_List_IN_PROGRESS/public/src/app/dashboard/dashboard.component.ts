@@ -23,6 +23,10 @@ export class DashboardComponent implements OnInit {
         this._router.navigateByUrl('dashboard')
     }
 
+    logout() {
+        this._service.logout()
+    }
+
     ngOnInit() {
         this._service.dashboard()
         .then((data) => {
