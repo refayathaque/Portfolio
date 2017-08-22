@@ -68,7 +68,7 @@ function UsersController() {
     }
 
     this.logout = function(req, res) {
-        req.session.user.destroy
+        req.session.destroy
         console.log(req.session)
     }
 
