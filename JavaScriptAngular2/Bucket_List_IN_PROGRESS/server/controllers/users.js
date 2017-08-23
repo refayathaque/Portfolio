@@ -31,7 +31,7 @@ function UsersController() {
                     }
                     else {
                         req.session.user = user;
-                        console.log('(USERS CONTROLLER) SESSION USER : ', req.session.user);
+                        console.log('(USERS CONTROLLER) SESSION DATA : ', req.session.user);
                         res.json({error : false, user : user})
                     }
                 })
@@ -56,9 +56,9 @@ function UsersController() {
                 var validPassword = user.comparePassword(req.body.password)
                 if(validPassword) {
                     console.log('PASSWORD match ', user.password)
-                    res.json({login: true, user: user})
                     req.session.user = user;
-                    console.log('User session ID (LOGIN) in UsersController : ', req.session.user);
+                    console.log('(USERS CONTROLLER) SESSION DATA : ', req.session.user);
+                    res.json({error : false, user : user})
                 }
                 else {
                     console.log('PASSWORD NOT MATCHED')
@@ -74,7 +74,7 @@ function UsersController() {
 
     this.logout = function(req, res) {
         req.session.destroy
-        console.log(req.session)
+        console.log('(USERS CONTROLLER) REQ.SESSION DESTROYED : ', req.session)
     }
 
     this.getSessionID = function(req, res) {

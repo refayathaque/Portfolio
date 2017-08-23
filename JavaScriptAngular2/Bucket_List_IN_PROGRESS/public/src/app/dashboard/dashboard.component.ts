@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
 
     logout() {
         this._service.logout()
+        console.log('(DASHBOARD COMPONENT) LOGOUT')
         this._router.navigateByUrl('logout')
     }
 
@@ -33,7 +34,7 @@ export class DashboardComponent implements OnInit {
         this._service.dashboard()
         .then((data) => {
             this.user = data;
-            console.log('User session data : ', this.user)
+            console.log('(DASHBOARD COMPONENT) SESSION DATA : ', this.user)
         })
         .catch((err) => {
             console.log('Error with .then callback in DashboardComponent (dashboard function)')

@@ -24,7 +24,7 @@ module.exports = function(app) {
     })
 
     app.get('/logout', (req, res) => {
-        console.log('logout in routes.js')
+        console.log('(ROUTES) LOGOUT REQ.BODY : ', req.body)
         users.logout(req, res)
     })
 
