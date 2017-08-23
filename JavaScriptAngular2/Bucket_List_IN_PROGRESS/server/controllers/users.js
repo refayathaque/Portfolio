@@ -46,12 +46,12 @@ function UsersController() {
         console.log('Data being sent from Routes to Controller : ', req.body)
         User.findOne({email : req.body.email})
         .then((user) => {
-            console.log('HHFJKDSHFKJAHSDF', user)
+            console.log('USER', user)
             if(user === null) {
                 console.log('EMAIL NOT MATCHED')
                 res.json({error: true, messages: "You are not registered"})
-            } // WTFFFFFF
-            if(user.email === req.body.email) {
+            }
+            else {
                 console.log('EMAIL match ', user.email)
                 var validPassword = user.comparePassword(req.body.password)
                 if(validPassword) {
