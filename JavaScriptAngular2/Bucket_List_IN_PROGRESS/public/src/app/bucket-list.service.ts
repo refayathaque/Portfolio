@@ -29,7 +29,6 @@ export class BucketListService {
       console.log('Logout in Service')
       return this._http.get('/logout')
       .map((data) => {
-        console.log("Inside Service after HTTP call checking login data, this is the return data : ", data)
         return data.json()
       })
       .toPromise();

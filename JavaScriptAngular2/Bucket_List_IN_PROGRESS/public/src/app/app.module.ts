@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { EqualDirective } from './equal.directive';
+import { BlankComponent } from './blank/blank.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EqualDirective } from './equal.directive';
     LoginComponent,
     RegisterComponent,
     EqualDirective,
-    DashboardComponent
+    DashboardComponent,
+    BlankComponent
   ],
   imports: [
     BrowserModule,
