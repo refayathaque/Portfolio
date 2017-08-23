@@ -10,7 +10,7 @@ export class BucketListService {
   register(user) {
     return this._http.post('/register', user)
     .map((data) => {
-      console.log('(SERVICE) AFTER HTTP CALL STORING NEW USER IN DB, RETURN DATA : ', data)
+      console.log('(SERVICE) AFTER HTTP CALL REGISTERING USER TO DB, RETURN DATA : ', data)
       return data.json()
     })
     .toPromise();
@@ -26,9 +26,9 @@ export class BucketListService {
   }
 
   logout() {
-      console.log('Logout in Service')
       return this._http.get('/logout')
       .map((data) => {
+        console.log('(SERVICE) LOGOUT, RETURN DATA : ', data)
         return data.json()
       })
       .toPromise();

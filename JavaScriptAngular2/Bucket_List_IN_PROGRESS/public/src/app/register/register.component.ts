@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     user_id: string = "";
 
     register() {
-        console.log('(REGISTER COMPONENT) USER OBJECT REGISTRATION FORM : ', this.user);
+        console.log('(REGISTER COMPONENT) FORM USER OBJECT : ', this.user);
         this._service.register(this.user)
         .then((data) => {
             if(data.error) {
