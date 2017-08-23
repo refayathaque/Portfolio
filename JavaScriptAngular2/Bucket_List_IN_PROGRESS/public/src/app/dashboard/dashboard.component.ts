@@ -26,6 +26,8 @@ export class DashboardComponent implements OnInit {
 
     logout() {
         this._service.logout()
+        .then(() => { })
+        .catch(() => { })
         console.log('(DASHBOARD COMPONENT) LOGOUT')
         this._router.navigateByUrl('logout')
     }

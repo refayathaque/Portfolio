@@ -19,15 +19,17 @@ export class AppComponent {
     ngOnInit() {
         this._service.getSessionID()
         .then((data) => {
-            if(data) {
+            console.log('DATA', data)
+            if(data === undefined) {
+                console.log('(APP COMPONENT) NOTHING IN SESSION')
+            }
+            else {
                 this.user = data;
                 console.log('(APP COMPONENT) SESSION DATA : ', this.user)
             }
-            else {
-                console.log('(APP COMPONENT) NOTHING IN SESSION')
-            }
         })
         .catch((err) => {
+            console.log('ERR', err)
             console.log('(APP COMPONENT) .CATCH')
         })
     }

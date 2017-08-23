@@ -71,14 +71,20 @@ function UsersController() {
         })
     }
 
-
     this.logout = function(req, res) {
-        req.session.destroy
+        req.session.destroy()
+        res.json({})
+        // req.session.user = "";
         console.log('(USERS CONTROLLER) REQ.SESSION DESTROYED : ', req.session)
     }
 
     this.getSessionID = function(req, res) {
-        res.json(req.session.user)
+        if(req.session.user) {
+            res.json(req.session.user)
+        }
+        else {
+            res.json({})
+        }
     }
 
     this.showAllUsers = function(req, res) {

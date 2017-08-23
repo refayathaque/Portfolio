@@ -28,8 +28,8 @@ export class BucketListService {
   logout() {
       return this._http.get('/logout')
       .map((data) => {
-        console.log('(SERVICE) LOGOUT, RETURN DATA : ', data)
-        return data.json()
+          console.log('(SERVICE) LOGOUT, RETURN DATA : ', data)
+          return data.json()
       })
       .toPromise();
   }
