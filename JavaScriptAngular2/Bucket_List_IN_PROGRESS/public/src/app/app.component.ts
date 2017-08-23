@@ -19,8 +19,7 @@ export class AppComponent {
     ngOnInit() {
         this._service.getSessionID()
         .then((data) => {
-            console.log('DATA', data)
-            if(data === undefined) {
+            if(Object.keys(data).length === 0) {
                 console.log('(APP COMPONENT) NOTHING IN SESSION')
             }
             else {
