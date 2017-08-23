@@ -19,7 +19,7 @@ export class BucketListService {
   login(user) {
     return this._http.post('/login', user)
     .map((data) => {
-      console.log("Inside Service after HTTP call checking login data, this is the return data : ", data)
+      console.log('(SERVICE) AFTER HTTP CALL LOGGING IN USER, RETURN DATA : ', data)
       return data.json()
     })
     .toPromise();
@@ -30,6 +30,15 @@ export class BucketListService {
       .map((data) => {
         console.log('(SERVICE) LOGOUT, RETURN DATA : ', data)
         return data.json()
+      })
+      .toPromise();
+  }
+
+  getSessionID() {
+      return this._http.get('/getSessionID')
+      .map((data) => {
+          console.log("(SERVICE) AFTER HTTP CALL GETTING SESSION, RETURN DATA : ", data)
+          return data.json()
       })
       .toPromise();
   }

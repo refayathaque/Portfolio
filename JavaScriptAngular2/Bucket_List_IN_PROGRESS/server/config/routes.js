@@ -15,6 +15,10 @@ module.exports = function(app) {
         users.login(req, res)
     })
 
+    app.get('/getSessionID', (req, res) => {
+        users.getSessionID(req, res)
+    })
+
     app.get('/dashboard', (req, res) => {
         users.getSessionID(req, res)
     })

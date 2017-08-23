@@ -17,11 +17,8 @@ export class LoginComponent implements OnInit {
     user = new User();
     user_id: string = "";
 
-    ngOnInit() {
-    }
-
     login() {
-        console.log(this.user);
+        console.log('(LOGIN COMPONENT) FORM USER OBJECT : ', this.user);
         this._service.login(this.user)
         .then((data) => {
             if(data.error) {
@@ -29,13 +26,15 @@ export class LoginComponent implements OnInit {
             }
             else {
                 this.user_id = data.user._id;
-                console.log('User succesfully logged in, id : ', this.user_id)
+                console.log('(LOGIN COMPONENT) SUCCESFULLY LOGGED IN, USER ID : ', this.user_id)
                 this._router.navigateByUrl('dashboard')
             }
         })
         .catch((err) => {
-            console.log('Error with .then callback in LoginComponent')
+            console.log('(REGISTER COMPONENT) .CATCH')
         })
     }
 
+    ngOnInit() {
+    }
 }
