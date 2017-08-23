@@ -15,16 +15,20 @@ export class AppComponent {
 
     private title = 'your Bucket List';
     private user = new User();
+    private user_state: boolean;
+    private notLogOrRegComp: boolean;
 
     ngOnInit() {
         this._service.getSessionID()
         .then((data) => {
             if(Object.keys(data).length === 0) {
                 console.log('(APP COMPONENT) NOTHING IN SESSION')
+                this.user_state = false;
             }
             else {
                 this.user = data;
                 console.log('(APP COMPONENT) SESSION DATA : ', this.user)
+                this.user_state = true;
             }
         })
         .catch((err) => {

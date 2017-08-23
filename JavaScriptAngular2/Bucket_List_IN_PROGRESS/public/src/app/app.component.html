@@ -1,6 +1,9 @@
 <div style="text-align:center">
     <h1>Welcome to {{title}}</h1>
-    <h3>Existing user? <a [routerLink]="['/login']">Login</a></h3>
-    <h3>New user? <a [routerLink]="['/register']">Register</a></h3>
+    <div *ngIf='notLogOrRegComp'>
+        <h3>Existing user? <a [routerLink]="['/login']">Login</a></h3>
+        <h3>New user? <a [routerLink]="['/register']">Register</a></h3>
+        <p *ngIf='user_state'><i>You are still logged in {{ user.username }}, return to <a [routerLink]="['/dashboard']">dashboard</a></i></p>
+    </div>
     <router-outlet></router-outlet>
 </div>
