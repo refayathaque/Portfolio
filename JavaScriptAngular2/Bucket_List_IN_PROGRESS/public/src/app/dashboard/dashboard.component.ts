@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
         console.log(this.bucket_list);
         this._router.navigateByUrl('dashboard')
     }
+    // STILL WORKING ON THIS
 
     logout() {
         this._service.logout()

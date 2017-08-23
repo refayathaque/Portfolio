@@ -18,11 +18,8 @@ export class RegisterComponent implements OnInit {
     user = new User();
     user_id: string = "";
 
-    ngOnInit() {
-    }
-
     register() {
-        console.log(this.user);
+        console.log('(REGISTER COMPONENT) USER OBJECT REGISTRATION FORM : ', this.user);
         this._service.register(this.user)
         .then((data) => {
             if(data.error) {
@@ -30,12 +27,15 @@ export class RegisterComponent implements OnInit {
             }
             else {
                 this.user_id = data.user._id;
-                console.log('User succesfully registered, id : ', this.user_id)
+                console.log('(REGISTER COMPONENT) SUCCESFULLY REGISTERED, USER ID : ', this.user_id)
                 this._router.navigateByUrl('dashboard')
             }
         })
         .catch((err) => {
-            console.log('Error with .then callback in RegisterComponent')
+            console.log('(REGISTER COMPONENT) .CATCH')
         })
+    }
+
+    ngOnInit() {
     }
 }

@@ -10,7 +10,7 @@ export class BucketListService {
   register(user) {
     return this._http.post('/register', user)
     .map((data) => {
-      console.log("Inside Service after HTTP call storing user in db, this is the return data : ", data)
+      console.log('(SERVICE) AFTER HTTP CALL STORING NEW USER IN DB, RETURN DATA : ', data)
       return data.json()
     })
     .toPromise();
