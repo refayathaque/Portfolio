@@ -24,35 +24,36 @@ function ItemsController() {
                     console.log('(ITEMS CONTROLLER) DESCRIPTION ALREADY IN DB : ', data.description);
                     res.json({error : true, messages : 'Description previously added'})
                 }
-            }
+            } //if(data)
             else {
 
-
-
-                User.findOne({_id: req.body._creator}, function(err, user) {
+                User.findOne({_id: req.body.creator}, function(err, user) {
                     var item = new Item(req.body);
-                    item._creator = user._id;
+                    // item._creator = user._id;
+                    console.log('(ITEMS CONTROLLER) USER DATA : ', user);
+
                     item.save((err, item) => {
-                        user.items.push(item);
-                        user.save((err, item) => {
-                            if(err) {
-                                console.log('(ITEMS CONTROLLER) ERROR')
-                                res.json({error : true, messages : 'Error with inserting data into db'})
-                            } else {
-                                res.json({error : false, item : item})
-                            }
-                        })
-                    })
-                })
-
-
-            }
-        })
+                        User.findOneAndUpdate({ _id : req.body.creator },
+                            { $set : { $push : { items : item } } },
+                            { new : true },
+                            function(err, item) {
+                                if(err) {
+                                    console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                                    res.json({error : true, messages : 'Error with inserting data into db'})
+                                } else {
+                                    res.json({error : false, item : item})
+                                }
+                            } //function(err, item)
+                        ) //findOneAndUpdate
+                    }) //item.save
+                }) //findOne
+            } //else
+        }) //then
         .catch((err) => {
             console.log('(ITEMS CONTROLLER) .CATCH : ', err)
         })
-    }
-}
+} //this.addItem = function(req, res)
+} //function ItemsController()
 
 //     this.login = function(req, res) {
 //         console.log('(USERS CONTROLLER) REQ.BODY : ', req.body);
