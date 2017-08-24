@@ -52,7 +52,7 @@ export class BucketListService {
       .toPromise();
   }
 
-  getFriends() {
+  listUsers() {
       return this._http.get('/api/items/listUsers')
       .map((data) => {
           console.log("Inside Service after HTTP call getting friends, this is friends array : ", data)
