@@ -26,15 +26,26 @@ function ItemsController() {
                 }
             }
             else {
-                var item = new Item(req.body)
-                item.save((err, item) => {
-                    if(err) {
-                        res.json({error : true, messages : 'Error with inserting data into db'})
-                    }
-                    else {
-                        res.json({error : false, item : item})
-                    }
+
+
+
+                User.findOne({_id: req.body._creator}, function(err, user) {
+                    var item = new Item(req.body);
+                    item._creator = user._id;
+                    item.save((err, item) => {
+                        user.items.push(item);
+                        user.save((err, item) => {
+                            if(err) {
+                                console.log('(ITEMS CONTROLLER) ERROR')
+                                res.json({error : true, messages : 'Error with inserting data into db'})
+                            } else {
+                                res.json({error : false, item : item})
+                            }
+                        })
+                    })
                 })
+
+
             }
         })
         .catch((err) => {
