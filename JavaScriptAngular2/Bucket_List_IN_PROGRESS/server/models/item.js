@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-    title: {type: String, required: true, validate: {validator: function(value) { return /^[a-zA-Z]{5,}$/.test(value);}, message: '{value} (ITEM MODEL) TITLE INVALID'}},
+    title: {type: String, required: true, validate: {validator: function(value) { return /^[a-zA-Z0-9]{5,}$/.test(value);}, message: '{value} (ITEM MODEL) TITLE INVALID'}},
+    description: {type: String, required: true, validate: {validator: function(value) { return /^[a-zA-Z0-9]{10,}$/.test(value);}, message: '{value} (ITEM MODEL) DESCRIPTION INVALID'}},
+
 
 
 }, {timestamps: true});
