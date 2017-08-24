@@ -11,7 +11,7 @@ module.exports = function(app) {
     })
 
     app.post('/login', (req, res) => {
-        console.log('Login data in req.body : ', req.body)
+        console.log('(ROUTES) LOGIN REQ.BODY : ', req.body)
         users.login(req, res)
     })
 
@@ -28,7 +28,6 @@ module.exports = function(app) {
     })
 
     app.get('/logout', (req, res) => {
-        console.log('(ROUTES) LOGOUT REQ.BODY : ', req.body)
         users.logout(req, res)
     })
 

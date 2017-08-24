@@ -43,25 +43,24 @@ function UsersController() {
     }
 
     this.login = function(req, res) {
-        console.log('Data being sent from Routes to Controller : ', req.body)
+        console.log('(USERS CONTROLLER) REQ.BODY : ', req.body);
         User.findOne({email : req.body.email})
         .then((user) => {
-            console.log('USER', user)
             if(user === null) {
-                console.log('EMAIL NOT MATCHED')
+                console.log('(USERS CONTROLLER) EMAIL NOT MATCHED')
                 res.json({error: true, messages: "You are not registered"})
             }
             else {
-                console.log('EMAIL match ', user.email)
+                console.log('(USERS CONTROLLER) EMAIL match : ', user.email)
                 var validPassword = user.comparePassword(req.body.password)
                 if(validPassword) {
-                    console.log('PASSWORD match ', user.password)
+                    console.log('(USERS CONTROLLER) PASSWORD MATCH : ', user.password)
                     req.session.user = user;
                     console.log('(USERS CONTROLLER) SESSION DATA : ', req.session.user);
                     res.json({error : false, user : user})
                 }
                 else {
-                    console.log('PASSWORD NOT MATCHED')
+                    console.log('(USERS CONTROLLER) PASSWORD NOT MATCHED')
                     res.json({error: true, messages: "Password is invalid"})
                 }
             }
@@ -75,7 +74,7 @@ function UsersController() {
         req.session.destroy()
         res.json({})
         // req.session.user = "";
-        console.log('(USERS CONTROLLER) REQ.SESSION DESTROYED : ', req.session)
+        console.log('(USERS CONTROLLER) REQ.SESSION DESTROYED, RETURNING {}')
     }
 
     this.getSessionID = function(req, res) {
