@@ -19,7 +19,7 @@ export class AppComponent {
     // private notLogOrRegComp: boolean;
 
     ngOnInit() {
-        this._service.getSessionID()
+        this._service.getSession()
         .then((data) => {
             if(Object.keys(data).length === 0) {
                 console.log('(APP COMPONENT) NOTHING IN SESSION')

@@ -63,8 +63,8 @@ export class BucketListService {
       .toPromise();
   }
 
-  addItem() {
-      return this._http.get('api/items/addItem')
+  addItem(bucketList) {
+      return this._http.post('api/items/addItem', bucketList)
       .map((data) => {
           console.log("(SERVICE) AFTER HTTP CALL ADDING ITEM, RETURN DATA : ", data)
           return data.json()

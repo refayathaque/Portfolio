@@ -21,9 +21,12 @@ export class DashboardComponent implements OnInit {
     addItem() {
         this.bucketList.creator = this.user._id
         console.log('(DASHBOARD COMPONENT) FORM ITEM OBJECT : ', this.bucketList);
-        this._service.addItem()
+        this._service.addItem(this.bucketList)
         .then((data) => {
-            console.log('(DASHBOARD COMPONENT) ADDED 'data)
+            console.log('(DASHBOARD COMPONENT) ADDED ITEM, RETURN DATA : ', data)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) .CATCH')
         })
         /// HERE NOW
         this._router.navigateByUrl('dashboard')

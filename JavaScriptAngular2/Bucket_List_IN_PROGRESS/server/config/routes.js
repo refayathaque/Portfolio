@@ -1,4 +1,6 @@
 var users = require('../controllers/users.js')
+
+var items = require('../controllers/items.js')
 // var questions = require('../controllers/questions.js')
 // var answers = require('../controllers/answers.js')
 // HAVE ALL CONTROLLERS ABOVE!

@@ -3,7 +3,7 @@
 
     <h2>Add your bucket list item</h2>
 
-    <form (submit)='addBucketListItem()' #formData='ngForm'>
+    <form (submit)='addItem()' #formData='ngForm'>
 
         <p>Title</p>
         <input type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>

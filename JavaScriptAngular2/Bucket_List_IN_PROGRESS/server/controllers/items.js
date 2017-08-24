@@ -6,7 +6,7 @@ var Item = mongoose.model('Item');
 
 function ItemsController() {
 
-    this.register = function(req, res) {
+    this.addItem = function(req, res) {
         console.log('(ITEMS CONTROLLER) REQ.BODY : ', req.body);
         Item.findOne({
             $or: [
@@ -15,19 +15,19 @@ function ItemsController() {
             ]
         })
         .then((data) => {
-            if(data) { // We need to FIRST check if 'user' returned anything from the query above or is null, only after checking to see if 'user' has a value can we go into it to do our email and username checks, if it's null the else statement gets run and we store the req.body data to our db
+            if(data) { // We need to FIRST check if 'data' returned anything from the query above or is null, only after checking to see if 'data' has a value can we go into it to do our title and description checks, if it's null the else statement gets run and we store the req.body data to our db
                 if(data.title === req.body.title) {
-                    console.log('(ITEMS CONTROLLER) TITLE ALREADY IN DB : ', user.title);
+                    console.log('(ITEMS CONTROLLER) TITLE ALREADY IN DB : ', data.title);
                     res.json({error : true, messages : 'Item previously added'})
                 }
                 if(data.description === req.body.description) {
-                    console.log('(ITEMS CONTROLLER) DESCRIPTION ALREADY IN DB : ', user.username);
+                    console.log('(ITEMS CONTROLLER) DESCRIPTION ALREADY IN DB : ', data.description);
                     res.json({error : true, messages : 'Description previously added'})
                 }
             }
             else {
                 var item = new Item(req.body)
-                user.save((err, item) => {
+                item.save((err, item) => {
                     if(err) {
                         res.json({error : true, messages : 'Error with inserting data into db'})
                     }
@@ -41,6 +41,7 @@ function ItemsController() {
             console.log('(ITEMS CONTROLLER) .CATCH : ', err)
         })
     }
+}
 
 //     this.login = function(req, res) {
 //         console.log('(USERS CONTROLLER) REQ.BODY : ', req.body);
@@ -98,4 +99,4 @@ function ItemsController() {
 //     }
 // }
 
-module.exports = new UsersController();
+module.exports = new ItemsController();
