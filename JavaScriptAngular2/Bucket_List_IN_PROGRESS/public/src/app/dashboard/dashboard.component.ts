@@ -15,11 +15,11 @@ export class DashboardComponent implements OnInit {
     constructor(private _service : BucketListService, private _router : Router) { }
 
     private user = {};
-    private friends = [];
-    private bucket_list = new Bucket_List();
+    private allFriends = [];
+    private bucketList = new Bucket_List();
 
     addBucketListItem() {
-        console.log(this.bucket_list);
+        console.log(this.bucketList);
         this._router.navigateByUrl('dashboard')
     }
     // STILL WORKING ON THIS
@@ -44,8 +44,8 @@ export class DashboardComponent implements OnInit {
 
         this._service.getFriends()
         .then((data) => {
-            this.friends = data.data;
-            console.log('Friends array : ', this.friends)
+            this.allFriends = data.data;
+            console.log('Friends array : ', this.allFriends)
         })
         .catch((err) => {
             console.log('Error with .then callback in DashboardComponent (getFriends function)')

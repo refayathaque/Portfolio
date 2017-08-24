@@ -5,30 +5,30 @@ var users = require('../controllers/users.js')
 
 module.exports = function(app) {
 
-    app.post('/register', (req, res) => {
+    app.post('/api/users/register', (req, res) => {
         console.log('(ROUTES) REGISTER REQ.BODY : ', req.body)
         users.register(req, res)
     })
 
-    app.post('/login', (req, res) => {
+    app.post('/api/users/login', (req, res) => {
         console.log('(ROUTES) LOGIN REQ.BODY : ', req.body)
         users.login(req, res)
     })
 
-    app.get('/getSessionID', (req, res) => {
+    app.get('/api/users/getSession', (req, res) => {
         users.getSessionID(req, res)
     })
 
-    app.get('/dashboard', (req, res) => {
-        users.getSessionID(req, res)
-    })
-
-    app.get('/getFriends', (req,res) => {
-        users.showAllUsers(req, res)
-    })
-
-    app.get('/logout', (req, res) => {
+    app.get('/api/users/logout', (req, res) => {
         users.logout(req, res)
+    })
+
+    app.get('/api/items/getSession', (req, res) => {
+        users.getSessionID(req, res)
+    })
+
+    app.get('/api/items/listUsers', (req,res) => {
+        users.showAllUsers(req, res)
     })
 
     //
