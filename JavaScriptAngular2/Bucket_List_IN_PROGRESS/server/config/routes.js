@@ -15,20 +15,26 @@ module.exports = function(app) {
         users.login(req, res)
     })
 
-    app.get('/api/users/getSession', (req, res) => {
-        users.getSessionID(req, res)
-    })
 
     app.get('/api/users/logout', (req, res) => {
         users.logout(req, res)
     })
 
-    app.get('/api/items/getSession', (req, res) => {
-        users.getSessionID(req, res)
+    app.get('/api/users/getSession', (req, res) => {
+        users.getSession(req, res)
     })
 
+    // app.get('/api/items/getSession', (req, res) => {
+    //     users.getSessionID(req, res)
+    // })
+
     app.get('/api/items/listUsers', (req,res) => {
-        users.showAllUsers(req, res)
+        users.listUsers(req, res)
+    })
+
+    app.post('/api/items/addItem', (req, res) => {
+        console.log('(ROUTES) ADD ITEM REQ.BODY : ', req.body)
+        items.addItem(req, res)
     })
 
     //

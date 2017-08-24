@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+
 import { Http } from "@angular/http";
+
 import 'rxjs/RX'; // RxJS stands for *R*eactive E*x*tensions for *J*ava*S*cript, and its a library that gives us an implementation of Observables for JS
 
 @Injectable()
@@ -25,15 +27,6 @@ export class BucketListService {
     .toPromise();
   }
 
-  getSessionID() {
-      return this._http.get('/api/users/getSession')
-      .map((data) => {
-          console.log("(SERVICE) AFTER HTTP CALL GETTING SESSION, RETURN DATA : ", data)
-          return data.json()
-      })
-      .toPromise();
-  }
-
   logout() {
       return this._http.get('/api/users/logout')
       .map((data) => {
@@ -43,19 +36,37 @@ export class BucketListService {
       .toPromise();
   }
 
-  dashboard() {
-      return this._http.get('/api/items/getSession')
+  getSession() {
+      return this._http.get('/api/users/getSession')
       .map((data) => {
-          console.log("Inside Service after HTTP call loading up dashboard, this is user session data : ", data)
+          console.log("(SERVICE) AFTER HTTP CALL GETTING SESSION, RETURN DATA : ", data)
           return data.json()
       })
       .toPromise();
   }
 
+  // getSession() {
+  //     return this._http.get('/api/items/getSession')
+  //     .map((data) => {
+  //         console.log("(SERVICE) AFTER HTTP CALL GETTING SESSION, RETURN DATA : ", data)
+  //         return data.json()
+  //     })
+  //     .toPromise();
+  // }
+
   listUsers() {
       return this._http.get('/api/items/listUsers')
       .map((data) => {
-          console.log("Inside Service after HTTP call getting friends, this is friends array : ", data)
+          console.log("(SERVICE) AFTER HTTP CALL GETTING ALL USERS, RETURN DATA : ", data)
+          return data.json()
+      })
+      .toPromise();
+  }
+
+  addItem() {
+      return this._http.get('api/items/addItem')
+      .map((data) => {
+          console.log("(SERVICE) AFTER HTTP CALL ADDING ITEM, RETURN DATA : ", data)
           return data.json()
       })
       .toPromise();

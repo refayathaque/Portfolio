@@ -18,12 +18,16 @@ export class DashboardComponent implements OnInit {
     private allUsers = [];
     private bucketList = new Bucket_List();
 
-    addBucketListItem() {
+    addItem() {
         this.bucketList.creator = this.user._id
         console.log('(DASHBOARD COMPONENT) FORM ITEM OBJECT : ', this.bucketList);
+        this._service.addItem()
+        .then((data) => {
+            console.log('(DASHBOARD COMPONENT) ADDED 'data)
+        })
+        /// HERE NOW
         this._router.navigateByUrl('dashboard')
     }
-    // STILL WORKING ON THIS
 
     logout() {
         this._service.logout()
@@ -34,7 +38,7 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._service.dashboard()
+        this._service.getSession()
         .then((data) => {
             this.user = data;
             console.log('(DASHBOARD COMPONENT) SESSION DATA : ', this.user)

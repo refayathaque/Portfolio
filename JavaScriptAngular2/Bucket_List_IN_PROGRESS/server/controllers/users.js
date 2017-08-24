@@ -77,7 +77,7 @@ function UsersController() {
         console.log('(USERS CONTROLLER) REQ.SESSION DESTROYED, RETURNING {}')
     }
 
-    this.getSessionID = function(req, res) {
+    this.getSession = function(req, res) {
         if(req.session.user) {
             res.json(req.session.user)
         }
@@ -86,7 +86,7 @@ function UsersController() {
         }
     }
 
-    this.showAllUsers = function(req, res) {
+    this.listUsers = function(req, res) {
         User.find({})
         .then((data) => {
             // console.log('All friends (UsersController) : ', data);
