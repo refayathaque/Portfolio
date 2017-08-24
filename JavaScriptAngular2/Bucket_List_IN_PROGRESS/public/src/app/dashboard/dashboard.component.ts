@@ -14,12 +14,13 @@ export class DashboardComponent implements OnInit {
 
     constructor(private _service : BucketListService, private _router : Router) { }
 
-    private user = {};
+    private user;
     private allUsers = [];
     private bucketList = new Bucket_List();
 
     addBucketListItem() {
-        console.log(this.bucketList);
+        this.bucketList.creator = this.user._id
+        console.log('(DASHBOARD COMPONENT) FORM ITEM OBJECT : ', this.bucketList);
         this._router.navigateByUrl('dashboard')
     }
     // STILL WORKING ON THIS

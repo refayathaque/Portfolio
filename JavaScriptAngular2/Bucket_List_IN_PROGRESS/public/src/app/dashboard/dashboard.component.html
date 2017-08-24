@@ -6,14 +6,14 @@
     <form (submit)='addBucketListItem()' #formData='ngForm'>
 
         <p>Title</p>
-        <input type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucket_list.title" #title='ngModel'>
+        <input type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>
 
         <p>Description</p>
-        <input type="text" name="title" size="50" required minlength="10" [(ngModel)]="bucket_list.description" #title='ngModel'>
+        <input type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
 
         <p>Friend to add</p>
-        <select name="friend" [(ngModel)]="bucket_list.friend" #friend='ngModel'>
-            <option *ngFor='let friend of friends' value="{{ friend._id }}">{{ friend.username }}</option>
+        <select name="friend" [(ngModel)]="bucketList.friend" #friend='ngModel'>
+            <option *ngFor='let friend of allUsers' value="{{ friend._id }}">{{ friend.username }}</option>
         </select>
 
         <br>

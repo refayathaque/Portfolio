@@ -2,8 +2,8 @@ export class Bucket_List {
     constructor (
         public title: string = "",
         public description: string = "",
-        public creator: number,
-        public friend: number,
+        public creator: string = "",
+        public friend: string = "",
         public status: boolean = false
     ) {}
 }
