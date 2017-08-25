@@ -34,7 +34,7 @@ function ItemsController() {
 
                     item.save((err, item) => {
                         User.findOneAndUpdate({ _id : req.body.creator },
-                            { $push : { items : item } },
+                            { $push : { items : item } }, // When pushing into arrays we don't need to $set, $set is only for updating specific fields with specific data, not for pushing into arrays
                             { returnNewDocument : true },
                             function(err, item) {
                                 if(err) {
