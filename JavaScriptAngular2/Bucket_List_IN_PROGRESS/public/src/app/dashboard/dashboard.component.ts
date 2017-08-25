@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
     private bucketList = new Bucket_List();
 
     addItem() {
-        this.bucketList.creator = this.user._id
+        this.bucketList.creator = this.user._id // Setting session user id to creator field in bucketList object
         console.log('(DASHBOARD COMPONENT) FORM ITEM OBJECT : ', this.bucketList);
         this._service.addItem(this.bucketList)
         .then((data) => {
@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
             console.log('(DASHBOARD COMPONENT) .CATCH')
         })
         /// HERE NOW
-        this._router.navigateByUrl('dashboard')
+        // this._router.navigateByUrl('dashboard')
     }
 
     logout() {

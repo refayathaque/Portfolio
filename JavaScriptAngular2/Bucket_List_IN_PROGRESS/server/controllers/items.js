@@ -26,18 +26,15 @@ function ItemsController() {
                 }
             } //if(data)
             else {
-
                 User.findOne({_id: req.body.creator}, function(err, user) {
                     var item = new Item(req.body);
                     // item._creator = user._id;
                     console.log('(ITEMS CONTROLLER) USER DATA : ', user);
-
                     if(req.body.friend === req.body.creator) {
                         res.json({error : true, messages : 'You cannot add yourself as a friend'})
                     }
                     else {
                         item.save((err, item) => {
-
                             if(req.body.friend && req.body.friend !== req.body.creator) {
                                 User.findOneAndUpdate(
                                     { _id : req.body.creator },
@@ -66,8 +63,6 @@ function ItemsController() {
                                     } //function(err, item)
                                 )
                             }
-
-
                             else {
                                 User.findOneAndUpdate(
                                     { _id : req.body.creator },
@@ -84,17 +79,8 @@ function ItemsController() {
                                     } //function(err, item)
                                 ) //findOneAndUpdate
                             }
-
-
-
-
-
-
-
                         }) //item.save
                     }
-
-
                 }) //findOne
             } //else
         }) //then
@@ -103,61 +89,5 @@ function ItemsController() {
         })
     } //this.addItem = function(req, res)
 } //function ItemsController()
-
-//     this.login = function(req, res) {
-//         console.log('(USERS CONTROLLER) REQ.BODY : ', req.body);
-//         User.findOne({email : req.body.email})
-//         .then((user) => {
-//             if(user === null) {
-//                 console.log('(USERS CONTROLLER) EMAIL NOT MATCHED')
-//                 res.json({error: true, messages: "You are not registered"})
-//             }
-//             else {
-//                 console.log('(USERS CONTROLLER) EMAIL match : ', user.email)
-//                 var validPassword = user.comparePassword(req.body.password)
-//                 if(validPassword) {
-//                     console.log('(USERS CONTROLLER) PASSWORD MATCH : ', user.password)
-//                     req.session.user = user;
-//                     console.log('(USERS CONTROLLER) SESSION DATA : ', req.session.user);
-//                     res.json({error : false, user : user})
-//                 }
-//                 else {
-//                     console.log('(USERS CONTROLLER) PASSWORD NOT MATCHED')
-//                     res.json({error: true, messages: "Password is invalid"})
-//                 }
-//             }
-//         })
-//         .catch((err) => {
-//             console.log('(USERS CONTROLLER) .CATCH : ', err)
-//         })
-//     }
-//
-//     this.logout = function(req, res) {
-//         req.session.destroy()
-//         res.json({})
-//         // req.session.user = "";
-//         console.log('(USERS CONTROLLER) REQ.SESSION DESTROYED, RETURNING {}')
-//     }
-//
-//     this.getSession = function(req, res) {
-//         if(req.session.user) {
-//             res.json(req.session.user)
-//         }
-//         else {
-//             res.json({})
-//         }
-//     }
-//
-//     this.listUsers = function(req, res) {
-//         User.find({})
-//         .then((data) => {
-//             // console.log('All friends (UsersController) : ', data);
-//             res.json({error : false, data : data})
-//         })
-//         .catch((err) => {
-//             // console.log('Error in users.js controller', err)
-//         })
-//     }
-// }
 
 module.exports = new ItemsController();
