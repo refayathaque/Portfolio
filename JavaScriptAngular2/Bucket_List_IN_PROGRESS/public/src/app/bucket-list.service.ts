@@ -45,19 +45,19 @@ export class BucketListService {
       .toPromise();
   }
 
-  // getSession() {
-  //     return this._http.get('/api/items/getSession')
-  //     .map((data) => {
-  //         console.log("(SERVICE) AFTER HTTP CALL GETTING SESSION, RETURN DATA : ", data)
-  //         return data.json()
-  //     })
-  //     .toPromise();
-  // }
-
   listUsers() {
       return this._http.get('/api/items/listUsers')
       .map((data) => {
           console.log("(SERVICE) AFTER HTTP CALL GETTING ALL USERS, RETURN DATA : ", data)
+          return data.json()
+      })
+      .toPromise();
+  }
+
+  getUserItems(userId) {
+      return this._http.get('/api/items/getUserItems', userId)
+      .map((data) => {
+          console.log("(SERVICE) AFTER HTTP CALL GETTING USER ITEMS, RETURN DATA : ", data)
           return data.json()
       })
       .toPromise();

@@ -48,19 +48,22 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
 
-        this._service.getUserItems()
-        .then((data) => {
-            this.userItems = data.data;
-            console.log('(DASHBOARD COMPONENT) USERS ITEMS : ', this.userItems)
-        })
-
         this._service.getSession()
         .then((data) => {
             this.user = data;
             console.log('(DASHBOARD COMPONENT) SESSION DATA : ', this.user)
         })
         .catch((err) => {
-            console.log('Error with .then callback in DashboardComponent (dashboard function)')
+            console.log('(DASHBOARD COMPONENT) GETSESSION FUNCTION .CATCH')
+        })
+
+        this._service.getUserItems(this.user._id)
+        .then((data) => {
+            this.userItems = data.data;
+            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
         })
 
         this._service.listUsers()
@@ -69,7 +72,7 @@ export class DashboardComponent implements OnInit {
             console.log('Friends array : ', this.allUsers)
         })
         .catch((err) => {
-            console.log('Error with .then callback in DashboardComponent (getFriends function)')
+            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION .CATCH')
         })
     }
 
