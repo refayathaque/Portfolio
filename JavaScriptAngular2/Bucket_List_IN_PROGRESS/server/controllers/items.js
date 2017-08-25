@@ -63,7 +63,7 @@ function ItemsController() {
                             )
                         }
 
-                        if (req.body.friend === req.body.creator) {
+                        if(req.body.friend === req.body.creator) {
                             res.json({error : true, messages : 'You cannot add yourself as a friend'})
                         }
 
