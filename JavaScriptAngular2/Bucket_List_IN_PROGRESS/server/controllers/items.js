@@ -33,19 +33,63 @@ function ItemsController() {
                     console.log('(ITEMS CONTROLLER) USER DATA : ', user);
 
                     item.save((err, item) => {
-                        User.findOneAndUpdate({ _id : req.body.creator },
-                            { $push : { items : item } }, // When pushing into arrays we don't need to $set, $set is only for updating specific fields with specific data, not for pushing into arrays
-                            { returnNewDocument : true },
-                            function(err, item) {
-                                if(err) {
-                                    console.log('(ITEMS CONTROLLER) ERROR : ', err)
-                                    res.json({error : true, messages : 'Error with inserting data into db'})
-                                } else {
-                                    console.log('(ITEMS CONTROLLER) USER DATA POST UPDATE WITH ITEM : ', user);
-                                    res.json({error : false, item : item})
-                                }
-                            } //function(err, item)
-                        ) //findOneAndUpdate
+
+                        if(req.body.friend && req.body.friend !== req.body.creator) {
+                            User.findOneAndUpdate(
+                                { _id : req.body.creator },
+                                { $push : { items : item } }, // When pushing into arrays we don't need to $set, $set is only for updating specific fields with specific data, not for pushing into arrays
+                                { returnNewDocument : true },
+                                function(err, item) {
+                                    if(err) {
+                                        console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                                        res.json({error : true, messages : 'Error with inserting data into db'})
+                                    } else {
+                                        console.log('(ITEMS CONTROLLER) USER DATA POST UPDATE WITH ITEM : ', user);
+                                        res.json({error : false, item : item})
+                                    }
+                                } //function(err, item)
+                            ) //findOneAndUpdate
+                            User.updateMany(
+                                { _id : req.body.creator, _id : req.body.friend }, { $push : { items: item } },
+                                function(err, item) {
+                                    if(err) {
+                                        console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                                        res.json({error : true, messages : 'Error with inserting data into db'})
+                                    } else {
+                                        console.log('(ITEMS CONTROLLER) USER DATA POST UPDATE WITH ITEM : ', user);
+                                        res.json({error : false, item : item})
+                                    }
+                                } //function(err, item)
+                            )
+                        }
+
+                        if (req.body.friend === req.body.creator) {
+                            res.json({error : true, messages : 'You cannot add yourself as a friend'})
+                        }
+
+                        else {
+                            User.findOneAndUpdate(
+                                { _id : req.body.creator },
+                                { $push : { items : item } }, // When pushing into arrays we don't need to $set, $set is only for updating specific fields with specific data, not for pushing into arrays
+                                { returnNewDocument : true },
+                                function(err, item) {
+                                    if(err) {
+                                        console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                                        res.json({error : true, messages : 'Error with inserting data into db'})
+                                    } else {
+                                        console.log('(ITEMS CONTROLLER) USER DATA POST UPDATE WITH ITEM : ', user);
+                                        res.json({error : false, item : item})
+                                    }
+                                } //function(err, item)
+                            ) //findOneAndUpdate
+                        }
+
+
+
+
+
+
+
                     }) //item.save
                 }) //findOne
             } //else
@@ -53,7 +97,7 @@ function ItemsController() {
         .catch((err) => {
             console.log('(ITEMS CONTROLLER) .CATCH : ', err)
         })
-} //this.addItem = function(req, res)
+    } //this.addItem = function(req, res)
 } //function ItemsController()
 
 //     this.login = function(req, res) {

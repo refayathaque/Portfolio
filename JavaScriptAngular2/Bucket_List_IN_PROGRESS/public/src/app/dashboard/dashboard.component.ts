@@ -23,7 +23,12 @@ export class DashboardComponent implements OnInit {
         console.log('(DASHBOARD COMPONENT) FORM ITEM OBJECT : ', this.bucketList);
         this._service.addItem(this.bucketList)
         .then((data) => {
-            console.log('(DASHBOARD COMPONENT) ADDED ITEM, RETURN DATA : ', data)
+            if(data.error) {
+                alert(data.messages)
+            }
+            else {
+                console.log('(DASHBOARD COMPONENT) ADDED ITEM, RETURN DATA : ', data)
+            }
         })
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) .CATCH')
