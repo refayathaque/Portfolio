@@ -34,13 +34,14 @@ function ItemsController() {
 
                     item.save((err, item) => {
                         User.findOneAndUpdate({ _id : req.body.creator },
-                            { $set : { $push : { items : item } } },
-                            { new : true },
+                            { $push : { items : item } },
+                            { returnNewDocument : true },
                             function(err, item) {
                                 if(err) {
                                     console.log('(ITEMS CONTROLLER) ERROR : ', err)
                                     res.json({error : true, messages : 'Error with inserting data into db'})
                                 } else {
+                                    console.log('(ITEMS CONTROLLER) USER DATA POST UPDATE WITH ITEM : ', user);
                                     res.json({error : false, item : item})
                                 }
                             } //function(err, item)
