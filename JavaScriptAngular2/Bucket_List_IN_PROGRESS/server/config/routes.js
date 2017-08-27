@@ -31,12 +31,12 @@ module.exports = function(app) {
     })
 
     app.post('/api/items/addItem', (req, res) => {
-        console.log('(ROUTES) ADD ITEM REQ.BODY : ', req.body)
+        console.log('(ROUTES) ADDITEM REQ.BODY : ', req.body)
         items.addItem(req, res)
     })
 
-    app.get('/api/items/getUserItems', (req, res) => {
-        console.log('(ROUTES) GET USER ITEMS REQ.BODY (CREATOR ID) : ', req.body)
+    app.post('/api/items/getUserItems', (req, res) => {
+        console.log('(ROUTES) GETUSERITEMS REQ.BODY (CREATOR ID) : ', req.body)
         items.getUserItems(req, res)
     })
 

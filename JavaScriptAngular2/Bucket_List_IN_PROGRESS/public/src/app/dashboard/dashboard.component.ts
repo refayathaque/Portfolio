@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
                 alert(data.messages)
             }
             else {
-                console.log('(DASHBOARD COMPONENT) ADDED ITEM, RETURN DATA : ', data)
+                console.log('(DASHBOARD COMPONENT) ITEM ADDED, RETURN DATA : ', data)
             }
         })
         .catch((err) => {

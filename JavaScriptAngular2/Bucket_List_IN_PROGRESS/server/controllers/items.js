@@ -8,6 +8,15 @@ function ItemsController() {
 
     this.getUserItems = function(req, res) {
         console.log('(ITEMS CONTROLLER) REQ.BODY (CREATOR ID) : ', req.body)
+        Item.find(
+            {_creator : req.body}
+        )
+        .then((data) => {
+            res.json(data);
+        })
+        .catch(err) => {
+            console.log('(ITEMS CONTROLLER) .CATCH : ', err)
+        }
     }
 
     this.addItem = function(req, res) {
