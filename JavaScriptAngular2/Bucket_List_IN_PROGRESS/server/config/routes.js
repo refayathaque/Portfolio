@@ -17,7 +17,6 @@ module.exports = function(app) {
         users.login(req, res)
     })
 
-
     app.get('/api/users/logout', (req, res) => {
         users.logout(req, res)
     })
@@ -30,7 +29,6 @@ module.exports = function(app) {
         users.listUsers(req, res)
     })
 
-
     app.post('/api/items/addItem', (req, res) => {
         console.log('(ROUTES) ADDITEM REQ.BODY : ', req.body)
         items.addItem(req, res)
@@ -38,6 +36,11 @@ module.exports = function(app) {
 
     app.get('/api/items/getUserItems', (req, res) => {
         items.getUserItems(req, res)
+    })
+
+    app.put('/api/items/changeItemStatus', (req, res) => {
+        console.log(req.body)
+        items.changeItemStatus(req, res)
     })
 
 }

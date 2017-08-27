@@ -54,10 +54,6 @@ export class BucketListService {
       .toPromise();
   }
 
-
-
-
-
   getUserItems() {
       return this._http.get('/api/items/getUserItems')
       .map((data) => {
@@ -65,6 +61,11 @@ export class BucketListService {
           return data.json()
       })
       .toPromise();
+  }
+
+  changeItemStatus(itemId) {
+      console.log(itemId)
+      return this._http.put('/api/items/changeItemStatus', itemId)
   }
 
   addItem(bucketList) {

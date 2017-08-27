@@ -6,38 +6,6 @@ var Item = mongoose.model('Item');
 
 function ItemsController() {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     this.getUserItems = function(req, res) {
         User.find({_id : req.session.user._id})
         .populate('items')
@@ -49,6 +17,10 @@ function ItemsController() {
             //     console.log('(ITEMS CONTROLLER) .CATCH : ', err)
             // }
         })
+    }
+
+    this.changeItemStatus = function(req, res) {
+        console.log(req.body)
     }
 
     this.addItem = function(req, res) {

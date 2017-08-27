@@ -39,6 +39,12 @@ export class DashboardComponent implements OnInit {
         // this._router.navigateByUrl('dashboard')
     }
 
+    changeItemStatus(itemId) {
+        this._service.changeItemStatus(itemId)
+        console.log('(DASHBOARD COMPONENT) CHANGEITEMSTATUS OF (ITEM ID) : ', itemId)
+        this._router.navigateByUrl('dashboard')
+    }
+
     logout() {
         this._service.logout()
         .then(() => { })
@@ -46,22 +52,6 @@ export class DashboardComponent implements OnInit {
         console.log('(DASHBOARD COMPONENT) LOGOUT')
         this._router.navigateByUrl('logout')
     }
-
-
-
-
-
-    // getUserItems() {
-    //     console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION INVOKED')
-    //     this._service.getUserItems()
-    //     .then((data) => {
-    //         this.userItems = data;
-    //         console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-    //     })
-    //     .catch((err) => {
-    //         console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-    //     })
-    // }
 
     ngOnInit() {
 
