@@ -38,8 +38,7 @@ module.exports = function(app) {
         items.getUserItems(req, res)
     })
 
-    app.put('/api/items/changeItemStatus', (req, res) => {
-        console.log(req.body)
+    app.put('/api/items/changeItemStatus/:id', (req, res) => {
         items.changeItemStatus(req, res)
     })
 
