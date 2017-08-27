@@ -51,17 +51,17 @@ export class DashboardComponent implements OnInit {
 
 
 
-    getUserItems() {
-        console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION INVOKED')
-        this._service.getUserItems()
-        .then((data) => {
-            this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-        })
-        .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-        })
-    }
+    // getUserItems() {
+    //     console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION INVOKED')
+    //     this._service.getUserItems()
+    //     .then((data) => {
+    //         this.userItems = data;
+    //         console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+    //     })
+    //     .catch((err) => {
+    //         console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+    //     })
+    // }
 
     ngOnInit() {
 
@@ -84,14 +84,14 @@ export class DashboardComponent implements OnInit {
             console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION .CATCH')
         })
 
-        // this._service.getUserItems(this.user._id)
-        // .then((data) => {
-        //     this.userItems = data;
-        //     console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-        // })
-        // .catch((err) => {
-        //     console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-        // })
+        this._service.getUserItems()
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        })
 
     }
 }
