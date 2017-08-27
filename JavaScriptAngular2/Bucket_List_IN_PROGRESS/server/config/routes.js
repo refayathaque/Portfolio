@@ -35,7 +35,7 @@ module.exports = function(app) {
         items.addItem(req, res)
     })
 
-    app.post('/api/items/getUserItems', (req, res) => {
+    app.get('/api/items/getUserItems', (req, res) => {
         console.log('(ROUTES) GETUSERITEMS REQ.BODY (CREATOR ID) : ', req.body)
         items.getUserItems(req, res)
     })

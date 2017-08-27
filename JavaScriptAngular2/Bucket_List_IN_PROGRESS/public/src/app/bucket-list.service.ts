@@ -55,7 +55,7 @@ export class BucketListService {
   }
 
   getUserItems(userId) {
-      return this._http.post('/api/items/getUserItems', userId)
+      return this._http.get('/api/items/getUserItems', userId)
       .map((data) => {
           console.log("(SERVICE) AFTER HTTP CALL GETTING USER ITEMS, RETURN DATA : ", data)
           return data.json()
