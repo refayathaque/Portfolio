@@ -61,6 +61,7 @@ export class DashboardComponent implements OnInit {
         .then((data) => {
             this.allUsers = data.data;
             console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION RETURN DATA ARRAY : ', this.allUsers)
+            console.log(this.user._id) // works, we get the session user id
         })
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION .CATCH')
@@ -74,7 +75,5 @@ export class DashboardComponent implements OnInit {
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
         })
-
     }
-
 }

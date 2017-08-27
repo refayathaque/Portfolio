@@ -7,16 +7,17 @@ var Item = mongoose.model('Item');
 function ItemsController() {
 
     this.getUserItems = function(req, res) {
-        console.log('(ITEMS CONTROLLER) REQ.BODY (CREATOR ID) : ', req.body)
-        Item.find(
-            {_creator : req.body}
-        )
-        .then((data) => {
-            res.json(data);
+        console.log('(ITEMS CONTROLLER) REQ.BODY (CREATOR ID) : ', req.body);
+        User.find({_id : req.body})
+        .populate('items')
+        .exec(function(err, data) {
+            // .then((data) => {
+                res.json(data);
+            // })
+            // .catch(err) => {
+            //     console.log('(ITEMS CONTROLLER) .CATCH : ', err)
+            // }
         })
-        .catch(err) => {
-            console.log('(ITEMS CONTROLLER) .CATCH : ', err)
-        }
     }
 
     this.addItem = function(req, res) {
