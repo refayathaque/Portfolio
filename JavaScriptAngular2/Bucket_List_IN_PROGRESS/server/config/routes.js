@@ -30,47 +30,14 @@ module.exports = function(app) {
         users.listUsers(req, res)
     })
 
+
     app.post('/api/items/addItem', (req, res) => {
         console.log('(ROUTES) ADDITEM REQ.BODY : ', req.body)
         items.addItem(req, res)
     })
 
     app.get('/api/items/getUserItems', (req, res) => {
-        console.log('(ROUTES) GETUSERITEMS REQ.BODY (CREATOR ID) : ', req.body)
         items.getUserItems(req, res)
     })
-
-    //
-    // app.post('/login', (req,res) => {
-    //     console.log('REQ BODY : ', req.body)
-    //     users.login(req, res)
-    // })
-    //
-    // app.post('/newquestions', (req, res) => {
-    //     console.log('REQ BODY : ', req.body)
-    //     questions.create(req, res)
-    // })
-    //
-    // app.post('/newanswers/:id', (req, res) => {
-    //     console.log('REQ BODY : ', req.body)
-    //     answers.create(req, res)
-    // })
-    //
-    // app.get('/index', (req,res) => {
-    //     console.log("Inside Routes (Home)")
-    //     console.log('REQ BODY : ', req.body)
-    //     questions.showAllQuestions(req, res)
-    // })
-    //
-    // app.post('/answers/:id/like', (req,res)=>{
-    //     console.log("inside routes")
-    //     answers.like(req, res);
-    // })
-    //
-    // app.get('/questions/:id', (req,res)=>{
-    //     console.log("Inside routes, getting answers sorted by likes for question with ID passed in")
-    //     console.log(req.body)
-    //     questions.show(req, res)
-    // })
 
 }

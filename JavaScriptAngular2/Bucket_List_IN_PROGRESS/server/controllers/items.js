@@ -6,9 +6,40 @@ var Item = mongoose.model('Item');
 
 function ItemsController() {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     this.getUserItems = function(req, res) {
-        console.log('(ITEMS CONTROLLER) REQ.BODY (CREATOR ID) : ', req.body);
-        User.find({_id : req.body})
+        User.find({_id : req.session.user._id})
         .populate('items')
         .exec(function(err, data) {
             // .then((data) => {

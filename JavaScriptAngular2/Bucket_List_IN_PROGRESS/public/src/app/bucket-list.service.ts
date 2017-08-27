@@ -54,10 +54,13 @@ export class BucketListService {
       .toPromise();
   }
 
-  getUserItems(userId) {
-      return this._http.get('/api/items/getUserItems', userId)
+
+
+
+
+  getUserItems() {
+      return this._http.get('/api/items/getUserItems')
       .map((data) => {
-          console.log("(SERVICE) USERID FOR API CALL : ", userId)
           console.log("(SERVICE) AFTER HTTP CALL GETTING USER ITEMS, RETURN DATA : ", data)
           return data.json()
       })

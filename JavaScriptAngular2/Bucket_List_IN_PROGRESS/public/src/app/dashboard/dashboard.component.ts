@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
     private user;
     private allUsers = [];
     private bucketList = new Bucket_List();
-    private userItems = [];
+    private userItems;
 
     addItem() {
         this.bucketList.creator = this.user._id // Setting session user id to creator field in bucketList object
@@ -47,9 +47,13 @@ export class DashboardComponent implements OnInit {
         this._router.navigateByUrl('logout')
     }
 
+
+
+
+
     getUserItems() {
         console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION INVOKED')
-        this._service.getUserItems(this.user._id)
+        this._service.getUserItems()
         .then((data) => {
             this.userItems = data;
             console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)

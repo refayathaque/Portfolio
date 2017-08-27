@@ -33,11 +33,11 @@
             <th>Friend</th>
             <th>Done?</th>
         </tr>
-        <tr>
-            <td>item.title</td>
-            <td>item.description</td>
-            <td>item.friend</td>
-            <td>item.status</td>
+        <tr *ngFor="let item of userItems[0].items">
+            <td>{{ item.title | json }}</td>
+            <td>{{ item.description | json }}</td>
+            <td></td>
+            <td>{{ item.status | json }}</td>
         </tr>
     </table>
 
