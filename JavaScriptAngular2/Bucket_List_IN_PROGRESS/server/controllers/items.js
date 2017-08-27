@@ -6,6 +6,10 @@ var Item = mongoose.model('Item');
 
 function ItemsController() {
 
+    this.getUserItems = function(req, res) {
+        console.log('(ITEMS CONTROLLER) REQ.BODY (CREATOR ID) : ', req.body)
+    }
+
     this.addItem = function(req, res) {
         console.log('(ITEMS CONTROLLER) REQ.BODY : ', req.body);
         Item.findOne({

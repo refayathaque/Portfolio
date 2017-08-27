@@ -26,10 +26,6 @@ module.exports = function(app) {
         users.getSession(req, res)
     })
 
-    // app.get('/api/items/getSession', (req, res) => {
-    //     users.getSessionID(req, res)
-    // })
-
     app.get('/api/items/listUsers', (req,res) => {
         users.listUsers(req, res)
     })
@@ -37,6 +33,11 @@ module.exports = function(app) {
     app.post('/api/items/addItem', (req, res) => {
         console.log('(ROUTES) ADD ITEM REQ.BODY : ', req.body)
         items.addItem(req, res)
+    })
+
+    app.get('/api/items/getUserItems', (req, res) => {
+        console.log('(ROUTES) GET USER ITEMS REQ.BODY (CREATOR ID) : ', req.body)
+        items.getUserItems(req, res)
     })
 
     //

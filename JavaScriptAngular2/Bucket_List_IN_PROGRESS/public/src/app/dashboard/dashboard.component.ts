@@ -57,23 +57,24 @@ export class DashboardComponent implements OnInit {
             console.log('(DASHBOARD COMPONENT) GETSESSION FUNCTION .CATCH')
         })
 
+        this._service.listUsers()
+        .then((data) => {
+            this.allUsers = data.data;
+            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION RETURN DATA ARRAY : ', this.allUsers)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION .CATCH')
+        })
+
         this._service.getUserItems(this.user._id)
         .then((data) => {
-            this.userItems = data.data;
+            this.userItems = data;
             console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
         })
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
         })
 
-        this._service.listUsers()
-        .then((data) => {
-            this.allUsers = data.data;
-            console.log('Friends array : ', this.allUsers)
-        })
-        .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION .CATCH')
-        })
     }
 
 }
