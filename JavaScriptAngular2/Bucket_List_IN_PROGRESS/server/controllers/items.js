@@ -20,7 +20,7 @@ function ItemsController() {
     }
 
     this.changeItemStatus = function(req, res) {
-        console.log(req.body)
+        console.log(req.params.id)
     }
 
     this.addItem = function(req, res) {

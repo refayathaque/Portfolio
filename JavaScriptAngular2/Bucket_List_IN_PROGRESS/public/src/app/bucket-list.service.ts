@@ -65,7 +65,7 @@ export class BucketListService {
 
   changeItemStatus(itemId) {
       console.log(itemId)
-      return this._http.put(`/api/items/changeItemStatus/${itemId}`)
+      return this._http.get(`/api/items/changeItemStatus/${itemId}`)
       .map((data) => {
           console.log("(SERVICE) AFTER HTTP CALL GETTING USER ITEMS, RETURN DATA : ", data)
           return data.json()
