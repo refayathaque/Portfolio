@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import 'rxjs/add/operator/switchMap'
 
 import { Bucket_List } from '../bucket-list'; // MUST IMPORT CONSTRUCTOR CLASSES
 
@@ -46,6 +47,18 @@ export class DashboardComponent implements OnInit {
         this._router.navigateByUrl('logout')
     }
 
+    getUserItems() {
+        console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION INVOKED')
+        this._service.getUserItems(this.user._id)
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        })
+    }
+
     ngOnInit() {
 
         this._service.getSession()
@@ -61,19 +74,20 @@ export class DashboardComponent implements OnInit {
         .then((data) => {
             this.allUsers = data.data;
             console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION RETURN DATA ARRAY : ', this.allUsers)
-            console.log(this.user._id) // works, session user id logged
+            console.log(this.user._id) // works, session user id logged, but won't pick up variable in the following service function
         })
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION .CATCH')
         })
 
-        this._service.getUserItems(this.user._id)
-        .then((data) => {
-            this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-        })
-        .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-        })
+        // this._service.getUserItems(this.user._id)
+        // .then((data) => {
+        //     this.userItems = data;
+        //     console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        // })
+        // .catch((err) => {
+        //     console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        // })
+
     }
 }

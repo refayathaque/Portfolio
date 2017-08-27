@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <h3><i>{{ user.username }} you are logged in</i></h3>
+    <h3><i>{{ user?.username }} you are logged in</i></h3>
 
     <h2>Add your bucket list item</h2>
 
@@ -14,7 +14,7 @@
         <p>Friend to add</p>
         <select name="friend" [(ngModel)]="bucketList.friend" #friend='ngModel'>
             <option value=""></option>
-            <option *ngFor='let friend of allUsers' value="{{ friend._id }}">{{ friend.username }}</option>
+            <option *ngFor='let friend of allUsers' value="{{ friend?._id }}">{{ friend.username }}</option>
         </select>
 
         <br>
@@ -23,6 +23,8 @@
     </form>
 
     <h3>Your items</h3>
+
+    <button (click)='getUserItems()'>Populate User Items</button>
 
     <table>
         <tr>
