@@ -21,6 +21,40 @@ function ItemsController() {
 
     this.changeItemStatus = function(req, res) {
         console.log(req.params.id)
+        Item.findOne({_id : req.params.id, status : false})
+        .then((item) => {
+            if(item) {
+                Item.findOneAndUpdate(
+                    {_id : req.params.id},
+                    {$set : { status : true }},
+                    { returnNewDocument : true },
+                    function(err, item) {
+                        if(err) {
+                            console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                            res.json({error : true, messages : 'Error with inserting data into db'})
+                        } else {
+                            console.log('(ITEMS CONTROLLER) ITEM DATA UPDATED WITH NEW STATUS : ', item);
+                            res.json({error : false, item : item})
+                        }
+                    } //function(err, item)
+                )
+            } else {
+                Item.findOneAndUpdate(
+                    {_id : req.params.id},
+                    {$set : { status : false }},
+                    { returnNewDocument : true },
+                    function(err, item) {
+                        if(err) {
+                            console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                            res.json({error : true, messages : 'Error with inserting data into db'})
+                        } else {
+                            console.log('(ITEMS CONTROLLER) ITEM DATA UPDATED WITH NEW STATUS : ', item);
+                            res.json({error : false, item : item})
+                        }
+                    } //function(err, item)
+                )
+            }
+        })
     }
 
     this.addItem = function(req, res) {
