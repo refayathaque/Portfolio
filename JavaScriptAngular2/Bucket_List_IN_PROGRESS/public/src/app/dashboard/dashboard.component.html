@@ -14,7 +14,9 @@
         <p>Friend to add</p>
         <select name="friend" [(ngModel)]="bucketList.friend" #friend='ngModel'>
             <option value=""></option>
-            <option *ngFor='let friend of allUsers' value="{{ friend?._id }}">{{ friend.username }}</option>
+            <option *ngFor='let friend of allUsers' value="{{ friend?._id }}">
+                <span *ngIf='friend._id !== user._id'>{{ friend.username }}</span>
+            </option>
         </select>
 
         <br>
