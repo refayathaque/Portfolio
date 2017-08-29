@@ -36,7 +36,7 @@
             <td>{{ item.title | json }}</td>
             <td>{{ item.description | json }}</td>
             <td>{{ item.createdAt | date:'medium' }}</td>
-            <td *ngIf="item.status === false">Not done</td>
+            <td *ngIf="item.status === false">Pending</td>
             <td *ngIf="item.status === true">Done</td>
             <td><button (click)='changeItemStatus(item._id)'>Click here</button></td>
         </tr>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import 'rxjs/add/operator/switchMap'
 
 import { Bucket_List } from '../bucket-list'; // MUST IMPORT CONSTRUCTOR CLASSES
 

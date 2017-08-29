@@ -87,7 +87,7 @@ function UsersController() {
     }
 
     this.listUsers = function(req, res) {
-        User.find({_id : {$ne : req.session.user._id} })
+        User.find({_id : {$ne : req.session.user._id} }) // Query to find documents in collection EXCEPT some specific document
         .then((data) => {
             // console.log('All friends (UsersController) : ', data);
             res.json({error : false, data : data})
