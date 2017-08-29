@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { EqualDirective } from './equal.directive';
 import { BlankComponent } from './blank/blank.component';
+import { ShowComponent } from './show/show.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BlankComponent } from './blank/blank.component';
     RegisterComponent,
     EqualDirective,
     DashboardComponent,
-    BlankComponent
+    BlankComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,
