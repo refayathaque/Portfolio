@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
     constructor(private _service : BucketListService, private _router : Router) { }
 
     private user;
-    private allUsers = [];
+    private usersExclSessionUser = [];
     private bucketList = new Bucket_List();
     private userItems;
 
@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
 
         this._service.listUsers()
         .then((data) => {
-            this.allUsers = data.data;
+            this.usersExclSessionUser = data.data;
             console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION RETURN DATA ARRAY : ', this.allUsers)
             console.log(this.user._id) // works, session user id logged, but won't pick up variable in the following service function
         })

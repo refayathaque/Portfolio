@@ -87,7 +87,7 @@ function UsersController() {
     }
 
     this.listUsers = function(req, res) {
-        User.find({})
+        User.find({_id : {$ne : req.session.user._id} })
         .then((data) => {
             // console.log('All friends (UsersController) : ', data);
             res.json({error : false, data : data})

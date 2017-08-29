@@ -14,7 +14,7 @@
         <p>Friend to add</p>
         <select name="friend" [(ngModel)]="bucketList.friend" #friend='ngModel'>
             <option value=""></option>
-            <option *ngFor='let friend of allUsers' value="{{ friend?._id }}">{{ friend.username }}</option>
+            <option *ngFor='let friend of usersExclSessionUser' value="{{ friend?._id }}">{{ friend.username }}</option>
         </select>
 
         <br>
@@ -42,9 +42,9 @@
         </tr>
     </table>
 
-    <h3>Click a friend to see their bucket list items</h3>
-    <div *ngFor='let friend of allUsers'>
-        <a *ngIf='friend?._id !== user._id'[routerLink]="['show', friend?._id]">{{ friend.username }}</a>
+    <h3 *ngIf="usersExclSessionUser">Click a friend to see their bucket list items</h3>
+    <div *ngFor='let friend of usersExclSessionUser'>
+        <a [routerLink]="['show', friend?._id]">{{ friend.username }}</a>
     </div>
 
         <button type="button" name="logout" (click)='logout()'>Logout</button>
