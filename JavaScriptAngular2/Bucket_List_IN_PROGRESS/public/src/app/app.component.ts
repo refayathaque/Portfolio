@@ -16,7 +16,6 @@ export class AppComponent {
     private title = 'your Bucket List';
     private user = new User();
     private user_state: boolean;
-    // private notLogOrRegComp: boolean;
 
     ngOnInit() {
         this._service.getSession()

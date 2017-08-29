@@ -5,16 +5,19 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlankComponent } from './blank/blank.component';
+import { ShowComponent } from './show/show.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'logout', component: BlankComponent }
+    { path: 'logout', component: BlankComponent },
+    { path: 'show/:id', component: ShowComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

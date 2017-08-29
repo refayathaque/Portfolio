@@ -44,7 +44,7 @@
 
     <h3>Click a friend to see their bucket list items</h3>
     <ol>
-        <li><a *ngFor='let friend of allUsers' value="{{ friend?._id }}" [routerLink]="['/show']">{{ friend.username }}</a></li>
+        <li><a *ngFor='let friend of allUsers' [routerLink]="['show', {{ friend?._id }}]">{{ friend.username }}</a></li>
     </ol>
 
         <button type="button" name="logout" (click)='logout()'>Logout</button>
