@@ -83,7 +83,7 @@ export class BucketListService {
   }
 
     getFriendItemsPending(UserId) {
-        return this._http.get(`api/items/getItemsPending/${UserId}`)
+        return this._http.get(`api/items/getFriendItemsPending/${UserId}`)
             .map((data) => {
                 console.log("(SERVICE) AFTER HTTP CALL GETTING FRIEND PENDING ITEMS, RETURN DATA : ", data)
                 return data.json()
@@ -91,7 +91,7 @@ export class BucketListService {
     }
 
     getFriendItemsDone(UserId) {
-        return this._http.get(`api/items/getItemsDone/${UserId}`)
+        return this._http.get(`api/items/getFriendItemsDone/${UserId}`)
             .map((data) => {
                 console.log("(SERVICE) AFTER HTTP CALL GETTING FRIEND DONE ITEMS, RETURN DATA : ", data)
                 return data.json()

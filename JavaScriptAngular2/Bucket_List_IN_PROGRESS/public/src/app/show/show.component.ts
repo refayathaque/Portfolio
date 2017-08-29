@@ -23,13 +23,13 @@ export class ShowComponent implements OnInit {
             console.log(params.get('id'));
             return this._service.getFriendItemsPending(params.get('id'));
         })
-        // .subscribe(data => this.friendItemsPending = data);
+        .subscribe(data => this.friendItemsPending = data);
 
         this._route.paramMap
         .switchMap(params => {
             console.log(params.get('id'));
             return this._service.getFriendItemsDone(params.get('id'));
         })
-        // .subscribe(data => this.friendItemsPending = data);
+        .subscribe(data => this.friendItemsDone = data);
     }
 }

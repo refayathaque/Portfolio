@@ -9,13 +9,41 @@ function ItemsController() {
     this.getUserItems = function(req, res) {
         User.find({_id : req.session.user._id})
         .populate('items')
-        .exec(function(err, data) {
+        .exec(function (err, data) {
             // .then((data) => {
                 res.json(data);
             // })
             // .catch(err) => {
             //     console.log('(ITEMS CONTROLLER) .CATCH : ', err)
             // }
+        })
+    }
+
+    this.getFriendItemsPending = function(req, res) {
+        User.find({_id : req.params.id})
+        .populate('items')
+        .exec(function (err, data) {
+            Item.find({status : false})
+            .then((data) => {
+                res.json(data)
+            })
+            .catch((err) => {
+                console.log('(ITEMS CONTROLLER) .CATCH : ', err)
+            })
+        })
+    }
+
+    this.getFriendItemsDone = function(req, res) {
+        User.find({_id : req.params.id})
+        .populate('items')
+        .exec(function (err, data) {
+            Item.find({status : true})
+            .then((data) => {
+                res.json(data)
+            })
+            .catch((err) => {
+                console.log('(ITEMS CONTROLLER) .CATCH : ', err)
+            })
         })
     }
 

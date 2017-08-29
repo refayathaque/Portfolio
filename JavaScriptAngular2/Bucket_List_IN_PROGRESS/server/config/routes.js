@@ -42,4 +42,12 @@ module.exports = function(app) {
         items.changeItemStatus(req, res)
     })
 
+    app.get('/api/items/getFriendItemsPending/:id', (req, res) => {
+        items.getFriendItemsPending(req, res)
+    })
+
+    app.get('/api/items/getFriendItemsDone/:id', (req, res) => {
+        items.getFriendItemsDone(req, res)
+    })
+
 }

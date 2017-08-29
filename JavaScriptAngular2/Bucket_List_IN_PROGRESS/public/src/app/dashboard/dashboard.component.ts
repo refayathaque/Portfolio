@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
         this._service.listUsers()
         .then((data) => {
             this.usersExclSessionUser = data.data;
-            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION RETURN DATA ARRAY : ', this.allUsers)
+            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION RETURN DATA ARRAY : ', this.usersExclSessionUser)
             console.log(this.user._id) // works, session user id logged, but won't pick up variable in the following service function
         })
         .catch((err) => {
