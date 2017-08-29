@@ -49,6 +49,35 @@ function reverseArray2(array) {
     }
     return(array);
 }
-console.log(reverseArray2([1, 2, 3, 4, 5]));
+console.log(reverseArray2([1, 2, 3, 4, 5])); // Outputs [ 5, 4, 3, 2, 1 ]
 // 'array[(array.length - 1) - i]' basically moving index left
 // on each for loop iteration, by using incrementing i value
+console.log('---------------------');
+
+////////////////////////////////////
+
+function reverseArray3(array) {
+    var temp = 0;
+    for (left = 0, right = (array.length - 1); left < right; left++, right--) {
+        temp = array[right];
+        array[right] = array[left];
+        array[left] = temp;
+    }
+    return(array);
+}
+var q = [1, 2, 3, 4];
+console.log(reverseArray3(q)); // Outputs [ 4, 3, 2, 1 ]
+console.log('---------------------');
+
+function reverseArray4(array) {
+    var temp = 0;
+    for (var i = 0; i < (array.length / 2); i++) {
+        temp = array[(array.length - 1) - i];
+        array[(array.length - 1) - i] = array[i];
+        array[i] = temp;
+    }
+    return(array);
+}
+var w = [9, 8, 7, 6, 5];
+console.log(reverseArray4(w)); // Outputs [ 5, 6, 7, 8, 9 ]
+console.log('---------------------');
