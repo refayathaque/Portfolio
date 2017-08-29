@@ -6,12 +6,12 @@ function reverseArray(arr) {
         arr[right] = arr[left];
         arr[left] = temp;
     }
-    console.log(arr); //Outputs [5, 4, 3, 2, 1]
+    console.log(arr); // Outputs [5, 4, 3, 2, 1]
 }
 reverseArray([1, 2, 3, 4, 5]);
 console.log('---------------------');
 
-//Another way to do it
+// Another way to do it
 function reverseArrayALT(arr) {
     var temp = 0;
     for (var x = 0; x < (arr.length / 2); x++) {
@@ -19,7 +19,7 @@ function reverseArrayALT(arr) {
         arr[(arr.length - 1) - x] = arr[x];
         arr[x] = temp;
     }
-    console.log(arr); //Outputs [5, 4, 3, 2, 1]
+    console.log(arr); // Outputs [5, 4, 3, 2, 1]
 }
 reverseArrayALT([1, 2, 3, 4, 5]);
 console.log('---------------------');
@@ -35,7 +35,7 @@ function reverseArray1(array) {
     }
     return(array);
 }
-console.log(reverseArray1([9, 7, 5, 3])); //Outputs [3, 5, 7, 9]
+console.log(reverseArray1([9, 7, 5, 3])); // Outputs [3, 5, 7, 9]
 // 'l < r' ensures that this works for odd length arrays as well,
 // basically says that 'l !== r', so the indexes can't be same
 console.log('---------------------');
@@ -50,3 +50,5 @@ function reverseArray2(array) {
     return(array);
 }
 console.log(reverseArray2([1, 2, 3, 4, 5]));
+// 'array[(array.length - 1) - i]' basically moving index left
+// on each for loop iteration, by using incrementing i value
