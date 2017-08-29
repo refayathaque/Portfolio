@@ -10,10 +10,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { EqualDirective } from './equal.directive';
 import { BlankComponent } from './blank/blank.component';
 import { ShowComponent } from './show/show.component';
+
+import { EqualDirective } from './equal.directive';
 
 @NgModule({
   declarations: [
