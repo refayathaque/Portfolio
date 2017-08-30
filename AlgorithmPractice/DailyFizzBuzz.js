@@ -135,3 +135,26 @@ function REVERSEfizzbuzz() {
 }
 REVERSEfizzbuzz();
 console.log('---------------------')
+
+// FizzBuzzing before getting on my EK flight to DXB 08/30/2017
+function fizzbuzz6() {
+    for (i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz6();
+console.log('---------------------')
