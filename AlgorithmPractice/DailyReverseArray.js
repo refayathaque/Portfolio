@@ -96,3 +96,16 @@ function reverseArray5(arr) {
 var e = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 console.log(reverseArray5(e));
 console.log('---------------------');
+
+function reverseArray6(arr) {
+    var temp = 0;
+    for (i = 0; i < (arr.length / 2); i++) {
+        temp = arr[(arr.length - 1) - i];
+        arr[(arr.length - 1) - i] = arr[i];
+        arr[i] = temp;
+    }
+    return(arr);
+}
+var r = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(reverseArray6(r));
+console.log('---------------------');
