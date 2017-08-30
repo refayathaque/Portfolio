@@ -81,3 +81,18 @@ function reverseArray4(array) {
 var w = [9, 8, 7, 6, 5];
 console.log(reverseArray4(w)); // Outputs [ 5, 6, 7, 8, 9 ]
 console.log('---------------------');
+
+////////////////////////////////////
+
+function reverseArray5(arr) {
+    var temp = 0;
+    for (l = 0, r = (arr.length - 1); l < r; l++, r--) {
+        temp = arr[r];
+        arr[r] = arr[l];
+        arr[l] = temp;
+    }
+    return(arr);
+}
+var e = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(reverseArray5(e));
+console.log('---------------------');
