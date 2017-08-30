@@ -5,6 +5,8 @@ import { Bucket_List } from '../bucket-list'; // MUST IMPORT CONSTRUCTOR CLASSES
 
 import { BucketListService } from "app/bucket-list.service";
 
+// HTML - * If the given URL begins with a `/`, router will navigate absolutely. * If the given URL does not begin with `/`, the router will navigate relative to this component. IMPORTANT!!!
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

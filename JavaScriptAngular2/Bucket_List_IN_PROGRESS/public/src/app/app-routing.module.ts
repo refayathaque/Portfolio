@@ -8,16 +8,15 @@ import { BlankComponent } from './blank/blank.component';
 import { ShowComponent } from './show/show.component';
 
 const routes: Routes = [
+    { path: 'show/:id', component: ShowComponent, pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'logout', component: BlankComponent },
-    { path: 'dashboard/show/:id', component: ShowComponent },
-    { path: 'dashboard/show/:id/dashboard', component: DashboardComponent }
+    { path: 'logout', component: BlankComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule]
 })
 

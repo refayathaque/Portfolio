@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
@@ -10,7 +10,7 @@ import { BucketListService } from "app/bucket-list.service";
     templateUrl: './show.component.html',
     styleUrls: ['./show.component.css']
 })
-export class ShowComponent implements OnInit {
+export class ShowComponent implements OnInit, OnDestroy {
 
     constructor(private _service : BucketListService, private _route : ActivatedRoute) { }
 
@@ -41,5 +41,11 @@ export class ShowComponent implements OnInit {
         .catch((err) => {
             console.log('(SHOW COMPONENT) GETSESSION FUNCTION .CATCH')
         })
+    }
+
+    ngOnDestroy() { // sample unsubscribe
+    //   this.friendItemsPending.unsubscribe();
+    //   this.friendItemsDone.unsubscribe();
+      // do things at the end of your components life cycle
     }
 }

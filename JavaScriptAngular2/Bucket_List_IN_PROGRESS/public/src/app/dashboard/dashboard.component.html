@@ -44,7 +44,7 @@
 
     <h3 *ngIf="usersExclSessionUser">Click a friend to see their bucket list items</h3>
     <div *ngFor='let friend of usersExclSessionUser'>
-        <a [routerLink]="['show', friend?._id]">{{ friend.username }}</a>
+        <a [routerLink]="['/show', friend?._id]">{{ friend.username }}</a>
     </div>
 
         <button type="button" name="logout" (click)='logout()'>Logout</button>
