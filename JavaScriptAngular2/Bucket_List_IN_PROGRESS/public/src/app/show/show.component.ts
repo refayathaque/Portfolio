@@ -16,6 +16,7 @@ export class ShowComponent implements OnInit {
 
     private friendItemsPending = [];
     private friendItemsDone = [];
+    private user;
 
     ngOnInit() {
         this._route.paramMap
@@ -31,5 +32,14 @@ export class ShowComponent implements OnInit {
             return this._service.getFriendItemsDone(params.get('id'));
         })
         .subscribe(data => this.friendItemsDone = data);
+
+        this._service.getSession()
+        .then((data) => {
+            this.user = data;
+            console.log('(SHOW COMPONENT) SESSION DATA : ', this.user)
+        })
+        .catch((err) => {
+            console.log('(SHOW COMPONENT) GETSESSION FUNCTION .CATCH')
+        })
     }
 }
