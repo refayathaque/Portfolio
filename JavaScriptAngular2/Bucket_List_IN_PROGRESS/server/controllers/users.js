@@ -89,13 +89,23 @@ function UsersController() {
     this.listUsers = function(req, res) {
         User.find({_id : {$ne : req.session.user._id} }) // Query to find documents in collection EXCEPT some specific document
         .then((data) => {
-            // console.log('All friends (UsersController) : ', data);
             res.json({error : false, data : data})
         })
         .catch((err) => {
-            // console.log('Error in users.js controller', err)
+            console.log('(USERS CONTROLLER) .CATCH', err)
         })
     }
+
+    this.getFriendData = function(req, res) {
+        User.find({_id : req.params.id})
+        .then((data) => {
+            res.json({error : false, data : data})
+        })
+        .catch((err) => {
+            console.log('(USERS CONTROLLER) .CATCH', err)
+        })
+    }
+
 }
 
 module.exports = new UsersController();

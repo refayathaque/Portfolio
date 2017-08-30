@@ -25,6 +25,10 @@ module.exports = function(app) {
         users.getSession(req, res)
     })
 
+    app.get('/api/users/getFriendData/:id', (req, res) => {
+        users.getFriendData(req, res)
+    })
+
     app.get('/api/items/listUsers', (req,res) => {
         users.listUsers(req, res)
     })

@@ -1,7 +1,7 @@
 <div class="wrapper">
     <h3><i>{{ user?.username }} you are logged in</i></h3>
 
-    <h2>{{ friend.username }}'s items</h2>
+    <h2>{{ friend.data[0].username }}'s items</h2>
 
     <h3>Items pending</h3>
     <table>
@@ -31,6 +31,6 @@
         </tr>
     </table>
 
-    <a [routerLink]="['/dashboard']">Return to Dashboard</a>
+    <button type="button" name="dashboard" (click)='dashboard()'>Return to dashboard</button>
 
 </div>

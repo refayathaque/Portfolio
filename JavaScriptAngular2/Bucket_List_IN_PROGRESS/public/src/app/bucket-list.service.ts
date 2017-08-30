@@ -82,12 +82,22 @@ export class BucketListService {
       .toPromise();
   }
 
+    getFriendData(friendId) {
+        return this._http.get(`/api/users/getFriendData/${friendId}`)
+        .map((data) => {
+            console.log("(SERVICE) AFTER HTTP CALL GETTING FRIEND DATA, RETURN DATA : ", data)
+            return data.json()
+        })
+        .toPromise();
+    }
+
     getFriendItemsPending(UserId) {
         return this._http.get(`api/items/getFriendItemsPending/${UserId}`)
             .map((data) => {
                 console.log("(SERVICE) AFTER HTTP CALL GETTING FRIEND PENDING ITEMS, RETURN DATA : ", data)
                 return data.json()
         })
+        .toPromise();
     }
 
     getFriendItemsDone(UserId) {
@@ -96,6 +106,7 @@ export class BucketListService {
                 console.log("(SERVICE) AFTER HTTP CALL GETTING FRIEND DONE ITEMS, RETURN DATA : ", data)
                 return data.json()
         })
+        .toPromise();
     }
 
 }
