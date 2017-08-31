@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from "@angular/router";
 
 import { User } from '../user'; // MUST IMPORT CONSTRUCTOR CLASSES
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         console.log('(LOGIN COMPONENT) FORM USER OBJECT : ', this.user);
+        this.anEventEmitter.emit('DATA FROM CHILD!'); // we can pass in any data type
         this._service.login(this.user)
         .then((data) => {
             if(data.error) {
@@ -34,6 +35,14 @@ export class LoginComponent implements OnInit {
             console.log('(REGISTER COMPONENT) .CATCH')
         })
     }
+
+    @Output() anEventEmitter = new EventEmitter();
+
+    // triggerEvent() {
+    //     this.anEventEmitter.emit(7); //we can pass in any data type
+    // }
+
+
 
     ngOnInit() {
     }

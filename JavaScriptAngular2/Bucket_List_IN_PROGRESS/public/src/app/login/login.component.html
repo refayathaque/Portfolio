@@ -1,8 +1,8 @@
 <div class="wrapper">
 
     <h3><i>Sign in</i></h3>
-    
-    <form (submit)='login()' #formData='ngForm'>
+
+    <form (submit)='login($event)' #formData='ngForm'>
 
         <p>Email</p>
         <input type="text" name="email" size="35" required pattern='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$' [(ngModel)]="user.email" #email='ngModel'>

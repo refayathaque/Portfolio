@@ -10,6 +10,6 @@
         <p *ngIf='user_state'><i>You are still logged in {{ user.username }}, return to <a [routerLink]="['/dashboard']">dashboard</a></i></p>
     </div>
 
-    <router-outlet></router-outlet>
+    <router-outlet (aTaskEventEmitter)="dataFromChild($event)"></router-outlet>
 
 </div>
