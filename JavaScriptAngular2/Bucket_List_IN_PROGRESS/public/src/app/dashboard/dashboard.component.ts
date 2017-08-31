@@ -60,15 +60,15 @@ export class DashboardComponent implements OnInit {
             console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
         })
 
-        this._service.getUserItems()
-        .then((data) => {
-            this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-        })
-        .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-        })
-
+        // this._service.getUserItems()
+        // .then((data) => {
+        //     this.userItems = data;
+        //     console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        // })
+        // .catch((err) => {
+        //     console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        // })
+        // Come back and see if you can get rid of the 2nd API call
     }
 
     changeItemStatus(itemId) {

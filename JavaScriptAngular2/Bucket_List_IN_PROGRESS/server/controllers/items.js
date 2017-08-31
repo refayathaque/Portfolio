@@ -10,12 +10,13 @@ function ItemsController() {
         User.find({_id : req.session.user._id})
         .populate('items')
         .exec(function (err, data) {
-            // .then((data) => {
+            if (data) {
                 res.json(data);
-            // })
-            // .catch(err) => {
-            //     console.log('(ITEMS CONTROLLER) .CATCH : ', err)
-            // }
+                console.log('(ITEMS CONTROLLER) [GET USER ITEMS] DATA : ', data);
+            }
+            if (err) {
+                console.log('(ITEMS CONTROLLER) [GET USER ITEMS] ERROR : ', err)
+            }
         })
     }
 
@@ -109,31 +110,31 @@ function ItemsController() {
                 var item = new Item(req.body);
                 // console.log('(ITEMS CONTROLLER) USER DATA : ', user);
                 item.save((err, item) => {
-                    if (!req.body.friend) {
+                    if (req.body.friend === "") {
                         User.findOneAndUpdate(
                             { _id : req.body.creator },
                             { $push : { items : item } }, // When pushing into arrays we don't need to $set, $set is only for updating specific fields with specific data, not for pushing into arrays
-                            { returnNewDocument : true },
+                            // { returnNewDocument : true },
                             function(err, item) {
                                 if(err) {
                                     console.log('(ITEMS CONTROLLER) ERROR : ', err)
                                     res.json({error : true, messages : 'Error with inserting data into db'})
                                 } else {
-                                    // console.log('(ITEMS CONTROLLER) USER DATA POST UPDATE WITH ITEM : ', user);
+                                    // console.log('(ITEMS CONTROLLER) USER DATA WITH NEW ITEM : ', user);
                                     res.json({error : false, item : item})
                                 }
                             } //function(err, item)
                         ) //findOneAndUpdate
                     }
-                    if (req.body.friend) {
+                    else {
                         User.updateMany(
-                            { _id : req.body.creator, _id : req.body.friend }, { $push : { items: item } },
+                            { $or : [ { _id : req.body.creator }, { _id : req.body.friend } ] }, { $push : { items: item } }, // WAY TO TARGET MULTIPLE DOCUMENTS IN A TABLE!
                             function(err, item) {
                                 if(err) {
                                     console.log('(ITEMS CONTROLLER) ERROR : ', err)
                                     res.json({error : true, messages : 'Error with inserting data into db'})
                                 } else {
-                                    // console.log('(ITEMS CONTROLLER) USER DATA POST UPDATE WITH ITEM : ', user);
+                                    // console.log('(ITEMS CONTROLLER) USER DATA WITH NEW ITEM [TWO USERS] : ', user);
                                     res.json({error : false, item : item})
                                 }
                             } //function(err, item)
