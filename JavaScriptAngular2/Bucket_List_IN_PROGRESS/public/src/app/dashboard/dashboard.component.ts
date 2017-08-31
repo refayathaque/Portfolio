@@ -34,15 +34,6 @@ export class DashboardComponent implements OnInit {
 
     addItem() {
 
-        this._service.getUserItems()
-        .then((data) => {
-            this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-        })
-        .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-        })
-
         this.bucketList.creator = this.user._id // Setting session user id to creator field in bucketList object
         console.log('(DASHBOARD COMPONENT) FORM ITEM OBJECT : ', this.bucketList);
         this._service.addItem(this.bucketList)
@@ -59,6 +50,15 @@ export class DashboardComponent implements OnInit {
         })
         // this._router.navigate(['dashboard']) -> Won't reload component -_-
         // this._router.navigateByUrl('dashboard') -> Won't reload component -_-
+
+        this._service.getUserItems()
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        })
 
         this._service.getUserItems()
         .then((data) => {
