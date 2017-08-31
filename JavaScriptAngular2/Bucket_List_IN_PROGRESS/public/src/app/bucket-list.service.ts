@@ -54,14 +54,16 @@ export class BucketListService {
       .toPromise();
   }
 
-  getUserItems() {
-      return this._http.get('/api/items/getUserItems')
+  addItem(bucketList) {
+      return this._http.post('/api/items/addItem', bucketList)
       .map((data) => {
-          console.log("(SERVICE) AFTER HTTP CALL GETTING USER ITEMS, RETURN DATA : ", data)
+          console.log("(SERVICE) AFTER HTTP CALL ADDING ITEM, RETURN DATA : ", data)
           return data.json()
       })
       .toPromise();
   }
+
+    // ORDER MATTERS IN SERVICE, BC OF MOVING addItem AND changeItemStatus WE CAN HAVE OUR DASHBOARD UPDATE ITEM STATUS AND ITEM LIST AS SOON AS USER CHANGES THE STATUS OR ADDS A NEW ITEM
 
   changeItemStatus(itemId) {
       console.log(itemId)
@@ -73,10 +75,10 @@ export class BucketListService {
       .toPromise();
   }
 
-  addItem(bucketList) {
-      return this._http.post('/api/items/addItem', bucketList)
+  getUserItems() {
+      return this._http.get('/api/items/getUserItems')
       .map((data) => {
-          console.log("(SERVICE) AFTER HTTP CALL ADDING ITEM, RETURN DATA : ", data)
+          console.log("(SERVICE) AFTER HTTP CALL GETTING USER ITEMS, RETURN DATA : ", data)
           return data.json()
       })
       .toPromise();

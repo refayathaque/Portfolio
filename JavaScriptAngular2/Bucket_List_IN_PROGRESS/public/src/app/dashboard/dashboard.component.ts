@@ -21,7 +21,19 @@ export class DashboardComponent implements OnInit {
     private bucketList = new Bucket_List();
     private userItems;
 
-    ngOnChanges() {
+    // ngOnChanges() {
+    //     this._service.getUserItems()
+    //     .then((data) => {
+    //         this.userItems = data;
+    //         console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+    //     })
+    //     .catch((err) => {
+    //         console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+    //     })
+    // }
+
+    addItem() {
+
         this._service.getUserItems()
         .then((data) => {
             this.userItems = data;
@@ -30,9 +42,7 @@ export class DashboardComponent implements OnInit {
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
         })
-    }
 
-    addItem() {
         this.bucketList.creator = this.user._id // Setting session user id to creator field in bucketList object
         console.log('(DASHBOARD COMPONENT) FORM ITEM OBJECT : ', this.bucketList);
         this._service.addItem(this.bucketList)
