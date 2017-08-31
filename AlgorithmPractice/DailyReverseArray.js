@@ -109,3 +109,31 @@ function reverseArray6(arr) {
 var r = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 console.log(reverseArray6(r));
 console.log('---------------------');
+
+////////////////////////////////////
+
+function reverseArray7(array) {
+    var temp = 0;
+    for (left = 0, right = (array.length - 1); left < right; left++, right--) {
+        temp = array[right]
+        array[right] = array[left]
+        array[left] = temp;
+    }
+    return(array);
+}
+var t = [10, 20, 30, 40]
+console.log(reverseArray7(t));
+console.log('---------------------');
+
+function reverseArray8(arr) {
+    var temp = 0;
+    for (i = 0; i < (arr.length / 2); i++) {
+        temp = arr[(arr.length - 1) - i]
+        arr[(arr.length -1) - i] = arr[i]
+        arr[i] = temp
+    }
+    return(arr);
+}
+var y = [1, 2, 3, 4, 5, 6, 7]
+console.log(reverseArray8(y));
+console.log('---------------------');
