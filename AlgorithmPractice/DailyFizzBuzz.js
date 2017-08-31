@@ -158,3 +158,26 @@ function fizzbuzz6() {
 }
 fizzbuzz6();
 console.log('---------------------')
+
+// FizzBuzzing before getting on my EK flight to DAC 08/31/2017
+function fizzbuzz7() {
+    for (i = 1; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz7();
+console.log('---------------------')
