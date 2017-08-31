@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         console.log('(LOGIN COMPONENT) FORM USER OBJECT : ', this.user);
-        this.anEventEmitter.emit('DATA FROM CHILD!'); // we can pass in any data type
+        // this.anEventEmitter.emit('DATA FROM CHILD!'); // we can pass in any data type
         this._service.login(this.user)
         .then((data) => {
             if(data.error) {
@@ -39,10 +39,8 @@ export class LoginComponent implements OnInit {
     @Output() anEventEmitter = new EventEmitter();
 
     // triggerEvent() {
-    //     this.anEventEmitter.emit(7); //we can pass in any data type
+    //     this.anEventEmitter.emit(true); //we can pass in any data type
     // }
-
-
 
     ngOnInit() {
     }

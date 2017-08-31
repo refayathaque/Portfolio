@@ -17,9 +17,12 @@ export class AppComponent {
     private user = new User();
     private user_state: boolean;
 
-    dataFromChild(eventData){
-        console.log(eventData);
-    }
+    // dataFromChild(eventData){
+    //     this.user_state = eventData;
+    // }
+    // <div *ngIf='!user_state'>
+    //     <app-login (anEventEmitter)="dataFromChild($event)"></app-login>
+    // </div>
 
     ngOnInit() {
         this._service.getSession()
