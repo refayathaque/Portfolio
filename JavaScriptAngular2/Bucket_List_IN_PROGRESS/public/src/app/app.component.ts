@@ -9,6 +9,7 @@ import { BucketListService } from "app/bucket-list.service";
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
 
     constructor(private _service : BucketListService) { }
@@ -25,15 +26,16 @@ export class AppComponent {
     // </div>
 
     ngOnInit() {
+
         this._service.getSession()
         .then((data) => {
             if(Object.keys(data).length === 0) {
-                console.log('(APP COMPONENT) NOTHING IN SESSION')
+                console.log('(APP COMPONENT) [GETSESSION] NOTHING IN SESSION')
                 this.user_state = false;
             }
             else {
                 this.user = data;
-                console.log('(APP COMPONENT) SESSION DATA : ', this.user)
+                console.log('(APP COMPONENT) [GETSESSION] SESSION DATA : ', this.user)
                 this.user_state = true;
             }
         })
@@ -41,6 +43,7 @@ export class AppComponent {
             console.log('ERR', err)
             console.log('(APP COMPONENT) .CATCH')
         })
+        
     }
 
 }

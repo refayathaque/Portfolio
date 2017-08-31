@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { Router } from "@angular/router";
 
 import { User } from '../user'; // MUST IMPORT CONSTRUCTOR CLASSES
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
     user_id: string = "";
 
     register() {
-        console.log('(REGISTER COMPONENT) FORM USER OBJECT : ', this.user);
+
+        console.log('(REGISTER COMPONENT) [REGISTER] FORM USER OBJECT : ', this.user);
         this._service.register(this.user)
         .then((data) => {
             if(data.error) {
@@ -27,15 +29,17 @@ export class RegisterComponent implements OnInit {
             }
             else {
                 this.user_id = data.user._id;
-                console.log('(REGISTER COMPONENT) SUCCESFULLY REGISTERED, USER ID : ', this.user_id)
+                console.log('(REGISTER COMPONENT) [REGISTER] SUCCESFUL, USER ID : ', this.user_id)
                 this._router.navigateByUrl('dashboard')
             }
         })
         .catch((err) => {
-            console.log('(REGISTER COMPONENT) .CATCH')
+            console.log('(REGISTER COMPONENT) [REGISTER] .CATCH')
         })
+
     }
 
     ngOnInit() {
     }
+    
 }

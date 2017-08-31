@@ -5,13 +5,17 @@
     <form (submit)='login()' #formData='ngForm'>
 
         <p>Email</p>
+
         <input type="text" name="email" size="35" required pattern='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$' [(ngModel)]="user.email" #email='ngModel'>
 
         <p>Password</p>
+
         <p class='message' [hidden]='!password.errors'></p>
+
         <input type="password" name="password" size="35" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.password" #password='ngModel'>
 
         <br>
+        
         <button (click)="triggerEvent()" type="submit" name="submit" value="submit" [disabled]="!formData.valid">Login</button>
 
     </form>
