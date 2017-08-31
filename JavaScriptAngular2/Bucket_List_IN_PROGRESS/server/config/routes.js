@@ -16,7 +16,6 @@ module.exports = function(app) {
         users.login(req, res)
     })
 
-
     app.get('/api/users/getSession', (req, res) => {
         users.getSession(req, res)
     })
@@ -25,12 +24,12 @@ module.exports = function(app) {
         users.getFriendData(req, res)
     })
 
-    app.get('/api/users/logout', (req, res) => {
-        users.logout(req, res)
-    })
-
     app.get('/api/users/listUsers', (req,res) => {
         users.listUsers(req, res)
+    })
+
+    app.get('/api/users/logout', (req, res) => {
+        users.logout(req, res)
     })
 
     app.post('/api/items/addItem', (req, res) => {
@@ -38,12 +37,12 @@ module.exports = function(app) {
         items.addItem(req, res)
     })
 
-    app.get('/api/items/getUserItems', (req, res) => {
-        items.getUserItems(req, res)
-    })
-
     app.get('/api/items/changeItemStatus/:id', (req, res) => {
         items.changeItemStatus(req, res)
+    })
+
+    app.get('/api/items/getUserItems', (req, res) => {
+        items.getUserItems(req, res)
     })
 
     app.get('/api/items/getFriendItemsPending/:id', (req, res) => {

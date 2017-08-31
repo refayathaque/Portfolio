@@ -28,15 +28,6 @@ export class BucketListService {
         .toPromise();
     }
 
-    logout() {
-        return this._http.get('/api/users/logout')
-        .map((data) => {
-            console.log('(SERVICE) [LOGOUT] AFTER HTTP CALL RETURN DATA : ', data)
-            return data.json()
-        })
-        .toPromise();
-    }
-
     getSession() {
         return this._http.get('/api/users/getSession')
         .map((data) => {
@@ -46,10 +37,28 @@ export class BucketListService {
         .toPromise();
     }
 
+    getFriendData(friendId) {
+        return this._http.get(`/api/users/getFriendData/${friendId}`)
+        .map((data) => {
+            console.log("(SERVICE) [GET FRIEND DATA] AFTER HTTP CALL, RETURN DATA : ", data)
+            return data.json()
+        })
+        .toPromise();
+    }
+
     listUsers() {
         return this._http.get('/api/users/listUsers')
         .map((data) => {
             console.log("(SERVICE) [LIST USERS] AFTER HTTP CALL, RETURN DATA : ", data)
+            return data.json()
+        })
+        .toPromise();
+    }
+
+    logout() {
+        return this._http.get('/api/users/logout')
+        .map((data) => {
+            console.log('(SERVICE) [LOGOUT] AFTER HTTP CALL RETURN DATA : ', data)
             return data.json()
         })
         .toPromise();
@@ -80,15 +89,6 @@ export class BucketListService {
         return this._http.get('/api/items/getUserItems')
         .map((data) => {
             console.log("(SERVICE) [GET USER ITEMS] AFTER HTTP CALL, RETURN DATA : ", data)
-            return data.json()
-        })
-        .toPromise();
-    }
-
-    getFriendData(friendId) {
-        return this._http.get(`/api/users/getFriendData/${friendId}`)
-        .map((data) => {
-            console.log("(SERVICE) [GET FRIEND DATA] AFTER HTTP CALL, RETURN DATA : ", data)
             return data.json()
         })
         .toPromise();
