@@ -21,17 +21,16 @@ export class DashboardComponent implements OnInit {
     private bucketList = new Bucket_List();
     private userItems;
 
-    // ngOnChanges() {
-    //     // this._service.getUserItems()
-    //     // .then((data) => {
-    //     //     this.userItems = data;
-    //     //     console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-    //     // })
-    //     // .catch((err) => {
-    //     //     console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-    //     // })
-    //     console.log(`NGONCHANGES`)
-    // }
+    ngOnChanges() {
+        this._service.getUserItems()
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        })
+    }
 
     addItem() {
         this.bucketList.creator = this.user._id // Setting session user id to creator field in bucketList object
@@ -50,12 +49,32 @@ export class DashboardComponent implements OnInit {
         })
         // this._router.navigate(['dashboard']) -> Won't reload component -_-
         // this._router.navigateByUrl('dashboard') -> Won't reload component -_-
+
+        this._service.getUserItems()
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        })
+
     }
 
     changeItemStatus(itemId) {
         this._service.changeItemStatus(itemId)
         console.log('(DASHBOARD COMPONENT) CHANGEITEMSTATUS OF (ITEM ID) : ', itemId)
         // this._router.navigateByUrl('dashboard') -> Won't reload component -_-
+
+        this._service.getUserItems()
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+        })
+
     }
 
     logout() {

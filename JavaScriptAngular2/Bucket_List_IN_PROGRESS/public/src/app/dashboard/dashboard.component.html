@@ -11,19 +11,21 @@
         <p>Description</p>
         <input type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
 
+        <div *ngIf='usersExclSessionUser.length !== 0'>
         <p>Friend to add</p>
         <select name="friend" [(ngModel)]="bucketList.friend" #friend='ngModel'>
             <option value=""></option>
             <option *ngFor='let friend of usersExclSessionUser' value="{{ friend?._id }}">{{ friend.username }}</option>
         </select>
+        </div>
 
         <br>
         <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Add to list</button>
 
     </form>
 
+    <div *ngIf='userItems[0].items.length !== 0'>
     <h3>Your items</h3>
-
     <table>
         <tr>
             <th>Title</th>
@@ -41,8 +43,9 @@
             <td><button (click)='changeItemStatus(item._id)'>Click here</button></td>
         </tr>
     </table>
+    </div>
 
-    <h3 *ngIf="usersExclSessionUser">Click a friend to see their bucket list items</h3>
+    <h3 *ngIf='usersExclSessionUser.length !== 0'>Click a friend to see their bucket list items</h3>
     <div *ngFor='let friend of usersExclSessionUser'>
         <a [routerLink]="['/show', friend?._id]">{{ friend.username }}</a>
     </div>
