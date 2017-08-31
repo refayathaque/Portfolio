@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Router } from "@angular/router";
 
@@ -38,12 +38,6 @@ export class LoginComponent implements OnInit {
         })
 
     }
-
-    // @Output() anEventEmitter = new EventEmitter();
-
-    // triggerEvent() {
-    //     this.anEventEmitter.emit(true); //we can pass in any data type
-    // }
 
     ngOnInit() {
     }

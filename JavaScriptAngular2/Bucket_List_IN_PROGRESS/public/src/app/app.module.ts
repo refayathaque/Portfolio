@@ -17,6 +17,7 @@ import { ShowComponent } from './show/show.component';
 import { EqualDirective } from './equal.directive';
 
 @NgModule({
+
   declarations: [
     AppComponent,
     LoginComponent,
@@ -26,13 +27,17 @@ import { EqualDirective } from './equal.directive';
     BlankComponent,
     ShowComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule
   ],
+
   providers: [BucketListService],
   bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }

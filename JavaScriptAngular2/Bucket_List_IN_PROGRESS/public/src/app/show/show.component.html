@@ -1,10 +1,13 @@
 <div class="wrapper">
+
     <h3><i>{{ user?.username }} you are logged in</i></h3>
 
     <h2>{{ friend.data[0].username }}'s items</h2>
 
     <h3>Items pending</h3>
+
     <table>
+
         <tr>
             <th>Title</th>
             <th>Description</th>
@@ -15,10 +18,13 @@
             <td>{{ item.description | json }}</td>
             <td>{{ item.createdAt | date:'medium' }}</td>
         </tr>
+
     </table>
 
     <h3>Items done</h3>
+
     <table>
+
         <tr>
             <th>Title</th>
             <th>Description</th>
@@ -29,6 +35,7 @@
             <td>{{ item.description | json }}</td>
             <td>{{ item.createdAt | date:'medium' }}</td>
         </tr>
+        
     </table>
 
     <button type="button" name="dashboard" (click)='dashboard()'>Return to dashboard</button>

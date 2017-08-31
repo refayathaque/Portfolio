@@ -1,16 +1,12 @@
-<div style="text-align:center">
+<div class="centered">
 
     <h1>Welcome to {{title}}</h1>
 
-    <div>
+    <h3 *ngIf='!user_state'>Existing user? <a [routerLink]="['login']">Login</a></h3>
 
-        <h3 *ngIf='!user_state'>Existing user? <a [routerLink]="['login']">Login</a></h3>
+    <h3 *ngIf='!user_state'>New user? <a [routerLink]="['register']">Register</a></h3>
 
-        <h3 *ngIf='!user_state'>New user? <a [routerLink]="['register']">Register</a></h3>
-
-        <p *ngIf='user_state'><i>You are still logged in {{ user.username }}, return to <a [routerLink]="['/dashboard']">dashboard</a></i></p>
-
-    </div>
+    <p *ngIf='user_state'><i>You are still logged in {{ user.username }}, return to <a [routerLink]="['/dashboard']">dashboard</a></i></p>
 
     <router-outlet></router-outlet>
 

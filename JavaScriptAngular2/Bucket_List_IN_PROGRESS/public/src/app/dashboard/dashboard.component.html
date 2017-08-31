@@ -1,4 +1,5 @@
 <div class="wrapper">
+
     <h3><i>{{ user?.username }} you are logged in</i></h3>
 
     <h2>Add your bucket list item</h2>
@@ -6,50 +7,64 @@
     <form (submit)='addItem()' #formData='ngForm'>
 
         <p>Title</p>
+
         <input type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>
 
         <p>Description</p>
+
         <input type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
 
         <div *ngIf='usersExclSessionUser.length !== 0'>
-        <p>Friend to add</p>
-        <select name="friend" [(ngModel)]="bucketList.friend" #friend='ngModel'>
-            <option value=""></option>
-            <option *ngFor='let friend of usersExclSessionUser' value="{{ friend?._id }}">{{ friend.username }}</option>
-        </select>
+
+            <p>Friend to add</p>
+
+            <select name="friend" [(ngModel)]="bucketList.friend" #friend='ngModel'>
+                <option value=""></option>
+                <option *ngFor='let friend of usersExclSessionUser' value="{{ friend?._id }}">{{ friend.username }}</option>
+            </select>
+
         </div>
 
         <br>
+
         <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Add to list</button>
 
     </form>
 
     <div *ngIf='userItems[0].items.length !== 0'>
-    <h3>Your items</h3>
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Added</th>
-            <th>Status</th>
-            <th>Toggle Status</th>
-        </tr>
-        <tr *ngFor="let item of userItems[0].items">
-            <td>{{ item.title | json }}</td>
-            <td>{{ item.description | json }}</td>
-            <td>{{ item.createdAt | date:'medium' }}</td>
-            <td *ngIf="item.status === false">Pending</td>
-            <td *ngIf="item.status === true">Done</td>
-            <td><button (click)='changeItemStatus(item._id)'>Click here</button></td>
-        </tr>
-    </table>
+
+        <h3>Your items</h3>
+
+        <table>
+
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Added</th>
+                <th>Status</th>
+                <th>Toggle Status</th>
+            </tr>
+            <tr *ngFor="let item of userItems[0].items">
+                <td>{{ item.title | json }}</td>
+                <td>{{ item.description | json }}</td>
+                <td>{{ item.createdAt | date:'medium' }}</td>
+                <td *ngIf="item.status === false">Pending</td>
+                <td *ngIf="item.status === true">Done</td>
+                <td><button (click)='changeItemStatus(item._id)'>Click here</button></td>
+            </tr>
+
+        </table>
+
     </div>
 
     <h3 *ngIf='usersExclSessionUser.length !== 0'>Click a friend to see their bucket list items</h3>
+
     <div *ngFor='let friend of usersExclSessionUser'>
+
         <a [routerLink]="['/show', friend?._id]">{{ friend.username }}</a>
+
     </div>
 
-        <button type="button" name="logout" (click)='logout()'>Logout</button>
+    <button type="button" name="logout" (click)='logout()'>Logout</button>
 
 </div>

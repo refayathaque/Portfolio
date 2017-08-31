@@ -1,4 +1,5 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 
 import { Bucket_List } from '../bucket-list'; // MUST IMPORT CONSTRUCTOR CLASSES
@@ -12,6 +13,7 @@ import { BucketListService } from "app/bucket-list.service";
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
     constructor(private _service : BucketListService, private _router : Router) { }
@@ -20,17 +22,6 @@ export class DashboardComponent implements OnInit {
     private usersExclSessionUser = [];
     private bucketList = new Bucket_List();
     private userItems;
-
-    // ngOnChanges() {
-    //     this._service.getUserItems()
-    //     .then((data) => {
-    //         this.userItems = data;
-    //         console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-    //     })
-    //     .catch((err) => {
-    //         console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-    //     })
-    // }
 
     addItem() {
 
@@ -42,57 +33,48 @@ export class DashboardComponent implements OnInit {
                 alert(data.messages)
             }
             else {
-                console.log('(DASHBOARD COMPONENT) ITEM ADDED, RETURN DATA : ', data)
+                console.log('(DASHBOARD COMPONENT) [ADD ITEM] RETURN DATA : ', data)
             }
         })
         .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) .CATCH')
+            console.log('(DASHBOARD COMPONENT) [ADD ITEM] .CATCH')
         })
-        // this._router.navigate(['dashboard']) -> Won't reload component -_-
-        // this._router.navigateByUrl('dashboard') -> Won't reload component -_-
 
         this._service.getUserItems()
         .then((data) => {
             this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] RETURN DATA : ', this.userItems)
         })
         .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
         })
 
-        // this._service.getUserItems()
-        // .then((data) => {
-        //     this.userItems = data;
-        //     console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
-        // })
-        // .catch((err) => {
-        //     console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
-        // })
-        // Come back and see if you can get rid of the 2nd API call
     }
 
     changeItemStatus(itemId) {
+
         this._service.changeItemStatus(itemId)
-        console.log('(DASHBOARD COMPONENT) CHANGEITEMSTATUS OF (ITEM ID) : ', itemId)
-        // this._router.navigateByUrl('dashboard') -> Won't reload component -_-
+        console.log('(DASHBOARD COMPONENT) [CHANGE ITEM STATUS] RETURN DATA : ', itemId)
 
         this._service.getUserItems()
         .then((data) => {
             this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] RETURN DATA : ', this.userItems)
         })
         .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
         })
 
     }
 
     logout() {
+
         this._service.logout()
         .then(() => { })
         .catch(() => { })
-        console.log('(DASHBOARD COMPONENT) LOGOUT')
+        console.log('(DASHBOARD COMPONENT) [LOGOUT]')
         this._router.navigateByUrl('logout')
+
     }
 
     ngOnInit() {
@@ -100,30 +82,30 @@ export class DashboardComponent implements OnInit {
         this._service.getSession()
         .then((data) => {
             this.user = data;
-            console.log('(DASHBOARD COMPONENT) SESSION DATA : ', this.user)
+            console.log('(DASHBOARD COMPONENT) [GET SESSION] RETURN DATA : ', this.user)
         })
         .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETSESSION FUNCTION .CATCH')
+            console.log('(DASHBOARD COMPONENT) [GET SESSION] .CATCH')
         })
 
         this._service.listUsers()
         .then((data) => {
             this.usersExclSessionUser = data.data;
-            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION RETURN DATA ARRAY : ', this.usersExclSessionUser)
-            console.log(this.user._id) // works, session user id logged, but won't pick up variable in the following service function
+            console.log('(DASHBOARD COMPONENT) [LIST USERS] RETURN DATA : ', this.usersExclSessionUser)
         })
         .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) LISTUSERS FUNCTION .CATCH')
+            console.log('(DASHBOARD COMPONENT) [LIST USERS] .CATCH')
         })
 
         this._service.getUserItems()
         .then((data) => {
             this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) USER ITEMS : ', this.userItems)
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] RETURN DATA : ', this.userItems)
         })
         .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) GETUSERITEMS FUNCTION .CATCH')
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
         })
 
     }
+
 }

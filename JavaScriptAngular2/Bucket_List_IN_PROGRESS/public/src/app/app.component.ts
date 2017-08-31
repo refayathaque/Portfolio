@@ -18,24 +18,17 @@ export class AppComponent {
     private user = new User();
     private user_state: boolean;
 
-    // dataFromChild(eventData){
-    //     this.user_state = eventData;
-    // }
-    // <div *ngIf='!user_state'>
-    //     <app-login (anEventEmitter)="dataFromChild($event)"></app-login>
-    // </div>
-
     ngOnInit() {
 
         this._service.getSession()
         .then((data) => {
             if(Object.keys(data).length === 0) {
-                console.log('(APP COMPONENT) [GETSESSION] NOTHING IN SESSION')
+                console.log('(APP COMPONENT) [GET SESSION] NOTHING IN SESSION')
                 this.user_state = false;
             }
             else {
                 this.user = data;
-                console.log('(APP COMPONENT) [GETSESSION] SESSION DATA : ', this.user)
+                console.log('(APP COMPONENT) [GET SESSION] RETURN DATA : ', this.user)
                 this.user_state = true;
             }
         })
@@ -43,7 +36,7 @@ export class AppComponent {
             console.log('ERR', err)
             console.log('(APP COMPONENT) .CATCH')
         })
-        
+
     }
 
 }
