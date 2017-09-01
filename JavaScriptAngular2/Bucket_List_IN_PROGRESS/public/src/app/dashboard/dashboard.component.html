@@ -43,6 +43,7 @@
                 <th>Added</th>
                 <th>Status</th>
                 <th>Toggle Status</th>
+                <th>Update</th>
             </tr>
             <tr *ngFor="let item of userItems[0].items">
                 <td>{{ item.title | json }}</td>
@@ -51,6 +52,7 @@
                 <td *ngIf="item.status === false">Pending</td>
                 <td *ngIf="item.status === true">Done</td>
                 <td><button (click)='changeItemStatus(item._id)'>Click here</button></td>
+                <td><button (click)='update(item._id)'>Click here</button></td>
             </tr>
 
         </table>

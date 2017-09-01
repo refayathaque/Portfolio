@@ -34,19 +34,20 @@ export class DashboardComponent implements OnInit {
             }
             else {
                 console.log('(DASHBOARD COMPONENT) [ADD ITEM] RETURN DATA : ', data)
+
+                this._service.getUserItems()
+                .then((data) => {
+                    this.userItems = data;
+                    console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] RETURN DATA : ', this.userItems)
+                })
+                .catch((err) => {
+                    console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
+                })
+
             }
         })
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) [ADD ITEM] .CATCH')
-        })
-
-        this._service.getUserItems()
-        .then((data) => {
-            this.userItems = data;
-            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] RETURN DATA : ', this.userItems)
-        })
-        .catch((err) => {
-            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
         })
 
     }
@@ -65,6 +66,10 @@ export class DashboardComponent implements OnInit {
             console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
         })
 
+    }
+
+    update(itemId) {
+        console.log(itemId);
     }
 
     logout() {
