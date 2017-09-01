@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
     private usersExclSessionUser = [];
     private bucketList = new Bucket_List();
     private userItems;
+    private updateBoolean: boolean = false;
 
     addItem() {
 
@@ -68,7 +69,8 @@ export class DashboardComponent implements OnInit {
 
     }
 
-    update(itemId) {
+    updateForm(itemId) {
+        this.updateBoolean = true;
         console.log(itemId);
     }
 

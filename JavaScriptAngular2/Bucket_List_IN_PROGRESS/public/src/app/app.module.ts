@@ -15,6 +15,7 @@ import { BlankComponent } from './blank/blank.component';
 import { ShowComponent } from './show/show.component';
 
 import { EqualDirective } from './equal.directive';
+import { UpdateComponent } from './dashboard/update/update.component';
 
 @NgModule({
 
@@ -25,7 +26,8 @@ import { EqualDirective } from './equal.directive';
     EqualDirective,
     DashboardComponent,
     BlankComponent,
-    ShowComponent
+    ShowComponent,
+    UpdateComponent
   ],
 
   imports: [

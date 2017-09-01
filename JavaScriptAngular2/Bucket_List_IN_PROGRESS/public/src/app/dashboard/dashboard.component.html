@@ -52,10 +52,16 @@
                 <td *ngIf="item.status === false">Pending</td>
                 <td *ngIf="item.status === true">Done</td>
                 <td><button (click)='changeItemStatus(item._id)'>Click here</button></td>
-                <td><button (click)='update(item._id)'>Click here</button></td>
+                <td><button (click)='updateForm(item._id)'>Click here</button></td>
             </tr>
 
         </table>
+
+    </div>
+
+    <div *ngIf="updateBoolean">
+
+        <app-update></app-update>
 
     </div>
 
