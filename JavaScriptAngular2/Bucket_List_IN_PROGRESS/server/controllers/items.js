@@ -21,21 +21,31 @@ function ItemsController() {
     }
 
     this.getFriendItemsPending = function(req, res) {
+
         User.find({_id : req.params.id})
-        .populate('items')
-        .exec(function (err, data) {
-            Item.find({status : false})
-            .then((data) => {
-                res.json(data)
-            })
-            .catch((err) => {
-                console.log('(ITEMS CONTROLLER) .CATCH : ', err)
-            })
+        .populate({path: 'items', query: { status: { $in: 'false' }}})
+        .exec((err, data) => {
+            res.json(data)
         })
+
     }
 
+        // console.log(req.params.id) // Id working
+        // User.findOne({_id : req.params.id})
+        // // .populate('items', match: {status : false})
+        // .populate('items', {find: {status : false} })
+        // .exec(function (err, data) {
+        //     // Item.find({status : false})
+        //     // .then((data) => {
+        //         res.json(data)
+        //     // })
+        //     // .catch((err) => {
+        //     //     console.log('(ITEMS CONTROLLER) .CATCH : ', err)
+        //     // })
+        // })
+
     this.getFriendItemsDone = function(req, res) {
-        User.find({_id : req.params.id})
+        User.findOne({_id : req.params.id})
         .populate('items')
         .exec(function (err, data) {
             Item.find({status : true})
