@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
     private bucketList = new Bucket_List();
     private userItems;
     private updateBoolean: boolean = false;
+    private itemId;
 
     addItem() {
 
@@ -72,6 +73,7 @@ export class DashboardComponent implements OnInit {
     updateForm(itemId) {
         this.updateBoolean = true;
         console.log(itemId);
+        this.itemId = itemId;
     }
 
     logout() {

@@ -112,4 +112,8 @@ export class BucketListService {
         .toPromise();
     }
 
+    getItem(ItemId) {
+        console.log('ITEM ID FOR UPDATE : ', ItemId);
+    }
+
 }

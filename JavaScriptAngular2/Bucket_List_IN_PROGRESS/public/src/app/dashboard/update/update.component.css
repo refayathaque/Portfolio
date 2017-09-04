@@ -1,0 +1,25 @@
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    border: 1px solid #009933;
+}
+input.ng-valid {
+    color: black;
+}
+input.ng-invalid {
+    color: red;
+}
+input.ng-pristine {
+    color: black;
+}
+/*.message {
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+    text-align: center;
+}*/
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
