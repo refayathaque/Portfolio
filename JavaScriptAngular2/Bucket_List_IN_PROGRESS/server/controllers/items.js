@@ -23,26 +23,23 @@ function ItemsController() {
 ///////////////////////
 
     this.getFriendItemsPending = function(req, res) {
-        // User.find({_id : req.params.id})
-        // // console.log(req.params.id)
-        // .populate('items')
-        // .exec(function (err, data) {
-            // if (data) {
-            //     res.json(data);
-            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] : ', data);
-            // }
-            // if (err) {
-            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] ERROR : ', err)
-            // }
-            Item.find({status : false})
-            .then((data) => {
-                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] : ', data);
-                res.json(data)
-            })
-            .catch((err) => {
+        User.find({_id : req.params.id})
+        .populate('items')
+        .exec(function (err, data) {
+            if (data) {
+                var pendingArray = [];
+                for (i = 0; i < data[0].items.length; i++) {
+                    if (data[0].items[i].status === false) {
+                        pendingArray.push(data[0].items[i]);
+                    }
+                }
+                res.json(pendingArray);
+                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] : ', pendingArray);
+            }
+            if (err) {
                 console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] ERROR : ', err)
-            })
-        // })
+            }
+        })
     }
 
 ///////////////////////
@@ -64,14 +61,6 @@ function ItemsController() {
             if (err) {
                 console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] ERROR : ', err)
             }
-            // Item.find({status : true})
-            // .then((data) => {
-            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] : ', data);
-            //     res.json(data)
-            // })
-            // .catch((err) => {
-            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] ERROR : ', err)
-            // })
         })
     }
 
