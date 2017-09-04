@@ -181,3 +181,27 @@ function fizzbuzz7() {
 }
 fizzbuzz7();
 console.log('---------------------')
+
+// FizzBuzzing after a while, past few days in Dhaka have been really busy (09/04/17)
+function REVERSEfizzbuzz2() {
+    for (i = 100; i > 0 ; i--) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz')
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz')
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz')
+            continue;
+        }
+        else {
+            console.log(i);
+            continue;
+        }
+    }
+}
+REVERSEfizzbuzz2();
+console.log('---------------------')
