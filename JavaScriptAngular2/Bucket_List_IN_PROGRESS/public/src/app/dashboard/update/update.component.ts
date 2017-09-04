@@ -16,10 +16,8 @@ export class UpdateComponent implements OnInit {
     constructor(private _service : BucketListService) { }
 
     private bucketList = new Bucket_List();
-    private itemId;
 
-    @Input() private itemId : itemId;
-
+    @Input() private itemId;
 
     // this._service.updateItem(this.bucketList, this.itemId)
     // .then((data) => {
