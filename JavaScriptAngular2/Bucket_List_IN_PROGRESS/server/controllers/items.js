@@ -20,43 +20,57 @@ function ItemsController() {
         })
     }
 
+///////////////////////
+
     this.getFriendItemsPending = function(req, res) {
-
-        User.find({_id : req.params.id})
-        .populate({path: 'items', query: { status: { $in: 'false' }}})
-        .exec((err, data) => {
-            res.json(data)
-        })
-
-    }
-
-        // console.log(req.params.id) // Id working
-        // User.findOne({_id : req.params.id})
-        // // .populate('items', match: {status : false})
-        // .populate('items', {find: {status : false} })
+        // User.find({_id : req.params.id})
+        // // console.log(req.params.id)
+        // .populate('items')
         // .exec(function (err, data) {
-        //     // Item.find({status : false})
-        //     // .then((data) => {
-        //         res.json(data)
-        //     // })
-        //     // .catch((err) => {
-        //     //     console.log('(ITEMS CONTROLLER) .CATCH : ', err)
-        //     // })
-        // })
-
-    this.getFriendItemsDone = function(req, res) {
-        User.findOne({_id : req.params.id})
-        .populate('items')
-        .exec(function (err, data) {
-            Item.find({status : true})
+            // if (data) {
+            //     res.json(data);
+            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] : ', data);
+            // }
+            // if (err) {
+            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] ERROR : ', err)
+            // }
+            Item.find({status : false})
             .then((data) => {
+                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] : ', data);
                 res.json(data)
             })
             .catch((err) => {
-                console.log('(ITEMS CONTROLLER) .CATCH : ', err)
+                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS PENDING] ERROR : ', err)
             })
+        // })
+    }
+
+///////////////////////
+
+    this.getFriendItemsDone = function(req, res) {
+        User.find({_id : req.params.id})
+        // console.log(req.params.id)
+        .populate('items')
+        .exec(function (err, data) {
+            if (data) {
+                res.json(data[0].items);
+                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] : ', data[0].items);
+            }
+            if (err) {
+                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] ERROR : ', err)
+            }
+            // Item.find({status : true})
+            // .then((data) => {
+            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] : ', data);
+            //     res.json(data)
+            // })
+            // .catch((err) => {
+            //     console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] ERROR : ', err)
+            // })
         })
     }
+
+///////////////////////
 
     this.changeItemStatus = function(req, res) {
         console.log(req.params.id)

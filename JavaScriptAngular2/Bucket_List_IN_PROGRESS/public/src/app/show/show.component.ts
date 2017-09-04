@@ -54,7 +54,7 @@ export class ShowComponent implements OnInit {
         .catch((err) => {
             console.log('(SHOW COMPONENT) [GET SESSION] .CATCH')
         })
-        
+
     }
 
 }
