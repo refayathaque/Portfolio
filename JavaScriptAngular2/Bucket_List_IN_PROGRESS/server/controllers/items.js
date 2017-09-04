@@ -49,12 +49,17 @@ function ItemsController() {
 
     this.getFriendItemsDone = function(req, res) {
         User.find({_id : req.params.id})
-        // console.log(req.params.id)
         .populate('items')
         .exec(function (err, data) {
             if (data) {
-                res.json(data[0].items);
-                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] : ', data[0].items);
+                var doneArray = [];
+                for (i = 0; i < data[0].items.length; i++) {
+                    if (data[0].items[i].status === true) {
+                        doneArray.push(data[0].items[i]);
+                    }
+                }
+                res.json(doneArray);
+                console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] : ', doneArray);
             }
             if (err) {
                 console.log('(ITEMS CONTROLLER) [GET FRIEND ITEMS DONE] ERROR : ', err)
