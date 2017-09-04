@@ -20,8 +20,6 @@ function ItemsController() {
         })
     }
 
-///////////////////////
-
     this.getFriendItemsPending = function(req, res) {
         User.find({_id : req.params.id})
         .populate('items')
@@ -42,8 +40,6 @@ function ItemsController() {
         })
     }
 
-///////////////////////
-
     this.getFriendItemsDone = function(req, res) {
         User.find({_id : req.params.id})
         .populate('items')
@@ -63,8 +59,6 @@ function ItemsController() {
             }
         })
     }
-
-///////////////////////
 
     this.changeItemStatus = function(req, res) {
         console.log(req.params.id)

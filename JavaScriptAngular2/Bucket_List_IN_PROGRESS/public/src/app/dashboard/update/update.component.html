@@ -1,3 +1,21 @@
-<p>
-  update works!
-</p>
+<div class="wrapper">
+
+    <form (submit)='updateItem()' #formData='ngForm'>
+
+        <h2>Update this bucket list item</h2>
+
+        <p>Title</p>
+
+        <input type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>
+
+        <p>Description</p>
+
+        <input type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
+
+        <br>
+
+        <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Add to list</button>
+
+    </form>
+
+</div>

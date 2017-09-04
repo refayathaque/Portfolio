@@ -1,15 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
+import { Bucket_List } from '.../bucket-list'; // MUST IMPORT CONSTRUCTOR CLASSES
+
+import { BucketListService } from "app/bucket-list.service";
+
 @Component({
-  selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+    selector: 'app-update',
+    templateUrl: './update.component.html',
+    styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
 
-  constructor() { }
+    constructor(private _service : BucketListService) { }
 
-  ngOnInit() {
-  }
+    private bucketList = new Bucket_List();
+
+    this._service.updateItem(this.bucketList)
+    .then((data) => {
+        if(data.error) {
+            alert(data.messages)
+        }
+        else {
+            console.log('(UPDATE COMPONENT) RETURN DATA : ', data)
+        })
+    .catch((err) => {
+        console.log('(UPDATE COMPONENT) .CATCH')
+    })
+
+    ngOnInit() {
+
+    }
 
 }
