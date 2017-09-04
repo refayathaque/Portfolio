@@ -129,11 +129,40 @@ function reverseArray8(arr) {
     var temp = 0;
     for (i = 0; i < (arr.length / 2); i++) {
         temp = arr[(arr.length - 1) - i]
-        arr[(arr.length -1) - i] = arr[i]
+        arr[(arr.length - 1) - i] = arr[i]
         arr[i] = temp
     }
     return(arr);
 }
 var y = [1, 2, 3, 4, 5, 6, 7]
 console.log(reverseArray8(y));
+console.log('---------------------');
+
+////////////////////////////////////
+
+function reverseArray9(array) {
+    var temp = 0;
+    for (l = 0, r = array.length - 1; l < r; l++, r--) {
+        temp = array[l];
+        array[l] = array[r];
+        array[r] = temp;
+    }
+    return(array);
+}
+var u = [3, 6, 9, 12]
+console.log(reverseArray9(u));
+console.log('---------------------');
+
+function reverseArray10(array) {
+    var temp = 0;
+    for (i = array.length - 1; i >= (array.length / 2); i--) {
+        console.log(i);
+        temp = array[(array.length - 1) - i];
+        array[(array.length - 1) - i] = array[i]
+        array[i] = temp;
+    }
+    return(array);
+}
+var i = [1, 2, 3, 4, 5, 6, 7, 8]
+console.log(reverseArray10(i));
 console.log('---------------------');
