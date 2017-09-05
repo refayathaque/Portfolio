@@ -42,8 +42,8 @@
                 <th>Description</th>
                 <th>Added</th>
                 <th>Status</th>
-                <th>Toggle Status</th>
-                <th>Update</th>
+                <th>Status</th>
+                <th>Update Form</th>
             </tr>
             <tr *ngFor="let item of userItems[0].items">
                 <td>{{ item.title | json }}</td>
@@ -51,8 +51,8 @@
                 <td>{{ item.createdAt | date:'medium' }}</td>
                 <td *ngIf="item.status === false">Pending</td>
                 <td *ngIf="item.status === true">Done</td>
-                <td><button (click)='changeItemStatus(item._id)'>Click here</button></td>
-                <td><button (click)='updateForm(item._id)'>Click here</button></td>
+                <td><button (click)='changeItemStatus(item._id)'>Toggle</button></td>
+                <td><button (click)='updateForm(item._id)'>Toggle</button></td>
             </tr>
 
         </table>

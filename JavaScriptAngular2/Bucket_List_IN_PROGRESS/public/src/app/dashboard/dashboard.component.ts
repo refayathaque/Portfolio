@@ -71,7 +71,12 @@ export class DashboardComponent implements OnInit {
     }
 
     updateForm(itemId) {
-        this.updateBoolean = true;
+        if (this.updateBoolean === true) {
+            this.updateBoolean = false;
+        }
+        else {
+            this.updateBoolean = true;
+        }
         console.log(itemId);
         this.itemId = itemId;
     }
