@@ -156,7 +156,6 @@ console.log('---------------------');
 function reverseArray10(array) {
     var temp = 0;
     for (i = array.length - 1; i >= (array.length / 2); i--) {
-        console.log(i);
         temp = array[(array.length - 1) - i];
         array[(array.length - 1) - i] = array[i]
         array[i] = temp;
@@ -168,3 +167,16 @@ console.log(reverseArray10(i));
 console.log('---------------------');
 
 ////////////////////////////////////
+
+function reverseArray11(arr) {
+    var temp = 0;
+    for (left = 0, right = (arr.length - 1); left < right; left++, right--) {
+        temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+    }
+    return(arr);
+}
+var o = [9, 7, 5, 3, 1];
+console.log(reverseArray11(o));
+console.log('---------------------');
