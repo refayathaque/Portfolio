@@ -205,3 +205,27 @@ function REVERSEfizzbuzz2() {
 }
 REVERSEfizzbuzz2();
 console.log('---------------------')
+
+// Fizzbuzzing after a while, past few days have been tough dealing with Grandfather's passing in Dhaka, Bangladesh
+function fizzbuzz8() {
+    for (i = 1; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+            continue;
+        }
+    }
+}
+fizzbuzz8();
+console.log('---------------------')
