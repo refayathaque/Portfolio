@@ -229,3 +229,27 @@ function fizzbuzz8() {
 }
 fizzbuzz8();
 console.log('---------------------')
+
+// Fizzbuzzig on EK flight from DXB to IAD
+function REVERSEfizzbuzz3() {
+    for (i = 100; i > 0; i--) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+            continue;
+        }
+    }
+}
+REVERSEfizzbuzz3();
+console.log('---------------------')
