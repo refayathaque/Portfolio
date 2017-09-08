@@ -180,3 +180,18 @@ function reverseArray11(arr) {
 var o = [9, 7, 5, 3, 1];
 console.log(reverseArray11(o));
 console.log('---------------------');
+
+function reverseArray12(array) {
+    var temp = 0;
+    for (i = 0; i < (array.length / 2); i++) {
+        temp = array[(array.length - 1) - i];
+        array[(array.length - 1) - i] = array[i];
+        array[i] = temp;
+    }
+    return array;
+}
+var p = [1, 2, 3, 4, 5, 6];
+console.log(reverseArray12(p));
+console.log('---------------------');
+
+////////////////////////////////////
