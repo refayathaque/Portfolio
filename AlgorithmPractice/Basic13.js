@@ -107,3 +107,29 @@ q = [1, 2, 3, 4, 5]
 console.log(greaterThanY(q, 1));
 
 console.log('=======================');
+
+// 8. Max, Min, Average
+
+function minMaxAvg(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
+    var min = arr[0];
+    var max = arr[0];
+    var sum = 0;
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i]
+        }
+        if (arr[i] > max) {
+            max = arr[i]
+        }
+        sum += arr[i]
+    }
+    // return [ max, min, sum / arr.length ]
+    console.log('Max ', max);
+    console.log('Min ', min);
+    console.log('Avg ', sum / arr.length);
+}
+minMaxAvg([1, 2, 3, 4])
+// console.log(minMaxAvg([1, 2, 3, 4]));
