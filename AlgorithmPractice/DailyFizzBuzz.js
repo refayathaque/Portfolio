@@ -253,3 +253,26 @@ function REVERSEfizzbuzz3() {
 }
 REVERSEfizzbuzz3();
 console.log('---------------------')
+
+// Fizzbuzzing after a while, 09/11/2017
+function fizzbuzz9() {
+    for (i = 0; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz9();
+console.log('---------------------')
