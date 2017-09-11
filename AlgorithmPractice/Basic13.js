@@ -38,6 +38,9 @@ console.log('=======================');
 
 function printLargestElemInArr(arr) {
     var lrg = arr[0];
+    if (arr.length === 0) {
+        return 'Array is empty';
+    }
     for (i = 0; i < arr.length; i++) {
         if (arr[i] > lrg) { // Switch sign if looking for smallest element
             lrg = arr[i];
@@ -45,6 +48,62 @@ function printLargestElemInArr(arr) {
     }
     return lrg;
 }
-console.log(printLargestElemInArr([-5, -2, -3]));
+console.log(printLargestElemInArr([1, 2, 3, -4]));
+
+console.log('=======================');
+
+// 4. Print Odds 1-255
+
+function printOdds1To255() {
+    for (i = 1; i < 256; i += 2) {
+        console.log(i);
+    }
+}
+printOdds1To255()
+
+console.log('=======================');
+
+// 5. Array with Odds
+
+function arrayWithOdds1To255() {
+    var array = [];
+    for (i = 1; i < 256; i += 2) {
+        array.push(i);
+    }
+    return array;
+}
+console.log(arrayWithOdds1To255());
+
+console.log('=======================');
+
+// 6. Get and Print Average
+
+function arrayAverage(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
+    var sum = arr[0];
+    for (i = 1; i < arr.length; i++) {
+        sum += arr[i]
+    }
+    return (sum / arr.length);
+}
+console.log(arrayAverage([5, 5, 5]));
+
+console.log('=======================');
+
+// 7. Greater than Y
+
+function greaterThanY(arr, y) {
+    var count = 0;
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] > y) {
+            count++;
+        }
+    }
+    return count;
+}
+q = [1, 2, 3, 4, 5]
+console.log(greaterThanY(q, 1));
 
 console.log('=======================');
