@@ -195,3 +195,29 @@ console.log(reverseArray12(p));
 console.log('---------------------');
 
 ////////////////////////////////////
+
+function reverseArray13(array) {
+    var temp = 0;
+    for (left = 0, right = (array.length - 1); left < right; left++, right--) {
+        temp = array[right];
+        array[right] = array[left];
+        array[left] = temp;
+    }
+    return array;
+}
+var a = [1, 3, 5, 7, 9];
+console.log(reverseArray13(a));
+console.log('---------------------');
+
+function reverseArray14(arr) {
+    var temp = 0;
+    for (i = 0; i < (arr.length / 2); i++) {
+        temp = arr[(arr.length - 1) - i];
+        arr[(arr.length - 1) - i] = arr[i];
+        arr[i] = temp;
+    }
+    return arr;
+}
+var s = [1, 3, 5, 7, 9];
+console.log(reverseArray14(s));
+console.log('---------------------');
