@@ -114,8 +114,9 @@ function minMaxAvg(arr) {
     if (arr.length === 0) {
         return 'Array is empty'
     }
-    var min = arr[0];
-    var max = arr[0];
+    var min = max = arr[0]; // Syntax for assigning multiple variables to one value
+    // var min = arr[0];
+    // var max = arr[0];
     var sum = 0;
     for (i = 0; i < arr.length; i++) {
         if (arr[i] < min) {
