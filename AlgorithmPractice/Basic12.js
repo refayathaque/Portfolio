@@ -250,10 +250,10 @@ function bubbleSort(arr) {
     if (arr.length === 0) {
         return 'Array is empty'
     }
-    var unsorted = true;
+    let unsorted = true;
     while (unsorted === true) {
-        var count = 0;
-        for (i = 0; i < arr.length; i++) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
             if (arr[i] > arr[i + 1]) { // Flip sign for descending
                 temp = arr[i];
                 arr[i] = arr[i + 1];
@@ -282,7 +282,7 @@ function bubbleSortRec(arr) {
     }
     let swapped = false;
     let temp = 0;
-    for (let = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (arr[i] > arr[i + 1]) {
             temp = arr[i]
             arr[i] = arr[i + 1]
@@ -299,15 +299,6 @@ d = [9, -3, 6, -1, 3, 6]
 console.log(bubbleSortRec(d));
 
 console.log('=======================');
-
-
-
-
-
-
-
-
-
 
 // Array Selection Sort (Ascending)
 
