@@ -140,6 +140,9 @@ console.log('=======================');
 // 9. Square the Values
 
 function squareValues(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
     for (i = 0; i < arr.length; i++) {
         arr[i] *= arr[i]; // Array passed in is mutable
     }
@@ -153,6 +156,9 @@ console.log('=======================');
 // 10. Zero Out Negative Numbers
 
 function zeroOutNegs(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
     for (i = 0; i < arr.length; i++) {
         if (arr[i] < 0) {
             arr[i] = 0;
@@ -168,6 +174,9 @@ console.log('=======================');
 // 11. Shift Array Values
 
 function shiftArrayVals(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
     // temp = arr[1]
     // for (i = 0; i < arr.length - 1; i++) {
     //     arr[i] = temp;
@@ -187,6 +196,9 @@ console.log('=======================');
 // 12. Swap String for Array Negative Values
 
 function swapNegsWithString(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
     for (i = 0; i < arr.length; i++) {
         if (arr[i] < 0) {
             arr[i] = 'Dojo'
@@ -199,9 +211,12 @@ console.log(swapNegsWithString(r));
 
 console.log('=======================');
 
-// Trying to define Array class Push method
+// Defining Array class Push method
 
 function push(arr, value) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
     arr[arr.length] = value
     return arr;
     // return value;
@@ -212,9 +227,12 @@ console.log(push(p, 5));
 
 console.log('=======================');
 
-// Trying to define Array class Pop method
+// Defining Array class Pop method
 
 function pop(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
     temp = arr[arr.length - 1];
     arr.length = arr.length - 1; // Arrays so mutable that you can modify length like this
     return arr;
@@ -223,3 +241,35 @@ function pop(arr) {
 }
 b = [1, 2, 3, 4, 5]
 console.log(pop(b));
+
+console.log('=======================');
+
+// Array Bubble Sort (Ascending)
+
+function bubbleSort(arr) {
+    if (arr.length === 0) {
+        return 'Array is empty'
+    }
+    var unsorted = true;
+    while (unsorted === true) {
+        var count = 0;
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i] > arr[i + 1]) { // Flip sign for descending
+                temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+            else {
+                count++;
+            }
+        }
+        if (count === arr.length) {
+            unsorted = false;
+        }
+    }
+    return arr;
+}
+y = [9, -3, 6, -1, 3, 6]
+console.log(bubbleSort(y));
+
+console.log('=======================');
