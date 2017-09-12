@@ -134,3 +134,49 @@ function minMaxAvg(arr) {
 }
 minMaxAvg([1, 2, 3, 4])
 // console.log(minMaxAvg([1, 2, 3, 4]));
+
+console.log('=======================');
+
+// 9. Square the Values
+
+function squareValues(arr) {
+    for (i = 0; i < arr.length; i++) {
+        arr[i] *= arr[i]; // Array passed in is mutable
+    }
+    return arr;
+}
+n = [2, 3, 4, 5]
+console.log(squareValues(n));
+
+console.log('=======================');
+
+// 10. Zero Out Negative Numbers
+
+function zeroOutNegs(arr) {
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            arr[i] = 0;
+        }
+    }
+    return arr;
+}
+h = [1, -2, 3, -4, 5, -6]
+console.log(zeroOutNegs(h));
+
+console.log('=======================');
+
+// 11. Shift Array Values
+
+function shiftArrayVals(arr) {
+    temp = arr[1]
+    for (i = 0; i < arr.length - 1; i++) {
+        arr[i] = temp;
+        temp = arr[i + 2];
+    }
+    arr[arr.length - 1] = 0;
+    return arr;
+}
+o = [4, 3, 7, 8, 4]
+console.log(shiftArrayVals(o));
+
+console.log('=======================');
