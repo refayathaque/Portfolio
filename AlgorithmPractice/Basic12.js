@@ -1,4 +1,4 @@
-// Coding Dojo's Basic 13 Algorithm Challenges
+// Coding Dojo's Basic 12 Algorithm Challenges
 
 // 1. Print 1 - 255
 
@@ -198,3 +198,28 @@ r = [1, 2, -4, 4, 5, -6]
 console.log(swapNegsWithString(r));
 
 console.log('=======================');
+
+// Trying to define Array class Push method
+
+function push(arr, value) {
+    arr[arr.length] = value
+    return arr;
+    // return value;
+    // * By method definition return value is inserted value
+}
+p = [1, 2, 3, 4]
+console.log(push(p, 5));
+
+console.log('=======================');
+
+// Trying to define Array class Pop method
+
+function pop(arr) {
+    temp = arr[arr.length - 1];
+    arr.length = arr.length - 1; // Arrays so mutable that you can modify length like this
+    return arr;
+    // return temp;
+    // * By method definition return value is popped value
+}
+b = [1, 2, 3, 4, 5]
+console.log(pop(b));
