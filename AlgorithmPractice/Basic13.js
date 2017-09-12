@@ -168,15 +168,33 @@ console.log('=======================');
 // 11. Shift Array Values
 
 function shiftArrayVals(arr) {
-    temp = arr[1]
-    for (i = 0; i < arr.length - 1; i++) {
-        arr[i] = temp;
-        temp = arr[i + 2];
+    // temp = arr[1]
+    // for (i = 0; i < arr.length - 1; i++) {
+    //     arr[i] = temp;
+    //     temp = arr[i + 2];
+    // }
+    for (i = 1; i < arr.length; i++) {
+        arr[i - 1] = arr[i];
     }
     arr[arr.length - 1] = 0;
     return arr;
 }
 o = [4, 3, 7, 8, 4]
 console.log(shiftArrayVals(o));
+
+console.log('=======================');
+
+// 12. Swap String for Array Negative Values
+
+function swapNegsWithString(arr) {
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+            arr[i] = 'Dojo'
+        }
+    }
+    return arr;
+}
+r = [1, 2, -4, 4, 5, -6]
+console.log(swapNegsWithString(r));
 
 console.log('=======================');
