@@ -300,3 +300,13 @@ function REVERSEfizzbuzz4() {
 }
 REVERSEfizzbuzz4();
 console.log('---------------------')
+
+// Coding example for interview with James Higgins at Tiger Team Consulting
+const countIt = function(num) {
+  for (let i = 0; i < num; i++) {
+    setTimeout(function() {
+      console.log(i);
+    }, 500);
+  }
+}
+countIt(5);
