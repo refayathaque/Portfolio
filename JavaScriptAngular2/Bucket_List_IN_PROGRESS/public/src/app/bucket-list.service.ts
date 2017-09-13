@@ -116,4 +116,8 @@ export class BucketListService {
         console.log('ITEM ID FOR UPDATE : ', ItemId);
     }
 
+    updateItem(item, itemId) {
+        console.log('ITEM TO UPDATE : ', item, 'ITEM ID : ', itemId)
+    }
+
 }

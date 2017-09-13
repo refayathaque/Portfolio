@@ -11,25 +11,23 @@ import { BucketListService } from "app/bucket-list.service";
 })
 export class UpdateComponent implements OnInit {
 
-    // will use input to get item id
-
     constructor(private _service : BucketListService) { }
 
     private bucketList = new Bucket_List();
 
-    @Input() private itemId;
+    @Input() private item;
 
-    // this._service.updateItem(this.bucketList, this.itemId)
-    // .then((data) => {
-    //     if(data.error) {
-    //         alert(data.messages)
-    //     }
-    //     else {
-    //         console.log('(UPDATE COMPONENT) RETURN DATA : ', data)
-    //     })
-    // .catch((err) => {
-    //     console.log('(UPDATE COMPONENT) .CATCH')
-    // })
+    this._service.updateItem(this.bucketList, this.itemId)
+    .then((data) => {
+        if(data.error) {
+            alert(data.messages)
+        }
+        else {
+            console.log('(UPDATE COMPONENT) RETURN DATA : ', data)
+        })
+    .catch((err) => {
+        console.log('(UPDATE COMPONENT) .CATCH')
+    })
 
     ngOnInit() {
     }

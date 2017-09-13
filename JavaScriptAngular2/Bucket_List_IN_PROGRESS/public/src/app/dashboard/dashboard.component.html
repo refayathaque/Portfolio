@@ -52,7 +52,7 @@
                 <td *ngIf="item.status === false">Pending</td>
                 <td *ngIf="item.status === true">Done</td>
                 <td><button (click)='changeItemStatus(item._id)'>Toggle</button></td>
-                <td><button (click)='updateForm(item._id)'>Toggle</button></td>
+                <td><button (click)='updateForm(item)'>Toggle</button></td>
             </tr>
 
         </table>
@@ -61,7 +61,7 @@
 
     <div *ngIf="updateBoolean">
 
-        <app-update [itemId]='itemId'></app-update>
+        <app-update [item]='item'></app-update>
 
     </div>
 

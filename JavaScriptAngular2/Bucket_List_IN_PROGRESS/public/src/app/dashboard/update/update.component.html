@@ -2,17 +2,19 @@
 
     <form (submit)='updateItem()' #formData='ngForm'>
 
-        <h2>Update this bucket list item {{ itemId }}</h2>
+        <h2>Update item details</h2>
 
         <p>Title</p>
 
-        <input type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>
+        <input placeholder="{{ item.title }}" type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>
 
         <p>Description</p>
 
-        <input type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
+        <input placeholder="{{ item.description }}" type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
 
-        <br>
+        <p><i>Last Updated</i></p>
+
+        <p>{{ item.updatedAt |  date:'medium' }}</p>
 
         <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Update</button>
 

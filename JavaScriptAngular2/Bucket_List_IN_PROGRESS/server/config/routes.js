@@ -53,4 +53,9 @@ module.exports = function(app) {
         items.getFriendItemsDone(req, res)
     })
 
+    app.put('/api/items/updateItem', (req, res) => {
+        console.log('(ROUTES) [UPDATE ITEM] REQ.BODY : ', req.body)
+        items.updateItem(req, res)
+    })
+
 }
