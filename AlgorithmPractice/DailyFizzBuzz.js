@@ -276,3 +276,27 @@ function fizzbuzz9() {
 }
 fizzbuzz9();
 console.log('---------------------')
+
+// Fizzbuzzing, 09/13/2017, interview today with Tiger Team Consulting
+function REVERSEfizzbuzz4() {
+    for (i = 100; i > 0; i--) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+            continue;
+        }
+    }
+}
+REVERSEfizzbuzz4();
+console.log('---------------------')
