@@ -162,4 +162,8 @@ function ItemsController() {
     } //this.addItem = function(req, res)
 } //function ItemsController()
 
+    this.updateItem = function(req, res) {
+        console.log('UPDATE ITEM IN THE CONTROLLER!', req.body)
+    }
+
 module.exports = new ItemsController();

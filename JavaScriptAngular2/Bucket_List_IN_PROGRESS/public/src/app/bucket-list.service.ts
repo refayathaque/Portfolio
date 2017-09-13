@@ -112,12 +112,9 @@ export class BucketListService {
         .toPromise();
     }
 
-    getItem(ItemId) {
-        console.log('ITEM ID FOR UPDATE : ', ItemId);
-    }
-
     updateItem(item, itemId) {
-        console.log('ITEM TO UPDATE : ', item, 'ITEM ID : ', itemId)
+        console.log('(SERVICE) [UPDATE ITEM] BEFORE HTTP CALL, UPDATED ITEM : ', item, ', ITEM ID : ', itemId)
+        return this._http.put(`api/items/updateItem/${itemId}`, item)
     }
 
 }

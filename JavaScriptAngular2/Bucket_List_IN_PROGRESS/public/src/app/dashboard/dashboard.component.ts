@@ -78,7 +78,7 @@ export class DashboardComponent implements OnInit {
         else {
             this.updateBoolean = true;
         }
-        console.log(item);
+        console.log('(DASHBOARD COMPONENT) [UPDATE FORM] ITEM DATA : ', item);
         this.item = item;
 
     }

@@ -9,6 +9,7 @@ import { BucketListService } from "app/bucket-list.service";
     templateUrl: './update.component.html',
     styleUrls: ['./update.component.css']
 })
+
 export class UpdateComponent implements OnInit {
 
     constructor(private _service : BucketListService) { }
@@ -17,17 +18,21 @@ export class UpdateComponent implements OnInit {
 
     @Input() private item;
 
-    this._service.updateItem(this.bucketList, this.itemId)
-    .then((data) => {
-        if(data.error) {
-            alert(data.messages)
-        }
-        else {
-            console.log('(UPDATE COMPONENT) RETURN DATA : ', data)
-        })
-    .catch((err) => {
-        console.log('(UPDATE COMPONENT) .CATCH')
-    })
+    updateItem() {
+
+        this._service.updateItem(this.bucketList, this.item._id)
+        // .then((data) => {
+        //     if(data.error) {
+        //         alert(data.messages)
+        //     }
+        //     else {
+        //         console.log('(UPDATE COMPONENT) RETURN DATA : ', data)
+        //     })
+        // .catch((err) => {
+        //     console.log('(UPDATE COMPONENT) .CATCH')
+        // })
+
+    }
 
     ngOnInit() {
     }
