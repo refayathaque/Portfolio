@@ -4,43 +4,57 @@
 
     <h2>{{ friend.data[0].username }}'s items</h2>
 
-    <h3>Items pending</h3>
+    <div *ngIf='itemsPending'>
 
-    <table>
+        <h3>Items pending</h3>
 
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Added</th>
-            <th>Updated</th>
-        </tr>
-        <tr *ngFor="let item of friendItemsPending">
-            <td>{{ item.title | json }}</td>
-            <td>{{ item.description | json }}</td>
-            <td>{{ item.createdAt | date:'medium' }}</td>
-            <td>{{ item.updatedAt | date:'medium' }}</td>
-        </tr>
+        <table>
 
-    </table>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Added</th>
+                <th>Updated</th>
+            </tr>
+            <tr *ngFor="let item of friendItemsPending">
+                <td>{{ item.title | json }}</td>
+                <td>{{ item.description | json }}</td>
+                <td>{{ item.createdAt | date:'medium' }}</td>
+                <td>{{ item.updatedAt | date:'medium' }}</td>
+            </tr>
 
-    <h3>Items done</h3>
+        </table>
 
-    <table>
+        <p>{{friendItemsPending | json}}</p>
 
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Added</th>
-            <th>Updated</th>
-        </tr>
-        <tr *ngFor="let item of friendItemsDone">
-            <td>{{ item.title | json }}</td>
-            <td>{{ item.description | json }}</td>
-            <td>{{ item.createdAt | date:'medium' }}</td>
-            <td>{{ item.updatedAt | date:'medium' }}</td>
-        </tr>
+    </div>
 
-    </table>
+    <div *ngIf='itemsDone'>
+
+        <h3>Items done</h3>
+
+        <table>
+
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Added</th>
+                <th>Updated</th>
+            </tr>
+            <tr *ngFor="let item of friendItemsDone">
+                <td>{{ item.title | json }}</td>
+                <td>{{ item.description | json }}</td>
+                <td>{{ item.createdAt | date:'medium' }}</td>
+                <td>{{ item.updatedAt | date:'medium' }}</td>
+            </tr>
+
+        </table>
+
+        <p>{{friendItemsDone | json}}</p>
+
+    </div>
+
+    <button type="button" name="button" (click)="checkArrayLength()"></button>
 
     <button type="button" name="dashboard" (click)='dashboard()'>Return to dashboard</button>
 

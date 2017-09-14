@@ -17,12 +17,19 @@ export class ShowComponent implements OnInit {
     constructor(private _service : BucketListService, private _route : ActivatedRoute, private _router : Router) { }
 
     private friendItemsPending = [];
+    private itemsPending: boolean = true;
     private friendItemsDone = [];
+    private itemsDone: boolean = true;
     private user;
     private friend;
 
     dashboard() {
         this._router.navigateByUrl('/dashboard')
+    }
+
+    checkArrayLength() {
+        console.log(this.friendItemsPending.length)
+        console.log(this.friendItemsDone.length)
     }
 
     ngOnInit() {
@@ -31,14 +38,14 @@ export class ShowComponent implements OnInit {
         .switchMap(params => {
             console.log('(SHOW COMPONENT) FRIEND ID : ', params.get('id'));
             return this._service.getFriendItemsPending(params.get('id'));
-        })
-        .subscribe(data => this.friendItemsPending = data);
+        }).subscribe(data => this.friendItemsPending = data);
+        console.log(this.friendItemsPending.length)
 
         this._route.paramMap
         .switchMap(params => {
             return this._service.getFriendItemsDone(params.get('id'));
-        })
-        .subscribe(data => this.friendItemsDone = data);
+        }).subscribe(data => this.friendItemsDone = data);
+        console.log(this.friendItemsDone.length)
 
         this._route.paramMap
         .switchMap(params => {
