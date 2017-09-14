@@ -251,3 +251,31 @@ console.log(reverseArray15(e));
 console.log('---------------------');
 
 ////////////////////////////////////
+
+function reverseArray17(array) {
+    let temp = 0;
+    for (left = 0, right = (array.length - 1); left < right; left++, right--) {
+        temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
+    }
+    return array;
+}
+b = [1, 3, 5, 7]
+console.log(reverseArray17(b));
+console.log('---------------------');
+
+function reverseArray18(array) {
+    let temp = 0;
+    for (i = 0; i < (array.length / 2); i++) {
+        temp = array[i];
+        array[i] = array[(array.length - 1) - i];
+        array[(array.length - 1) - i] = temp;
+    }
+    return array;
+}
+l = [1, 3, 5, 7]
+console.log(reverseArray18(l));
+console.log('---------------------');
+
+////////////////////////////////////

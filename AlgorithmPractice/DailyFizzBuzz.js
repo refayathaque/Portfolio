@@ -301,12 +301,36 @@ function REVERSEfizzbuzz4() {
 REVERSEfizzbuzz4();
 console.log('---------------------')
 
-// Coding example for interview with James Higgins at Tiger Team Consulting
-const countIt = function(num) {
-  for (let i = 0; i < num; i++) {
-    setTimeout(function() {
-      console.log(i);
-    }, 500);
-  }
+// // Coding example for interview with James Higgins at Tiger Team Consulting
+// const countIt = function(num) {
+//   for (let i = 0; i < num; i++) {
+//     setTimeout(function() {
+//       console.log(i);
+//     }, 500);
+//   }
+// }
+// countIt(5);
+
+// Fizzbuzzing on 09/14/2017
+function fizzbuzz10() {
+    for (i = 1; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+            continue;
+        }
+    }
 }
-countIt(5);
+fizzbuzz10();
+console.log('---------------------')
