@@ -54,8 +54,13 @@ module.exports = function(app) {
     })
 
     app.put('/api/items/updateItem/:id', (req, res) => {
-        console.log('(ROUTES) [UPDATE ITEM] REQ.BODY : ', req.body)
-        items.updateItem(req, res)
+        console.log('(ROUTES) [UPDATE] REQ.BODY : ', req.body)
+        items.update(req, res)
+    })
+
+    app.delete('/api/items/delete/:id', (req, res) => {
+        console.log('(ROUTES) [DELETE] REQ.PARAMS.ID : ', req.params.id);
+        items.delete(req, res)
     })
 
 }

@@ -112,12 +112,21 @@ export class BucketListService {
         .toPromise();
     }
 
-    updateItem(item, itemId) {
-        console.log('(SERVICE) [UPDATE ITEM] BEFORE HTTP CALL, UPDATED ITEM : ', item, ', ITEM ID : ', itemId)
+    update(item, itemId) {
+        console.log('(SERVICE) [UPDATE] BEFORE HTTP CALL, UPDATED ITEM : ', item, ', ITEM ID : ', itemId)
         return this._http.put(`api/items/updateItem/${itemId}`, item)
-            .map((data) => {
-                console.log("(SERVICE) [UPDATE ITEM] AFTER HTTP CALL, RETURN DATA : ", data)
-                return data.json()
+        .map((data) => {
+            console.log("(SERVICE) [UPDATE] AFTER HTTP CALL, RETURN DATA : ", data)
+            return data.json()
+        })
+        .toPromise();
+    }
+
+    delete(itemId) {
+        return this._http.delete(`api/items/delete/${itemId}`)
+        .map((data) => {
+            console.log("(SERVICE) [DELETE] AFTER HTTP CALL, RETURN DATA : ", data)
+            return data.json()
         })
         .toPromise();
     }

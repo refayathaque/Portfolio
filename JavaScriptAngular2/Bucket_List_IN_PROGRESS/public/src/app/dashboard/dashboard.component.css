@@ -13,12 +13,6 @@ input.ng-invalid {
 input.ng-pristine {
     color: black;
 }
-/*.message {
-    margin-left: auto;
-    margin-right: auto;
-    width: 360px;
-    text-align: center;
-}*/
 button {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -37,4 +31,8 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+#hiddenButton {
+    background: none;
+    border: none;
 }

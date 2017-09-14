@@ -161,10 +161,9 @@ function ItemsController() {
         })
     } //this.addItem = function(req, res)
 
-    this.updateItem = function(req, res) {
-        console.log('(ITEMS CONTROLLER) [UPDATE ITEM] REQ.BODY : ', req.body)
-        console.log('(ITEMS CONTROLLER) [UPDATE ITEM] REQ.PARAMS.ID : ', req.params.id);
-        // res.json('working')
+    this.update = function(req, res) {
+        console.log('(ITEMS CONTROLLER) [UPDATE] REQ.BODY : ', req.body)
+        console.log('(ITEMS CONTROLLER) [UPDATE] REQ.PARAMS.ID : ', req.params.id);
         Item.findOneAndUpdate(
             { _id : req.params.id },
             { $set: { "title" : req.body.title, "description" : req.body.description }},
@@ -177,6 +176,21 @@ function ItemsController() {
                 }
             } //function(err, item)
         ) //findOneAndUpdate
+    }
+
+    this.delete = function(req, res) {
+        console.log('(ITEMS CONTROLLER) [DELETE] REQ.PARAMS.ID : ', req.params.id);
+        Item.deleteOne(
+            { _id : req.params.id },
+            function(err, item) {
+                if(err) {
+                    console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                    res.json({error : true, messages : 'Error with deleting data'})
+                } else {
+                    res.json({error : false, item : item})
+                }
+            }
+        )
     }
 
 } //function ItemsController()

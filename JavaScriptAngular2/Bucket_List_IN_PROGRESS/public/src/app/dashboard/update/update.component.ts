@@ -21,9 +21,9 @@ export class UpdateComponent implements OnInit {
 
     @Output() anEventEmitter = new EventEmitter();
 
-    updateItem() {
+    update() {
 
-        this._service.updateItem(this.bucketList, this.item._id)
+        this._service.update(this.bucketList, this.item._id)
         .then((data) => {
             if(data.error) {
                 alert(data.messages)

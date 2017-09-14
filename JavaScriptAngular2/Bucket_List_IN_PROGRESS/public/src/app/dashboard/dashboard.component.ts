@@ -106,6 +106,28 @@ export class DashboardComponent implements OnInit {
         })
     }
 
+    delete(itemId) {
+
+        console.log('(DASHBOARD COMPONENT) [DELETE] ITEM ID : ', itemId);
+        this._service.delete(itemId)
+        .then((data) => {
+            console.log('(DASHBOARD COMPONENT) [DELETE] RETURN DATA : ', data)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) [DELETE] .CATCH')
+        })
+
+        this._service.getUserItems()
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] RETURN DATA : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
+        })
+
+    }
+
     ngOnInit() {
 
         this._service.getSession()
