@@ -39,6 +39,9 @@ export class ShowComponent implements OnInit {
                 this.itemsPending = false;
             }
         });
+        // What we did above has to do with scope. If we tried to get the array's length outside of the '.subscribe =>' block then it wouldn't work. To get the length of the array RIGHT AFTER it has been populated we must check its length WITHIN the block of code in which the array is being populated with the data from the API call.
+
+        // The *ngIf ng2 Structural Directive is actually quite accomodating and can take in a lot more code that I thought. Having said that, lines 5 through 7 in the component template could've been done by simply checking the array lengths and seeing if they are more than 0 or not.
 
         this._route.paramMap
         .switchMap(params => {
