@@ -93,6 +93,19 @@ export class DashboardComponent implements OnInit {
 
     }
 
+    dataFromChild(eventData) {
+
+        console.log('(DASHBOARD COMPONENT) [DATA FROM CHILD] ', eventData);
+        this._service.getUserItems()
+        .then((data) => {
+            this.userItems = data;
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] RETURN DATA : ', this.userItems)
+        })
+        .catch((err) => {
+            console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
+        })
+    }
+
     ngOnInit() {
 
         this._service.getSession()

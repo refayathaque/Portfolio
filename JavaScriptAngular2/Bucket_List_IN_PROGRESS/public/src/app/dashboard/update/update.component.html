@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-    <form (submit)='updateItem()' #formData='ngForm'>
+    <form (submit)='updateItem($event)' #formData='ngForm'>
 
         <h2>Update item details</h2>
 
@@ -12,9 +12,14 @@
 
         <input placeholder="{{ item.description }}" type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
 
-        <p><i>Last Updated</i></p>
+        <div *ngIf='item_updated'>
 
-        <p>{{ item.updatedAt |  date:'medium' }}</p>
+            <p><i>Last Updated</i></p>
+            <p>{{ item.updatedAt |  date:'medium' }}</p>
+
+        </div>
+
+        <br *ngIf='!item_updated'>
 
         <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Update</button>
 

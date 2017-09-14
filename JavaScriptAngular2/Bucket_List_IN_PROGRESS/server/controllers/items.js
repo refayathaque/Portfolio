@@ -167,8 +167,16 @@ function ItemsController() {
         // res.json('working')
         Item.findOneAndUpdate(
             { _id : req.params.id },
-            
-        )
+            { $set: { "title" : req.body.title, "description" : req.body.description }},
+            function(err, item) {
+                if(err) {
+                    console.log('(ITEMS CONTROLLER) ERROR : ', err)
+                    res.json({error : true, messages : 'Error with updating data'})
+                } else {
+                    res.json({error : false, item : item})
+                }
+            } //function(err, item)
+        ) //findOneAndUpdate
     }
 
 } //function ItemsController()

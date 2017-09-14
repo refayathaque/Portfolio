@@ -61,7 +61,7 @@
 
     <div *ngIf="updateBoolean">
 
-        <app-update [item]='item'></app-update>
+        <app-update [item]='item' (anEventEmitter)="dataFromChild($event)"></app-update>
 
     </div>
 

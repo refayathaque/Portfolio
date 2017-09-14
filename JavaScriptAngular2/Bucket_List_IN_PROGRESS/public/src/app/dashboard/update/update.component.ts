@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Bucket_List } from '../../bucket-list'; // MUST IMPORT CONSTRUCTOR CLASSES
 
@@ -15,26 +15,40 @@ export class UpdateComponent implements OnInit {
     constructor(private _service : BucketListService) { }
 
     private bucketList = new Bucket_List();
+    private item_updated: boolean = false;
 
     @Input() private item;
+
+    @Output() anEventEmitter = new EventEmitter();
 
     updateItem() {
 
         this._service.updateItem(this.bucketList, this.item._id)
-        // .then((data) => {
-        //     if(data.error) {
-        //         alert(data.messages)
-        //     }
-        //     else {
-        //         console.log('(UPDATE COMPONENT) RETURN DATA : ', data)
-        //     })
-        // .catch((err) => {
-        //     console.log('(UPDATE COMPONENT) .CATCH')
-        // })
+        .then((data) => {
+            if(data.error) {
+                alert(data.messages)
+            }
+            else {
+                console.log('(UPDATE COMPONENT) RETURN DATA : ', data)
+            }
+        })
+        .catch((err) => {
+            console.log('(UPDATE COMPONENT) .CATCH')
+        })
+
+        this.anEventEmitter.emit('OUTPUT WORKING');
 
     }
 
     ngOnInit() {
+
+        if (this.item.updatedAt === this.item.createdAt) {
+            this.item_updated = false;
+        }
+        else {
+            this.item_updated = true;
+        }
+
     }
 
 }
