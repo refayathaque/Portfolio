@@ -1,6 +1,6 @@
-var users = require('../controllers/users.js')
+const users = require('../controllers/users.js')
 
-var items = require('../controllers/items.js')
+const items = require('../controllers/items.js')
 
 // HAVE ALL CONTROLLERS ABOVE!
 

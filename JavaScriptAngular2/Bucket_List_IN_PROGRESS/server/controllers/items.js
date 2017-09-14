@@ -160,10 +160,17 @@ function ItemsController() {
             console.log('(ITEMS CONTROLLER) .CATCH : ', err)
         })
     } //this.addItem = function(req, res)
-} //function ItemsController()
 
     this.updateItem = function(req, res) {
-        console.log('UPDATE ITEM IN THE CONTROLLER!', req.body)
+        console.log('(ITEMS CONTROLLER) [UPDATE ITEM] REQ.BODY : ', req.body)
+        console.log('(ITEMS CONTROLLER) [UPDATE ITEM] REQ.PARAMS.ID : ', req.params.id);
+        // res.json('working')
+        Item.findOneAndUpdate(
+            { _id : req.params.id },
+            
+        )
     }
+
+} //function ItemsController()
 
 module.exports = new ItemsController();
