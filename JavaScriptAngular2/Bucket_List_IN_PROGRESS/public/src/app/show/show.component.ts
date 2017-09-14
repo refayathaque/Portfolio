@@ -27,25 +27,28 @@ export class ShowComponent implements OnInit {
         this._router.navigateByUrl('/dashboard')
     }
 
-    checkArrayLength() {
-        console.log(this.friendItemsPending.length)
-        console.log(this.friendItemsDone.length)
-    }
-
     ngOnInit() {
 
         this._route.paramMap
         .switchMap(params => {
             console.log('(SHOW COMPONENT) FRIEND ID : ', params.get('id'));
             return this._service.getFriendItemsPending(params.get('id'));
-        }).subscribe(data => this.friendItemsPending = data);
-        console.log(this.friendItemsPending.length)
+        }).subscribe(data => {
+            this.friendItemsPending = data;
+            if (this.friendItemsPending.length < 1) {
+                this.itemsPending = false;
+            }
+        });
 
         this._route.paramMap
         .switchMap(params => {
             return this._service.getFriendItemsDone(params.get('id'));
-        }).subscribe(data => this.friendItemsDone = data);
-        console.log(this.friendItemsDone.length)
+        }).subscribe(data => {
+            this.friendItemsDone = data;
+            if (this.friendItemsDone.length < 1) {
+                this.itemsDone = false;
+            }
+        });
 
         this._route.paramMap
         .switchMap(params => {

@@ -2,9 +2,11 @@
 
     <h3><i>{{ user?.username }} you are logged in</i></h3>
 
-    <h2>{{ friend.data[0].username }}'s items</h2>
+    <h2 *ngIf='itemsPending === true && itemsDone === true'>{{ friend.data[0].username }}'s items</h2>
 
-    <div *ngIf='itemsPending'>
+    <h2 *ngIf='itemsPending === false && itemsDone === false'>{{ friend.data[0].username }} has no items</h2>
+
+    <div *ngIf='friendItemsPending.length > 0'>
 
         <h3>Items pending</h3>
 
@@ -25,11 +27,9 @@
 
         </table>
 
-        <p>{{friendItemsPending | json}}</p>
-
     </div>
 
-    <div *ngIf='itemsDone'>
+    <div *ngIf='friendItemsDone.length > 0'>
 
         <h3>Items done</h3>
 
@@ -50,11 +50,7 @@
 
         </table>
 
-        <p>{{friendItemsDone | json}}</p>
-
     </div>
-
-    <button type="button" name="button" (click)="checkArrayLength()"></button>
 
     <button type="button" name="dashboard" (click)='dashboard()'>Return to dashboard</button>
 
