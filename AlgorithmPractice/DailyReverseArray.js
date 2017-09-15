@@ -279,3 +279,27 @@ console.log(reverseArray18(l));
 console.log('---------------------');
 
 ////////////////////////////////////
+
+function reverseArray18(arr) {
+    let temp = 0;
+    for (left = 0, right = arr.length - 1; left < right; left++, right--) {
+        temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+    }
+    return arr
+}
+console.log(reverseArray18([7, 8, 9, 10]));
+console.log('---------------------');
+
+function reverseArray19(arr) {
+    let temp = 0;
+    for (i = 0; i < (arr.length / 2); i++) {
+        temp = arr[i];
+        arr[i] = arr[(arr.length - 1) - i];
+        arr[(arr.length - 1) - i] = temp;
+    }
+    return arr;
+}
+console.log(reverseArray19([10, 9, 8, 7]));
+console.log('---------------------');
