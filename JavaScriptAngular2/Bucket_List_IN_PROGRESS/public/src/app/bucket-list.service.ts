@@ -16,6 +16,8 @@ export class BucketListService {
         return this._http.post('/api/users/register', user)
         .map((data) => {
             console.log('(SERVICE) [REGISTER] AFTER HTTP CALL, RETURN DATA : ', data)
+            this.anEventEmitter.emit(true);
+            // INGENIOUS way of passing data ANYWHERE in ng2 application. This EventEmitter will be available to ANY component because it's being emitted by the service (something available to all components). Check code in app-component to see implementation.
             return data.json()
         })
         .toPromise();
@@ -26,7 +28,7 @@ export class BucketListService {
         .map((data) => {
             console.log('(SERVICE) [LOGIN] AFTER HTTP CALL, RETURN DATA : ', data)
             this.anEventEmitter.emit(true);
-            // ING
+            // INGENIOUS way of passing data ANYWHERE in ng2 application. This EventEmitter will be available to ANY component because it's being emitted by the service (something available to all components). Check code in app-component to see implementation.
             return data.json()
         })
         .toPromise();
@@ -63,6 +65,7 @@ export class BucketListService {
         return this._http.get('/api/users/logout')
         .map((data) => {
             console.log('(SERVICE) [LOGOUT] AFTER HTTP CALL RETURN DATA : ', data)
+            this.anEventEmitter.emit(false);
             return data.json()
         })
         .toPromise();

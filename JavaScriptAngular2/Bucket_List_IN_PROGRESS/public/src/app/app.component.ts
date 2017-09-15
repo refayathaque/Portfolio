@@ -18,10 +18,11 @@ export class AppComponent {
     ngOnInit() {
 
         this._service.anEventEmitter.subscribe(data => {
-            if (data) {
+            // ABOVE CODE IS GOLDEN - easiest form of observables
+            if (data === true) {
                 this.user_state = true;
             }
-            else {
+            if (data === false) {
                 this.user_state = false;
             }
         })
