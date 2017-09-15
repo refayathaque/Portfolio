@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { Http } from "@angular/http";
 
@@ -9,6 +9,8 @@ import 'rxjs/RX'; // RxJS stands for *R*eactive E*x*tensions for *J*ava*S*cript,
 export class BucketListService {
 
     constructor(private _http : Http) { }
+
+    public anEventEmitter = new EventEmitter();
 
     register(user) {
         return this._http.post('/api/users/register', user)
@@ -23,6 +25,8 @@ export class BucketListService {
         return this._http.post('/api/users/login', user)
         .map((data) => {
             console.log('(SERVICE) [LOGIN] AFTER HTTP CALL, RETURN DATA : ', data)
+            this.anEventEmitter.emit(true);
+            // ING
             return data.json()
         })
         .toPromise();
@@ -96,18 +100,18 @@ export class BucketListService {
 
     getFriendItemsPending(UserId) {
         return this._http.get(`api/items/getFriendItemsPending/${UserId}`)
-            .map((data) => {
-                console.log("(SERVICE) [GET FRIEND ITEMS PENDING] AFTER HTTP CALL, RETURN DATA : ", data)
-                return data.json()
+        .map((data) => {
+            console.log("(SERVICE) [GET FRIEND ITEMS PENDING] AFTER HTTP CALL, RETURN DATA : ", data)
+            return data.json()
         })
         .toPromise();
     }
 
     getFriendItemsDone(UserId) {
         return this._http.get(`api/items/getFriendItemsDone/${UserId}`)
-            .map((data) => {
-                console.log("(SERVICE) [GET FRIEND ITEMS DONE] AFTER HTTP CALL, RETURN DATA : ", data)
-                return data.json()
+        .map((data) => {
+            console.log("(SERVICE) [GET FRIEND ITEMS DONE] AFTER HTTP CALL, RETURN DATA : ", data)
+            return data.json()
         })
         .toPromise();
     }

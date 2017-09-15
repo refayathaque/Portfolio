@@ -2,11 +2,7 @@
 
     <h1>Welcome to {{title}}</h1>
 
-    <h3 *ngIf='!user_state'>Existing user? <a [routerLink]="['login']">Login</a></h3>
-
-    <h3 *ngIf='!user_state'>New user? <a [routerLink]="['register']">Register</a></h3>
-
-    <p *ngIf='user_state'><i>You are still logged in {{ user.username }}, return to <a [routerLink]="['/dashboard']">dashboard</a></i></p>
+    <app-logreg *ngIf='!user_state'></app-logreg>
 
     <router-outlet></router-outlet>
 

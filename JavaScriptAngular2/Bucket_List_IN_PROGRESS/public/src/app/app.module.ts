@@ -16,6 +16,7 @@ import { ShowComponent } from './show/show.component';
 
 import { EqualDirective } from './equal.directive';
 import { UpdateComponent } from './dashboard/update/update.component';
+import { LogregComponent } from './logreg/logreg.component';
 
 @NgModule({
 
@@ -27,7 +28,8 @@ import { UpdateComponent } from './dashboard/update/update.component';
     DashboardComponent,
     BlankComponent,
     ShowComponent,
-    UpdateComponent
+    UpdateComponent,
+    LogregComponent
   ],
 
   imports: [

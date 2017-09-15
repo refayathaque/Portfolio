@@ -16,8 +16,10 @@ export class LoginComponent implements OnInit {
 
     constructor(private _service : BucketListService, private _router : Router) { }
 
-    user = new User();
-    user_id: string = "";
+    private user = new User();
+    private user_id: string = "";
+
+    // @Output() anEventEmitter = new EventEmitter();
 
     login() {
 
@@ -36,6 +38,8 @@ export class LoginComponent implements OnInit {
         .catch((err) => {
             console.log('(LOGIN COMPONENT) [LOGIN] .CATCH')
         })
+
+        // this.anEventEmitter.emit('OUTPUT WORKING');
 
     }
 
