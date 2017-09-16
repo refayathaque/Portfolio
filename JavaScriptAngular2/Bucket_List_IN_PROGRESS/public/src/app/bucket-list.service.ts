@@ -138,4 +138,8 @@ export class BucketListService {
         .toPromise();
     }
 
+    hideLogreg() {
+        this.anEventEmitter.emit(true);
+    }
+
 }

@@ -29,6 +29,8 @@ export class ShowComponent implements OnInit {
 
     ngOnInit() {
 
+        this._service.hideLogreg()
+
         this._route.paramMap
         .switchMap(params => {
             console.log('(SHOW COMPONENT) FRIEND ID : ', params.get('id'));

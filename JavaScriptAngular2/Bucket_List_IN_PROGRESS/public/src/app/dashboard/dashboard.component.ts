@@ -130,6 +130,8 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
 
+        this._service.hideLogreg()
+
         this._service.getSession()
         .then((data) => {
             this.user = data;
