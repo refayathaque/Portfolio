@@ -2,6 +2,8 @@ const users = require('../controllers/users.js')
 
 const items = require('../controllers/items.js')
 
+const path = require('path');
+
 // HAVE ALL CONTROLLERS ABOVE!
 
 module.exports = function(app) {
@@ -53,14 +55,20 @@ module.exports = function(app) {
         items.getFriendItemsDone(req, res)
     })
 
-    app.put('/api/items/updateItem/:id', (req, res) => {
+    app.put('/api/items/update/:id', (req, res) => {
         console.log('(ROUTES) [UPDATE] REQ.BODY : ', req.body)
         items.update(req, res)
     })
+
+    // app.put('/api/items/update/:id', items.update) // Simplified form
 
     app.delete('/api/items/delete/:id', (req, res) => {
         console.log('(ROUTES) [DELETE] REQ.PARAMS.ID : ', req.params.id);
         items.delete(req, res)
     })
+
+    app.all("*", (req, res, next) => {
+        res.sendFile(path.resolve("./public/dist/index.html"))
+    });
 
 }

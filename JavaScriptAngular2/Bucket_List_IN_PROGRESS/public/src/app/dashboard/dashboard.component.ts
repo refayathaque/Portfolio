@@ -104,6 +104,7 @@ export class DashboardComponent implements OnInit {
         .catch((err) => {
             console.log('(DASHBOARD COMPONENT) [GET USER ITEMS] .CATCH')
         })
+
     }
 
     delete(itemId) {

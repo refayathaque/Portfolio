@@ -121,7 +121,7 @@ export class BucketListService {
 
     update(item, itemId) {
         console.log('(SERVICE) [UPDATE] BEFORE HTTP CALL, UPDATED ITEM : ', item, ', ITEM ID : ', itemId)
-        return this._http.put(`api/items/updateItem/${itemId}`, item)
+        return this._http.put(`api/items/update/${itemId}`, item)
         .map((data) => {
             console.log("(SERVICE) [UPDATE] AFTER HTTP CALL, RETURN DATA : ", data)
             return data.json()
