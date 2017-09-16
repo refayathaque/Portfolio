@@ -16,10 +16,18 @@ export class BucketListService {
         return this._http.post('/api/users/register', user)
         .map((data) => {
             console.log('(SERVICE) [REGISTER] AFTER HTTP CALL, RETURN DATA : ', data)
-            if (data.status === 200) {
+            // if (data.status === 200) {
+            //     this.anEventEmitter.emit(false);
+            // }
+            // ^ Not good way of hiding logreg component, bc data.status will always be 200, even if the login is succesful. Working right now without issues bc of code that changes compnennt once login is succesful, but this should def be revisted later. Solution imo lies in first converting data to json format (data.json()) then trying to access the '_body' of the object and checking 'messages' for the 'Password is invalid' string.
+
+            const x = data.json()
+            console.log(x)
+            if (x.error) {
                 this.anEventEmitter.emit(false);
             }
-            // ^ Not good way of hiding logreg component, bc data.status will always be 200, even if the login is succesful. Working right now without issues bc of code that changes compnennt once login is succesful, but this should def be revisted later. Solution imo lies in first converting data to json format (data.json()) then trying to access the '_body' of the object and checking 'messages' for the 'Password is invalid' string.
+
+            // ^ Good way of hiding logreg component. Now we can access '_body' bc we converted object to json, after converting to json it becomes its own object with only 'error' and 'messages' inside.
 
             // INGENIOUS way of passing data ANYWHERE in ng2 application. This EventEmitter will be available to ANY component because it's being emitted by the service (something available to all components). Check code in app-component to see implementation.
             return data.json()
@@ -31,10 +39,18 @@ export class BucketListService {
         return this._http.post('/api/users/login', user)
         .map((data) => {
             console.log('(SERVICE) [LOGIN] AFTER HTTP CALL, RETURN DATA : ', data)
-            if (data.status === 200) {
+            // if (data.status === 200) {
+            //     this.anEventEmitter.emit(false);
+            // }
+            // ^ Not good way of hiding logreg component, bc data.status will always be 200, even if the login is succesful. Working right now without issues bc of code that changes compnennt once login is succesful, but this should def be revisted later. Solution imo lies in first converting data to json format (data.json()) then trying to access the '_body' of the object and checking 'messages' for the 'Password is invalid' string.
+
+            const y = data.json()
+            console.log(y)
+            if (y.error) {
                 this.anEventEmitter.emit(false);
             }
-            // ^ Not good way of hiding logreg component, bc data.status will always be 200, even if the login is succesful. Working right now without issues bc of code that changes compnennt once login is succesful, but this should def be revisted later. Solution imo lies in first converting data to json format (data.json()) then trying to access the '_body' of the object and checking 'messages' for the 'Password is invalid' string.
+
+            // ^ Good way of hiding logreg component. Now we can access '_body' bc we converted object to json, after converting to json it becomes its own object with only 'error' and 'messages' inside.
 
             // INGENIOUS way of passing data ANYWHERE in ng2 application. This EventEmitter will be available to ANY component because it's being emitted by the service (something available to all components). Check code in app-component to see implementation.
             return data.json()
