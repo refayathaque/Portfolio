@@ -2,7 +2,7 @@
 
     <h3><i>{{ user?.username }} you are logged in</i></h3>
 
-    <h2 *ngIf='itemsPending === true && itemsDone === true'>{{ friend.data[0].username }}'s items</h2>
+    <h2 *ngIf='itemsPending === true || itemsDone === true'>{{ friend.data[0].username }}'s items</h2>
 
     <h2 *ngIf='itemsPending === false && itemsDone === false'>{{ friend.data[0].username }} has no items</h2>
 
