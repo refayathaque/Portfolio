@@ -41,6 +41,7 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th>Added</th>
+                <th>Updated</th>
                 <th>Status</th>
                 <th>Status</th>
                 <th>Update Form</th>
@@ -50,6 +51,7 @@
                 <td>{{ item.title | json }}</td>
                 <td>{{ item.description | json }}</td>
                 <td>{{ item.createdAt | date:'medium' }}</td>
+                <td>{{ item.updatedAt | date:'medium' }}</td>
                 <td *ngIf="item.status === false">Pending</td>
                 <td *ngIf="item.status === true">Done</td>
                 <td><button (click)='changeItemStatus(item._id)'>Toggle</button></td>
