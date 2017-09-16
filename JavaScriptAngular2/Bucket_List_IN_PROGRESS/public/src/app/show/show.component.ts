@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -22,6 +22,9 @@ export class ShowComponent implements OnInit {
     private itemsDone: boolean = true;
     private user;
     private friend;
+    private subscriptionA;
+    private subscriptionB;
+    private subscriptionC;
 
     dashboard() {
         this._router.navigateByUrl('/dashboard')
@@ -31,7 +34,7 @@ export class ShowComponent implements OnInit {
 
         this._service.hideLogreg()
 
-        this._route.paramMap
+        this.subscriptionA = this._route.paramMap
         .switchMap(params => {
             console.log('(SHOW COMPONENT) FRIEND ID : ', params.get('id'));
             return this._service.getFriendItemsPending(params.get('id'));
@@ -45,7 +48,7 @@ export class ShowComponent implements OnInit {
 
         // The *ngIf ng2 Structural Directive is actually quite accomodating and can take in a lot more code that I thought. Having said that, lines 5 through 7 in the component template could've been done by simply checking the array lengths and seeing if they are more than 0 or not.
 
-        this._route.paramMap
+        this.subscriptionB = this._route.paramMap
         .switchMap(params => {
             return this._service.getFriendItemsDone(params.get('id'));
         }).subscribe(data => {
@@ -55,7 +58,7 @@ export class ShowComponent implements OnInit {
             }
         });
 
-        this._route.paramMap
+        this.subscriptionC = this._route.paramMap
         .switchMap(params => {
             return this._service.getFriendData(params.get('id'));
         })
@@ -70,6 +73,15 @@ export class ShowComponent implements OnInit {
             console.log('(SHOW COMPONENT) [GET SESSION] .CATCH')
         })
 
+    }
+
+    ngOnDestroy() {
+        this.subscriptionA.unsubscribe();
+        console.log('SUBSCRIPTION DESTROYED', this.subscriptionA)
+        this.subscriptionB.unsubscribe();
+        console.log('SUBSCRIPTION DESTROYED', this.subscriptionB)
+        this.subscriptionC.unsubscribe();
+        console.log('SUBSCRIPTION DESTROYED', this.subscriptionC)
     }
 
 }

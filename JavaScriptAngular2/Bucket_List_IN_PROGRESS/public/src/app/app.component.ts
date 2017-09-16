@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 import { BucketListService } from "app/bucket-list.service";
 
@@ -14,10 +14,11 @@ export class AppComponent {
 
     private title = 'your Bucket List';
     private user_state: boolean;
+    private subscription;
 
     ngOnInit() {
 
-        this._service.anEventEmitter.subscribe(data => {
+        this.subscription = this._service.anEventEmitter.subscribe(data => {
             // ABOVE CODE IS GOLDEN - easiest form of observables
             if (data === true) {
                 this.user_state = true;
@@ -27,6 +28,11 @@ export class AppComponent {
             }
         })
 
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+        console.log('SUBCRIPTION DESTROYED', this.subscription)
     }
 
 }
