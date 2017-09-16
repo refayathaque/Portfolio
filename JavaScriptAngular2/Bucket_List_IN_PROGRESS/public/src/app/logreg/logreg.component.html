@@ -1,9 +1,33 @@
-<div class="wrapper">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-    <h3 *ngIf='!user_state'>Existing user? <a [routerLink]="['login']">Login</a></h3>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <h3 *ngIf='!user_state'>New user? <a [routerLink]="['register']">Register</a></h3>
+    <a class="navbar-brand">BL</a>
 
-    <p *ngIf='user_state'><i>You are still logged in {{ user.username }}, return to <a [routerLink]="['/dashboard']">dashboard</a></i></p>
+    <div class="collapse navbar-collapse" id="navbarNav">
 
-</div>
+    <ul class="navbar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link" *ngIf='!user_state' [routerLink]="['login']">Login</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" *ngIf='!user_state' [routerLink]="['register']">Register</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="https://github.com/refayathaque/Portfolio/tree/master/JavaScriptAngular2/Bucket_List_IN_PROGRESS" target="_blank">Source Code</a>
+        </li>
+
+        <li class="nav-item" *ngIf='user_state'>
+            <span><p class="nav-item active"><i>You are still logged in {{ user.username }}, return to </i></p><a class="nav-link" [routerLink]="['/dashboard']">dashboard</a></span>
+        </li>
+
+    </ul>
+
+    </div>
+
+</nav>

@@ -12,7 +12,7 @@ export class AppComponent {
 
     constructor(private _service : BucketListService) { }
 
-    private title = 'your Bucket List';
+    private title = 'Bucket List';
     private user_state: boolean;
     private subscription;
 
