@@ -1,8 +1,5 @@
 .container {
     padding-top: 22.5px;
-    /*margin-left: auto;
-    margin-right: auto;*/
-    /*width: 800px;*/
 }
 input.ng-valid {
     color: #5CB85C;
@@ -14,14 +11,11 @@ input.ng-pristine {
     color: black;
 }
 .message {
-    /*margin-left: auto;
-    margin-right: auto;
-    width: 360px;*/
     text-align: left;
 }
 button {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 22.5px;
 }
 label {
     text-align: left;
