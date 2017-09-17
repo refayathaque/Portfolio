@@ -1,32 +1,21 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a href="https://github.com/refayathaque/Portfolio/tree/master/JavaScriptAngular2/Bucket_List_IN_PROGRESS" class="navbar-brand" target="_blank">BL</a>
+    <a class="navbar-brand" href="https://github.com/refayathaque/Portfolio/tree/master/JavaScriptAngular2/Bucket_List_IN_PROGRESS" target="_blank">BL</a>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" aria-expanded="false" style="">
 
-    <ul class="navbar-nav">
+    <div class="navbar-nav">
 
-        <li class="nav-item">
-            <a class="nav-link" *ngIf='!user_state' [routerLink]="['login']">Login</a>
-        </li>
+            <a class="nav-item nav-link" *ngIf='!user_state' [routerLink]="['login']">Login</a>
+            <a class="nav-item nav-link" *ngIf='!user_state' [routerLink]="['register']">Register</a>
+            <a class="nav-item nav-link" *ngIf='user_state' [routerLink]="['/dashboard']">Dashboard</a>
+            <a class="nav-item nav-link active" *ngIf='user_state'><i>{{ user.username }} you are still logged in</i></a>
 
-        <li class="nav-item">
-            <a class="nav-link" *ngIf='!user_state' [routerLink]="['register']">Register</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" *ngIf='user_state' [routerLink]="['/dashboard']">Dashboard</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link active" *ngIf='user_state'><i>{{ user.username }} you are still logged in</i></a>
-        </li>
-
-    </ul>
+    </div>
 
     </div>
 

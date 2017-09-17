@@ -1,18 +1,26 @@
-<div class="wrapper">
+<div class="container">
 
-    <h3><i>{{ user?.username }} you are logged in</i></h3>
+    <h3><i>{{ user?.username }}</i></h3>
 
     <h2>Add your bucket list item</h2>
 
     <form (submit)='addItem()' #formData='ngForm'>
 
-        <p>Title</p>
+        <div class="form-group row justify-content-center">
+            <label class="col-2 col-form-label">Title</label>
+            <div class="col-8">
+                <input class="form-control" type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel' [ngClass]="{'form-control-warning' : title.errors, 'form-control-success' : !title.errors}">
+                <small class="form-text text-muted message" [hidden]='!title.errors'>can't be this short</small>
+            </div>
+        </div>
 
-        <input type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>
-
-        <p>Description</p>
-
-        <input type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
+        <div class="form-group row justify-content-center">
+            <label class="col-2 col-form-label">Description</label>
+            <div class="col-8">
+                <input class="form-control" type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel' [ngClass]="{'form-control-warning' : description.errors, 'form-control-success' : !description.errors}">
+                <small class="form-text text-muted message" [hidden]='!description.errors'>come on, give us some substance</small>
+            </div>
+        </div>
 
         <div *ngIf='usersExclSessionUser.length !== 0'>
 
