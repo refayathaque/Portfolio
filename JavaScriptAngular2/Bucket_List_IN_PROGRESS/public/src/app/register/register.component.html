@@ -4,36 +4,47 @@
 
     <form (submit)='register()' #formData='ngForm'>
 
-        <p>Email</p>
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Email</label>
+            <div class="col-8">
+                <input class="form-control" type="text" name="email" size="35" required pattern='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$' [(ngModel)]="user.email" #email='ngModel'>
+                <small class="form-text text-muted message" [hidden]='!email.errors'>we'll never share your email with anyone else</small>
+            </div>
+        </div>
 
-        <input type="text" name="email" size="35" required pattern='^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$' [(ngModel)]="user.email" #email='ngModel'>
+        <div class="form-group row" [ngClass]="{'has-warning' : password.errors, 'has-success' : !password.errors}">
+            <label class="col-3 col-form-label">Password</label>
+            <div class="col-8">
+                <input class="form-control" type="password" name="password" size="35" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.password" #password='ngModel' validateEqual='confirmpassword' reverse='true' [ngClass]="{'form-control-warning' : password.errors, 'form-control-success' : !password.errors}">
+                <small id="emailHelp" class="form-text text-muted message" [hidden]='!password.errors'>between 8 and 15 characters, at least one uppercase and one lowercase letter, and one number</small>
+            </div>
+        </div>
 
-        <p>Password</p>
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Confirm Password</label>
+            <div class="col-8">
+                <input class="form-control" type="password" name="confirmpassword" size="35" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel' validateEqual='password'>
+            </div>
+        </div>
 
-        <p class='message' [hidden]='!password.errors'><i>Must have at least 8, and no more than 15, characters. Must have at least one uppercase letter, one lowercase letter, and one number</i></p>
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Username</label>
+            <div class="col-8">
+                <input class="form-control" type="text" name="username" size="35" required pattern='^[a-zA-Z]{8,}$' [(ngModel)]="user.username" #username='ngModel'>
+                <small id="emailHelp" class="form-text text-muted message" [hidden]='!username.errors'>at least 8 letters, and no numbers</small>
+            </div>
+        </div>
 
-        <input type="password" name="password" size="35" required pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$' [(ngModel)]="user.password" #password='ngModel' validateEqual='confirmpassword' reverse='true'>
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Date of Birth</label>
+            <div class="col-8">
+                <input class="form-control" type="date" name="date_of_birth" required [(ngModel)]="user.date_of_birth" #date_of_birth='ngModel' id="date_of_birth">
+                <small id="emailHelp" class="form-text text-muted message" [hidden]='!date_of_birth.errors'>must be over 21</small>
+            </div>
+        </div>
 
-        <p>Confirm password</p>
-
-        <input type="password" name="confirmpassword" size="35" required [(ngModel)]="user.confirmpassword" #confirmpassword='ngModel' validateEqual='password'>
-
-        <p>Username</p>
-
-        <p [hidden]='!username.errors'><i>Must have at least 8 letters, and no numbers</i></p>
-
-        <input type="text" name="username" size="35" required pattern='^[a-zA-Z]{8,}$' [(ngModel)]="user.username" #username='ngModel'>
-
-        <p>Date of Birth</p>
-
-        <p [hidden]='!date_of_birth.errors'><i>Must be at least 21 years old</i></p>
-
-        <input type="date" name="date_of_birth" required [(ngModel)]="user.date_of_birth" #date_of_birth='ngModel' id="date_of_birth">
-
-        <br>
-
-        <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Register</button>
+        <button type="submit" class="btn btn-primary" name="submit" value="submit" [disabled]="!formData.valid">Register</button>
 
     </form>
-    
+
 </div>

@@ -5,19 +5,19 @@
     border: 1px solid #009933;
 }
 input.ng-valid {
-    color: black;
+    color: #5CB85C;
 }
 input.ng-invalid {
-    color: red;
+    color: #F0AD4E;
 }
 input.ng-pristine {
     color: black;
 }
 .message {
-    margin-left: auto;
+    /*margin-left: auto;
     margin-right: auto;
-    width: 360px;
-    text-align: center;
+    width: 360px;*/
+    text-align: left;
 }
 button {
     margin-top: 20px;

@@ -4,7 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand">BL</a>
+    <a href="https://github.com/refayathaque/Portfolio/tree/master/JavaScriptAngular2/Bucket_List_IN_PROGRESS" class="navbar-brand" target="_blank">BL</a>
 
     <div class="collapse navbar-collapse" id="navbarNav">
 
@@ -19,11 +19,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="https://github.com/refayathaque/Portfolio/tree/master/JavaScriptAngular2/Bucket_List_IN_PROGRESS" target="_blank">Source Code</a>
+            <a class="nav-link" *ngIf='user_state' [routerLink]="['/dashboard']">Dashboard</a>
         </li>
 
-        <li class="nav-item" *ngIf='user_state'>
-            <span><p class="nav-item active"><i>You are still logged in {{ user.username }}, return to </i></p><a class="nav-link" [routerLink]="['/dashboard']">dashboard</a></span>
+        <li class="nav-item">
+            <a class="nav-link active" *ngIf='user_state'><i>{{ user.username }} you are still logged in</i></a>
         </li>
 
     </ul>
