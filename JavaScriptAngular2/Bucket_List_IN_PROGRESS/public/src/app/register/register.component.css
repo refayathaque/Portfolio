@@ -1,8 +1,8 @@
-.wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
-    border: 1px solid #009933;
+.container {
+    padding-top: 22.5px;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    /*width: 800px;*/
 }
 input.ng-valid {
     color: #5CB85C;
@@ -22,4 +22,7 @@ input.ng-pristine {
 button {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+label {
+    text-align: left;
 }
