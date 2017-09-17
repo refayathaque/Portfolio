@@ -12,33 +12,38 @@ h3 {
 .message {
     text-align: left;
 }
+.select {
+    text-align: left;
+}
 input.ng-valid {
-    color: black;
+    color: #5CB85C;
 }
 input.ng-invalid {
-    color: red;
+    color: #F0AD4E;
 }
 input.ng-pristine {
     color: black;
 }
 button {
-    margin-top: 20px;
     margin-bottom: 20px;
 }
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+#logout {
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
-
-td, th {
-    border: 1px solid #dddddd;
+h2 {
+    margin-bottom: 20px;
     text-align: left;
-    padding: 8px;
 }
-
-tr:nth-child(even) {
-    background-color: #dddddd;
+#red {
+    color: red;
+}
+#friends_header {
+    margin-top: 30px;
+    text-align: center;
+}
+.table_buttons {
+    margin: -2.5px;
 }
 #hiddenButton {
     background: none;
