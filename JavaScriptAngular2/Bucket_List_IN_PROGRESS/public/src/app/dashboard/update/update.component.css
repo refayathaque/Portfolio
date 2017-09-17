@@ -1,14 +1,15 @@
-.wrapper {
-    margin-left: auto;
+.container {
+    /*margin-left: auto;
     margin-right: auto;
     width: 600px;
-    border: 1px solid #009933;
+    border: 1px solid #009933;*/
+    background-color: #F4F5F6;
 }
 input.ng-valid {
-    color: black;
+    color: #5CB85C;
 }
 input.ng-invalid {
-    color: red;
+    color: #F0AD4E;
 }
 input.ng-pristine {
     color: black;
@@ -20,6 +21,17 @@ input.ng-pristine {
     text-align: center;
 }*/
 button {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     margin-bottom: 20px;
+}
+.message {
+    text-align: left;
+}
+h2 {
+    padding: 20px;
+}
+#update_time {
+    font-size: 140%;
+    font-style: italic;
+    text-align: left;
 }

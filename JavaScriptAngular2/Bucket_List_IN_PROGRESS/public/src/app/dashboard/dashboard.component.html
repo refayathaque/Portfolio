@@ -62,13 +62,13 @@
 
             <tbody>
                 <tr *ngFor="let item of userItems[0].items">
-                    <td>{{ item.title | json }}</td>
-                    <td>{{ item.description | json }}</td>
-                    <td>{{ item.createdAt | date:'medium' }}</td>
-                    <td>{{ item.updatedAt | date:'medium' }}</td>
-                    <td *ngIf="item.status === false">pending</td>
-                    <td *ngIf="item.status === true">done</td>
-                    <td><button class="btn btn-outline-warning table_buttons" (click)='changeItemStatus(item._id)'>toggle</button></td>
+                    <td class="left_align">{{ item.title | json }}</td>
+                    <td class="left_align">{{ item.description | json }}</td>
+                    <td class="left_align">{{ item.createdAt | date: 'd MMM y, h:mm a' }}</td>
+                    <td class="left_align">{{ item.updatedAt | date: 'd MMM y, h:mm a' }}</td>
+                    <td class="left_align" *ngIf="item.status === false">pending</td>
+                    <td class="left_align" *ngIf="item.status === true">done</td>
+                    <td class="left_align"><button class="btn btn-outline-warning table_buttons" (click)='changeItemStatus(item._id)'>toggle</button></td>
                     <td><button class="btn btn-outline-warning table_buttons" (click)='updateForm(item)'>toggle</button></td>
                     <td><button class="table_buttons"(click)='delete(item._id)' id='hiddenButton'><i class="fa fa-trash-o fa-lg" id="red" aria-hidden="true"></i></button></td>
                 </tr>

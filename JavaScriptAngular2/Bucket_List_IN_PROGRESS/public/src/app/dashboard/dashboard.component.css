@@ -49,3 +49,6 @@ h2 {
     background: none;
     border: none;
 }
+.left_align {
+    text-align: left;
+}

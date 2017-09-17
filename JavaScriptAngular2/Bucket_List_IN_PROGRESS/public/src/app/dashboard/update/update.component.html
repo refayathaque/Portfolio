@@ -1,30 +1,40 @@
-<div class="wrapper">
+<div class="container">
 
     <form (submit)='update($event)' #formData='ngForm'>
 
         <h2>Update item details</h2>
 
-        <p>Title</p>
+        <div class="form-group row justify-content-center" [ngClass]="{'has-warning' : title.errors, 'has-success' : !title.errors}">
+            <label class="col-2 col-form-label">Title</label>
+            <div class="col-8">
+                <input class="form-control" type="text" name="title" size="50" required minlength="10" [(ngModel)]="bucketList.title" #title='ngModel' [ngClass]="{'form-control-warning' : title.errors, 'form-control-success' : !title.errors}" placeholder="{{ item.title }}">
+            </div>
+        </div>
 
-        <input placeholder="{{ item.title }}" type="text" name="title" size="50" required minlength="5" [(ngModel)]="bucketList.title" #title='ngModel'>
-
-        <p>Description</p>
-
-        <input placeholder="{{ item.description }}" type="text" name="description" size="50" required minlength="10" [(ngModel)]="bucketList.description" #title='ngModel'>
+        <div class="form-group row justify-content-center" [ngClass]="{'has-warning' : description.errors, 'has-success' : !description.errors}">
+            <label class="col-2 col-form-label">Description</label>
+            <div class="col-8">
+                <input class="form-control" type="text" name="description" size="50" required minlength="30" [(ngModel)]="bucketList.description" #description='ngModel' [ngClass]="{'form-control-warning' : description.errors, 'form-control-success' : !description.errors}" placeholder="{{ item.description }}">
+            </div>
+        </div>
 
         <div *ngIf='item_updated'>
 
-            <p><i>Last Updated</i></p>
-            <p>{{ item.updatedAt |  date:'medium' }}</p>
+            <div class="form-group row justify-content-center">
+                <label class="col-2 col-form-label">Last Updated</label>
+                <div class="col-8">
+                    <p id="update_time">{{ item.updatedAt |  date: 'd MMM y, h:mm a' }}</p>
+                </div>
+            </div>
 
         </div>
 
         <br *ngIf='!item_updated'>
 
-        <button type="submit" name="submit" value="submit" [disabled]="!formData.valid">Update</button>
+        <button type="submit" class="btn btn-primary" name="submit" value="submit" [disabled]="!formData.valid">Update</button>
+
+        <p><i class="fa fa-caret-up" aria-hidden="true"></i> toggle to hide after updating <i class="fa fa-caret-up" aria-hidden="true"></i></p>
 
     </form>
-
-    <p>*Toggle above to hide this</p>
 
 </div>
