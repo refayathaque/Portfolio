@@ -1,6 +1,6 @@
-<div class="wrapper">
+<div class="container">
 
-    <h3><i>{{ user?.username }} you are logged in</i></h3>
+    <h3 id="user"><i>{{ user?.username }}</i></h3>
 
     <h2 *ngIf='itemsPending === true || itemsDone === true'>{{ friend.data[0].username }}'s items</h2>
 
@@ -8,22 +8,26 @@
 
     <div *ngIf='friendItemsPending.length > 0'>
 
-        <h3>Items pending</h3>
+        <h3 id="yellow">Pending</h3>
 
-        <table>
+        <table class="table table-hover table-responsive">
 
+        <thead>
             <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Added</th>
-                <th>Updated</th>
+                <th>title</th>
+                <th>description</th>
+                <th>added</th>
+                <th>updated</th>
             </tr>
+        </thead>
+        <tbody>
             <tr *ngFor="let item of friendItemsPending">
-                <td>{{ item.title | json }}</td>
-                <td>{{ item.description | json }}</td>
-                <td>{{ item.createdAt | date:'medium' }}</td>
-                <td>{{ item.updatedAt | date:'medium' }}</td>
+                <td class='left_align'>{{ item.title | json }}</td>
+                <td class='left_align'>{{ item.description | json }}</td>
+                <td class='left_align'>{{ item.createdAt | date:'d MMM y, h:mm a' }}</td>
+                <td class='left_align'>{{ item.updatedAt | date:'d MMM y, h:mm a' }}</td>
             </tr>
+        </tbody>
 
         </table>
 
@@ -31,27 +35,31 @@
 
     <div *ngIf='friendItemsDone.length > 0'>
 
-        <h3>Items done</h3>
+        <h3>Done</h3>
 
-        <table>
+        <table class="table table-hover table-responsive table-inverse">
 
+        <thead>
             <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Added</th>
-                <th>Updated</th>
+                <th>title</th>
+                <th>description</th>
+                <th>added</th>
+                <th>updated</th>
             </tr>
+        </thead>
+        <tbody>
             <tr *ngFor="let item of friendItemsDone">
-                <td>{{ item.title | json }}</td>
-                <td>{{ item.description | json }}</td>
-                <td>{{ item.createdAt | date:'medium' }}</td>
-                <td>{{ item.updatedAt | date:'medium' }}</td>
+                <td class='left_align'>{{ item.title | json }}</td>
+                <td class='left_align'>{{ item.description | json }}</td>
+                <td class='left_align'>{{ item.createdAt | date:'d MMM y, h:mm a' }}</td>
+                <td class='left_align'>{{ item.updatedAt | date:'d MMM y, h:mm a' }}</td>
             </tr>
+        </tbody>
 
         </table>
 
     </div>
 
-    <button type="button" name="dashboard" (click)='dashboard()'>Return to dashboard</button>
+    <button type="button" class="btn btn-primary" name="dashboard" (click)='dashboard()'>Return to dashboard</button>
 
 </div>

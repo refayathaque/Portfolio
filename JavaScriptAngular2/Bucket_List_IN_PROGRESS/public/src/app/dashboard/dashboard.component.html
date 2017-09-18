@@ -9,7 +9,7 @@
         <div class="form-group row justify-content-center" [ngClass]="{'has-warning' : title.errors, 'has-success' : !title.errors}">
             <label class="col-2 col-form-label">Title</label>
             <div class="col-8">
-                <input class="form-control" type="text" name="title" size="50" required minlength="10" [(ngModel)]="bucketList.title" #title='ngModel' [ngClass]="{'form-control-warning' : title.errors, 'form-control-success' : !title.errors}">
+                <input class="form-control" type="text" name="title" size="50" required minlength="20" [(ngModel)]="bucketList.title" #title='ngModel' [ngClass]="{'form-control-warning' : title.errors, 'form-control-success' : !title.errors}">
                 <small class="form-text text-muted message" [hidden]='!title.errors'>has to be longer</small>
             </div>
         </div>
@@ -17,7 +17,7 @@
         <div class="form-group row justify-content-center" [ngClass]="{'has-warning' : description.errors, 'has-success' : !description.errors}">
             <label class="col-2 col-form-label">Description</label>
             <div class="col-8">
-                <input class="form-control" type="text" name="description" size="50" required minlength="30" [(ngModel)]="bucketList.description" #description='ngModel' [ngClass]="{'form-control-warning' : description.errors, 'form-control-success' : !description.errors}">
+                <input class="form-control" type="text" name="description" size="50" required minlength="67" [(ngModel)]="bucketList.description" #description='ngModel' [ngClass]="{'form-control-warning' : description.errors, 'form-control-success' : !description.errors}">
                 <small class="form-text text-muted message" [hidden]='!description.errors'>come on, give us some substance</small>
             </div>
         </div>

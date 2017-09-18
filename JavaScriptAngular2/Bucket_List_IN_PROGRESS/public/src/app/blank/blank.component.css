@@ -1,0 +1,11 @@
+.container {
+    margin-top: 10px;
+}
+.text {
+    padding-top: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.left_align {
+    text-align: left;
+}
