@@ -14,7 +14,7 @@
         <div class="form-group row justify-content-center" [ngClass]="{'has-warning' : description.errors, 'has-success' : !description.errors}">
             <label class="col-2 col-form-label">Description</label>
             <div class="col-8">
-                <input class="form-control" type="text" name="description" size="50" required minlength="30" [(ngModel)]="bucketList.description" #description='ngModel' [ngClass]="{'form-control-warning' : description.errors, 'form-control-success' : !description.errors}" placeholder="{{ item.description }}">
+                <input class="form-control" type="text" name="description" size="50" required minlength="100" [(ngModel)]="bucketList.description" #description='ngModel' [ngClass]="{'form-control-warning' : description.errors, 'form-control-success' : !description.errors}" placeholder="{{ item.description }}">
             </div>
         </div>
 

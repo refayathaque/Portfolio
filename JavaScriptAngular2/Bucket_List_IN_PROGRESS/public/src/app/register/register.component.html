@@ -30,7 +30,7 @@
             <label class="col-2 col-form-label">Username</label>
             <div class="col-6">
                 <input class="form-control" type="text" name="username" size="35" required pattern='^[a-zA-Z]{8,}$' [(ngModel)]="user.username" #username='ngModel' [ngClass]="{'form-control-warning' : username.errors, 'form-control-success' : !username.errors}">
-                <small class="form-text text-muted message" [hidden]='!username.errors'>at least 8 letters, and no numbers</small>
+                <small class="form-text text-muted message" [hidden]='!username.errors'>at least 8 letters, and no numbers or symbols (e.g. _ )</small>
             </div>
         </div>
 
