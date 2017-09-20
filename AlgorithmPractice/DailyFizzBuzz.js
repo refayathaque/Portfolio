@@ -337,7 +337,7 @@ console.log('---------------------')
 
 // Fizzbuzzing on 09/15/2017 before interview with eGlobalTech
 function fizzbuzz11() {
-    for (i = 0; i < 101; i++) {
+    for (i = 1; i < 101; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log('FizzBuzz');
             continue;
@@ -356,4 +356,27 @@ function fizzbuzz11() {
     }
 }
 fizzbuzz11();
+console.log('---------------------')
+
+// Fizzbuzzing on 09/20/2017...been working on deployments the past few days
+function REVERSEfizzbuzz5() {
+    for (i = 100; i > 0; i--) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+            continue;
+        }
+        if (i % 3 === 0) {
+            console.log('Fizz');
+            continue;
+        }
+        if (i % 5 === 0) {
+            console.log('Buzz');
+            continue;
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+REVERSEfizzbuzz5();
 console.log('---------------------')

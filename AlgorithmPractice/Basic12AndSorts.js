@@ -255,6 +255,7 @@ function bubbleSort(arr) {
         let count = 0;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] > arr[i + 1]) { // Flip sign for descending
+                let temp = 0;
                 temp = arr[i];
                 arr[i] = arr[i + 1];
                 arr[i + 1] = temp;
@@ -281,9 +282,9 @@ function bubbleSortRec(arr) {
         return 'Array is empty'
     }
     let swapped = false;
-    let temp = 0;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > arr[i + 1]) {
+            let temp = 0;
             temp = arr[i]
             arr[i] = arr[i + 1]
             arr[i + 1] = temp;

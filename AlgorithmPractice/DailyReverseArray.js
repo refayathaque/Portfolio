@@ -303,3 +303,5 @@ function reverseArray19(arr) {
 }
 console.log(reverseArray19([10, 9, 8, 7]));
 console.log('---------------------');
+
+////////////////////////////////////
