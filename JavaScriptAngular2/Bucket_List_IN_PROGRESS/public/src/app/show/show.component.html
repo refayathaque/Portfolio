@@ -16,16 +16,16 @@
             <tr>
                 <th>title</th>
                 <th>description</th>
-                <th>added</th>
-                <th>updated</th>
+                <th class='fixed'>added</th>
+                <th class='fixed'>updated</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of friendItemsPending">
                 <td class='left_align'>{{ item.title | json }}</td>
                 <td class='left_align'>{{ item.description | json }}</td>
-                <td class='left_align'>{{ item.createdAt | date:'d MMM y, h:mm a' }}</td>
-                <td class='left_align'>{{ item.updatedAt | date:'d MMM y, h:mm a' }}</td>
+                <td class='left_align fixed'>{{ item.createdAt | date:'d MMM y, h:mm a' }}</td>
+                <td class='left_align fixed'>{{ item.updatedAt | date:'d MMM y, h:mm a' }}</td>
             </tr>
         </tbody>
 
@@ -43,16 +43,16 @@
             <tr>
                 <th>title</th>
                 <th>description</th>
-                <th>added</th>
-                <th>updated</th>
+                <th class='fixed'>added</th>
+                <th class='fixed'>updated</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of friendItemsDone">
                 <td class='left_align'>{{ item.title | json }}</td>
                 <td class='left_align'>{{ item.description | json }}</td>
-                <td class='left_align'>{{ item.createdAt | date:'d MMM y, h:mm a' }}</td>
-                <td class='left_align'>{{ item.updatedAt | date:'d MMM y, h:mm a' }}</td>
+                <td class='left_align fixed'>{{ item.createdAt | date:'d MMM y, h:mm a' }}</td>
+                <td class='left_align fixed'>{{ item.updatedAt | date:'d MMM y, h:mm a' }}</td>
             </tr>
         </tbody>
 

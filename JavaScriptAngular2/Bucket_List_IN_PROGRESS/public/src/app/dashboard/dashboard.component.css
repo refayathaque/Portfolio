@@ -52,3 +52,6 @@ h2 {
 .left_align {
     text-align: left;
 }
+.fixed {
+    width: 10%;
+}
