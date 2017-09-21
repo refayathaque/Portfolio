@@ -305,3 +305,31 @@ console.log(reverseArray19([10, 9, 8, 7]));
 console.log('---------------------');
 
 ////////////////////////////////////
+
+function reverseArray20(arr) {
+    let temp = 0;
+    for (left = 0, right = (arr.length - 1); left < right; left++, right--) {
+        temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+    }
+    return arr;
+}
+z = [1, 2, 3, 4, 5, 6]
+console.log(reverseArray20(z));
+console.log('---------------------');
+
+function reverseArray21(arr) {
+    let temp = 0;
+    for (i = 0; i < (arr.length / 2); i++) {
+        temp = arr[i];
+        arr[i] = arr[(arr.length - 1) - i];
+        arr[(arr.length - 1) - i] = temp;
+    }
+    return arr;
+}
+x = [1, 2, 3, 4, 5, 6]
+console.log(reverseArray21(x));
+console.log('---------------------');
+
+////////////////////////////////////
