@@ -333,3 +333,29 @@ console.log(reverseArray21(x));
 console.log('---------------------');
 
 ////////////////////////////////////
+
+function reverseArray22(array) {
+    let temp = 0;
+    for (left = 0, right = (array.length - 1); left < right; left++, right--) {
+        temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
+    }
+    return array;
+}
+c = [2, 4, 6, 8]
+console.log(reverseArray22(c));
+console.log('---------------------');
+
+function reverseArray23(array) {
+    let temp = 0;
+    for (i = 0; i < (array.length / 2); i++) {
+        temp = array[i];
+        array[i] = array[(array.length - 1) - i];
+        array[(array.length - 1) - i] = temp;
+    }
+    return array;
+}
+v = [1, 3, 5, 7]
+console.log(reverseArray23(v));
+console.log('---------------------');
