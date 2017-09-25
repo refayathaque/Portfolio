@@ -398,5 +398,25 @@ function fizzbuzz12() {
         }
     }
 }
-fizzbuzz();
+fizzbuzz12();
+console.log('---------------------')
+
+// Fizzbuzzing after a while on 09/25/2017
+function fizzbuzz13() {
+    for (i = 1; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('Fizzbuzz');
+        }
+        else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz13();
 console.log('---------------------')
