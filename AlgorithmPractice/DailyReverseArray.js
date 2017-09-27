@@ -359,3 +359,18 @@ function reverseArray23(array) {
 v = [1, 3, 5, 7]
 console.log(reverseArray23(v));
 console.log('---------------------');
+
+////////////////////////////////////
+
+function reverseArray24(array) {
+    let temp = 0;
+    for (left = 0, right = (array.length - 1); left < right; left++, right--) {
+        temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
+    }
+    return array;
+}
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(reverseArray24(b));
+console.log('---------09/27/17------------');

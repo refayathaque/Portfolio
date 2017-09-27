@@ -256,7 +256,7 @@ console.log('---------------------')
 
 // Fizzbuzzing after a while, 09/11/2017
 function fizzbuzz9() {
-    for (i = 0; i < 101; i++) {
+    for (i = 1; i < 101; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log('FizzBuzz');
             continue;
@@ -383,7 +383,7 @@ console.log('---------------------')
 
 // Fizzbuzzing on 09/21/2017
 function fizzbuzz12() {
-    for (i = 0; i < 101; i++) {
+    for (i = 1; i < 101; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log('FizzBuzz');
         }
@@ -439,3 +439,22 @@ function REVERSEfizzbuzz6() {
 }
 REVERSEfizzbuzz6();
 console.log('---------------------')
+
+function fizzbuzz14() {
+    for (i = 1; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+        }
+        else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz14();
+console.log('---------------------');
