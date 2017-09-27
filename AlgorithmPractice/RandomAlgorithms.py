@@ -106,3 +106,23 @@ def reverselisttwoALT(list):
 r = [1, 2, 3, 4, 5, 6, 7, 8]
 print reverselisttwoALT(r)
 print('------------09/25/17------------')
+
+def fizzbuzz5():
+    i = 1
+    while i < 101:
+        if i % 3 == 0 and i % 5 == 0:
+            print 'FizzBuzz'
+        elif i % 3 == 0:
+            print 'Fizz'
+        elif i % 5 == 0:
+            print 'Buzz'
+        else:
+            print i
+        i += 1
+fizzbuzz5()
+print('------------09/27/17------------')
+
+def reverselistthree(list):
+    temp = 0
+    left = 0
+    right = 0
