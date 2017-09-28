@@ -136,3 +136,16 @@ def reverselistthree(list):
 t = [1, 2, 3, 4, 5, 6]
 print reverselistthree(t)
 print('------------09/27/17------------')
+
+def reverselistthreeALT(list):
+    temp = 0
+    i = 0
+    while i < (len(list) / 2):
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+u = [1, 2, 3, 4, 5, 6]
+print reverselistthreeALT(u)
+print('------------09/27/17------------')
