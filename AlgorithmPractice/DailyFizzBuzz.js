@@ -458,3 +458,22 @@ function fizzbuzz14() {
 }
 fizzbuzz14();
 console.log('---------------------');
+
+function REVERSEfizzbuzz7() {
+    for (i = 100; i > 0; i--) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+        }
+        else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+REVERSEfizzbuzz7();
+console.log('--------09/28/17-------------');
