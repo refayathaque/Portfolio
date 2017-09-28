@@ -387,3 +387,31 @@ function reverseArray25(array) {
 n = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 console.log(reverseArray25(n));
 console.log('---------09/27/17------------');
+
+////////////////////////////////////
+
+function reverseArray26(array) {
+    let temp = 0;
+    for (left = 0, right = (array.length - 1); left < right; left++, right--) {
+        temp = array[left]
+        array[left] = array[right]
+        array[right] = temp
+    }
+    return array
+}
+m = [9, 7, 5, 3]
+console.log(reverseArray26(m));
+console.log('---------09/28/17------------');
+
+function reverseArray27(array) {
+    let temp = 0;
+    for (i = 0; i < (array.length / 2); i++) {
+        temp = array[i]
+        array[i] = array[(array.length - 1) - i]
+        array[(array.length - 1) - i] = temp
+    }
+    return array
+}
+qw = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(reverseArray27(qw));
+console.log('---------09/28/17------------');
