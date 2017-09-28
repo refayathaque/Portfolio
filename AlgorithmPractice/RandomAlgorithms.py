@@ -162,3 +162,31 @@ def fizzbuzz6():
             print i
 fizzbuzz6()
 print('------------09/28/17------------')
+
+def reverselistfour(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+i = [2, 4, 6, 8]
+print reverselistfour(i)
+print('------------09/28/17------------')
+
+def reverselistfourALT(list):
+    temp = 0
+    i = 0
+    while i < (len(list) / 2):
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+o = [3, 5, 7, 9]
+print reverselistfourALT(o)
+print('------------09/28/17------------')
