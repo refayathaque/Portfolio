@@ -149,3 +149,16 @@ def reverselistthreeALT(list):
 u = [1, 2, 3, 4, 5, 6]
 print reverselistthreeALT(u)
 print('------------09/27/17------------')
+
+def fizzbuzz6():
+    for i in range(1, 101):
+        if i % 3 == 0 and i % 5 == 0:
+            print 'Fizzbuzz'
+        elif i % 3 == 0:
+            print 'Fizz'
+        elif i % 5 == 0:
+            print 'Buzz'
+        else:
+            print i
+fizzbuzz6()
+print('------------09/28/17------------')
