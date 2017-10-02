@@ -220,3 +220,16 @@ def reverselistfive(list):
 p = [1, 2, 3, 4]
 print reverselistfive(p)
 print('------------10/02/17------------')
+
+def reverselistfiveALT(list):
+    temp = 0
+    i = 0
+    while i < len(list) / 2:
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+a = [1, 2, 3, 4]
+print reverselistfiveALT(a)
+print('------------10/02/17------------')
