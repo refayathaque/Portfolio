@@ -205,3 +205,18 @@ def fizzbuzz7():
         i += 1
 fizzbuzz7()
 print('------------10/02/17------------')
+
+def reverselistfive(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+p = [1, 2, 3, 4]
+print reverselistfive(p)
+print('------------10/02/17------------')
