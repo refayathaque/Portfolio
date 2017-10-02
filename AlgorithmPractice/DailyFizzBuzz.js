@@ -477,3 +477,22 @@ function REVERSEfizzbuzz7() {
 }
 REVERSEfizzbuzz7();
 console.log('--------09/28/17-------------');
+
+function fizzbuzz15() {
+    for (i = 1; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+        }
+        else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz15();
+console.log('--------10/02/17-------------');
