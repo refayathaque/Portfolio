@@ -445,3 +445,29 @@ console.log(reverseArray29(ty));
 console.log('---------10/02/17------------');
 
 ////////////////////////////////////
+
+function reverseArray30(arr) {
+    let temp = 0;
+    for (left = 0, right = (arr.length - 1); left < right; left++, right--) {
+        temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+    }
+    return arr
+}
+console.log(reverseArray30(ty));
+console.log('---------10/03/17------------');
+
+function reverseArray31(arr) {
+    let temp = 0;
+    for (i = 0; i < arr.length / 2; i++) {
+        temp = arr[i];
+        arr[i] = arr[(arr.length - 1)- i];
+        arr[(arr.length - 1)- i] = temp;
+    }
+    return arr
+}
+console.log(reverseArray30(ty));
+console.log('---------10/03/17------------');
+
+////////////////////////////////////
