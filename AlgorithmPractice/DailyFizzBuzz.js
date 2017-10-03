@@ -496,3 +496,22 @@ function fizzbuzz15() {
 }
 fizzbuzz15();
 console.log('--------10/02/17-------------');
+
+function REVERSEfizzbuzz8() {
+    for (i = 100; i > 0; i--) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+        }
+        else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+REVERSEfizzbuzz8();
+console.log('--------10/03/17-------------');
