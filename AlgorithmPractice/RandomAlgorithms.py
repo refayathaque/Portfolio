@@ -246,3 +246,30 @@ def fizzbuzz8():
             print i
 fizzbuzz8()
 print('------------10/03/17------------')
+
+def reverselistsix(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+s = [21, 32, 1, 5]
+print reverselistsix(s) # Mutates list, this is passed into method below and what we will see returned is [21, 32, 1, 5]
+print('------------10/03/17------------')
+
+def reverselistsixALT(list):
+    temp = 0
+    i = 0
+    while i < len(list) / 2:
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+print reverselistsixALT(s)
+print('------------10/03/17------------')
