@@ -273,3 +273,46 @@ def reverselistsixALT(list):
     return list
 print reverselistsixALT(s)
 print('------------10/03/17------------')
+
+def fizzbuzz9():
+    i = 1
+    while i < 101:
+        if i % 3 == 0 and i % 5 == 0:
+            print 'FizzBuzz'
+        elif i % 3 == 0:
+            print 'Fizz'
+        elif i % 5 == 0:
+            print 'Buzz'
+        else:
+            print i
+        i += 1
+fizzbuzz9()
+print('------------10/04/17------------')
+
+def reverselistseven(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -=1
+    return list
+d = [9, 7, 5, 3]
+print(reverselistseven(d))
+print('------------10/04/17------------')
+
+def reverselistsevenALT(list):
+    temp = 0
+    i = 0
+    while i < len(list) / 2:
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+f = [1, 2, 3, 4]
+print(reverselistsevenALT(f))
+print('------------10/04/17------------')
