@@ -322,6 +322,47 @@ print('------------10/04/17------------')
 
 lambda_func = lambda x : x*x
 
-print lambda_func(9)
+print lambda_func(9), 'lambda experimentation'
 
 #/////////////////////////////
+
+def fizzbuzz10():
+    i = 1
+    for i in range(1, 101):
+        if i % 3 == 0 and i % 5 == 0:
+            print 'FizzBuzz'
+        elif i % 3 == 0:
+            print 'Fizz'
+        elif i % 5 == 0:
+            print 'Buzz'
+        else:
+            print i
+fizzbuzz10()
+print('------------10/05/17------------')
+
+def reverselisteight(list):
+    temp = 0
+    i = 0
+    while i < len(list) / 2:
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+g = [12, 13, 14, 15]
+print(reverselisteight(g))
+print('------------10/05/17------------')
+
+def reverselisteightALT(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+print(reverselisteightALT(g))
+print('------------10/05/17------------')
