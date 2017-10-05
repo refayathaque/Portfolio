@@ -316,3 +316,12 @@ def reverselistsevenALT(list):
 f = [1, 2, 3, 4]
 print(reverselistsevenALT(f))
 print('------------10/04/17------------')
+
+#/////////////////////////////
+# Some Lambda function experimentation
+
+lambda_func = lambda x : x*x
+
+print lambda_func(9)
+
+#/////////////////////////////

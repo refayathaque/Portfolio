@@ -496,3 +496,22 @@ function reverseArray33(arr) {
 }
 console.log(reverseArray33(ui));
 console.log('---------10/04/17------------');
+
+////////////////////////////////////
+// Some Lambda function experimentation
+
+// ES5 way *.map does NOT mutate the array
+
+let fat_arrow_arr = [1, 2, 3, 4, 5]
+
+console.log(fat_arrow_arr.map(
+    function(element) {
+        return element + 1
+    }
+));
+
+// ES6 way ('fat arrow', return is implied) *.map does NOT mutate the array
+
+console.log(fat_arrow_arr.map(element => element + 1));
+
+////////////////////////////////////
