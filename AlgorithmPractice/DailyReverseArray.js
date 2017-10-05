@@ -515,3 +515,30 @@ console.log(fat_arrow_arr.map(
 console.log(fat_arrow_arr.map(element => element + 1));
 
 ////////////////////////////////////
+
+function reversearray34(array) {
+    let temp = 0
+    for (i = 0; i < array.length / 2; i++) {
+        temp = array[i]
+        array[i] = array[(array.length - 1) - i]
+        array[(array.length - 1) - i] = temp
+    }
+    return array
+}
+op = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(reversearray34(op));
+console.log('---------10/05/17------------');
+
+function reversearray34ALT(array) {
+    let temp = 0
+    for (left = 0, right = array.length - 1; left < right; left++, right--) {
+        temp = array[left]
+        array[left] = array[right]
+        array[right] = temp
+    }
+    return array
+}
+console.log(reversearray34ALT(op));
+console.log('---------10/05/17------------');
+
+////////////////////////////////////
