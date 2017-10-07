@@ -553,3 +553,22 @@ function fizzbuzz17() {
 }
 fizzbuzz17()
 console.log('--------10/05/17-------------');
+
+function REVfizzbuzz9() {
+    for (i = 100; i > 0; i--) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('Fizzbuzz');
+        }
+        else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+REVfizzbuzz9()
+console.log('--------10/07/17-------------');
