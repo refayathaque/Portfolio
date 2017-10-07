@@ -542,3 +542,30 @@ console.log(reversearray34ALT(op));
 console.log('---------10/05/17------------');
 
 ////////////////////////////////////
+
+function reversearray35(arr) {
+    let temp = 0;
+    for (i = 0; i < arr.length / 2; i++) {
+        temp = arr[i]
+        arr[i] = arr[(arr.length - 1) - i]
+        arr[(arr.length - 1) - i] = temp
+    }
+    return arr
+}
+as = [2, 4, 6, 8]
+console.log(reversearray35(as));
+console.log('---------10/07/17------------');
+
+function reversearray35ALT(arr) {
+    let temp = 0;
+    for (left = 0, right = arr.length - 1; left < right; left++, right--) {
+        temp = arr[left]
+        arr[left] = arr[right]
+        arr[right] = temp
+    }
+    return arr
+}
+console.log(reversearray35ALT(as));
+console.log('---------10/07/17------------');
+
+////////////////////////////////////
