@@ -327,7 +327,6 @@ print lambda_func(9), 'lambda experimentation'
 #/////////////////////////////
 
 def fizzbuzz10():
-    i = 1
     for i in range(1, 101):
         if i % 3 == 0 and i % 5 == 0:
             print 'FizzBuzz'
@@ -366,3 +365,18 @@ def reverselisteightALT(list):
     return list
 print(reverselisteightALT(g))
 print('------------10/05/17------------')
+
+#/////////////////////////////
+
+def fizzbuzz11():
+    for i in range(100, 0, -1): # DECREMENTING for loop
+        if i % 3 == 0 and i % 5 == 0:
+            print 'Fizzbuzz'
+        elif i % 3 == 0:
+            print 'Fizz'
+        elif i % 5 == 0:
+            print 'Buzz'
+        else:
+            print i
+fizzbuzz11()
+print('------------10/07/17------------')
