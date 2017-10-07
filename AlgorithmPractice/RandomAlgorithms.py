@@ -380,3 +380,30 @@ def fizzbuzz11():
             print i
 fizzbuzz11()
 print('------------10/07/17------------')
+
+def reverselistnine(list):
+    temp = 0
+    i = 0
+    while i < len(list) / 2:
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+h = [3, 5, 7, 9]
+print(reverselistnine(h))
+print('------------10/07/17------------')
+
+def reverselistnineALT(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+print(reverselistnineALT(h))
+print('------------10/07/17------------')
