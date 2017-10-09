@@ -572,3 +572,22 @@ function REVfizzbuzz9() {
 }
 REVfizzbuzz9()
 console.log('--------10/07/17-------------');
+
+function fizzbuzz18() {
+    for (i = 1; i < 101; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log('FizzBuzz');
+        }
+        else if (i % 3 === 0) {
+            console.log('Fizz');
+        }
+        else if (i % 5 === 0) {
+            console.log('Buzz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz18()
+console.log('--------10/09/17-------------');
