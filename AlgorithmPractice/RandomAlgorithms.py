@@ -409,3 +409,45 @@ print(reverselistnineALT(h))
 print('------------10/07/17------------')
 
 #/////////////////////////////
+
+def fizzbuzz12():
+    i = 1
+    while i < 101:
+        if i % 3 == 0 and i % 5 == 0:
+            print 'FizzBuzz'
+        elif i % 3 == 0:
+            print 'Fizz'
+        elif i % 5 == 0:
+            print 'Buzz'
+        else:
+            print i
+        i += 1
+fizzbuzz12();
+print('------------10/09/17------------')
+
+def reverselistten(list):
+    temp = 0
+    i = 0
+    while i < len(list) - 1:
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+j = [12, 13, 14, 15, 16]
+print reverselistten(j)
+print('------------10/09/17------------')
+
+def reverselisttenALT(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+print reverselisttenALT(j)
+print('------------10/09/17------------')
