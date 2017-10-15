@@ -612,3 +612,15 @@ const reversearray37 = (arr) => {
 gh = [2, 4, 6, 8]
 console.log(reversearray37(gh));
 console.log('---------10/15/17------------');
+
+const reversearray37ALT = (array) => {
+    let temp = 0;
+    for (left = 0, right = array.length - 1; left < right; left++, right--) {
+        temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
+    }
+    return array
+}
+console.log(reversearray37ALT(gh));
+console.log('---------10/15/17------------');
