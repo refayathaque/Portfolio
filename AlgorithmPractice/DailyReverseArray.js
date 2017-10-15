@@ -594,3 +594,21 @@ function reversearray36ALT(arr) {
 }
 console.log(reversearray36ALT(df));
 console.log('---------10/09/17------------');
+
+////////////////////////////////////
+
+// Returning after a while, no matter what I'm working on I must do these Algorithms on a daily basis!
+// Implementing ES6 'Fat Arrow' below
+
+const reversearray37 = (arr) => {
+    let temp = 0;
+    for (i = 0; i < arr.length / 2; i++) {
+        temp = arr[i];
+        arr[i] = arr[(arr.length - 1) - i];
+        arr[(arr.length - 1) - i] = temp
+    }
+    return arr
+}
+gh = [2, 4, 6, 8]
+console.log(reversearray37(gh));
+console.log('---------10/15/17------------');

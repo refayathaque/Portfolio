@@ -451,3 +451,17 @@ def reverselisttenALT(list):
     return list
 print reverselisttenALT(j)
 print('------------10/09/17------------')
+
+#/////////////////////////////
+
+def newListInReverse(list):
+    newlist = []
+    for i in range(0, len(list) - 1):
+        newlist.append(list[-i - 1]) # Negative indexes can be used to access elements at the end of the list, the last element has key of -1
+    return newlist
+
+mm = [3, 1, 4, 1, 5, 9, 2, 6]
+print(newListInReverse(mm))
+print('------------10/12/17------------')
+
+#/////////////////////////////
