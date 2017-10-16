@@ -494,7 +494,7 @@ k = [12, 13, 14, 15, 16]
 print reverseList11(k)
 print('------------10/16/17------------')
 
-def reverseList11ALT1(list):
+def reverseList11ALT(list):
     temp = 0
     left = 0
     right = len(list) - 1
@@ -508,4 +508,14 @@ def reverseList11ALT1(list):
 print reverseList11ALT(k)
 print('------------10/16/17------------')
 
-def 
+def reverseList11ALTALT(list):
+    newList = []
+    i = 0
+    while i < len(list):
+        newList.append(list[-i - 1])
+        i += 1
+    return newList
+print reverseList11ALTALT(k)
+print('------------10/16/17------------')
+
+#/////////////////////////////
