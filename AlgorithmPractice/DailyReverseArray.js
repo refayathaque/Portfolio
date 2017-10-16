@@ -624,3 +624,11 @@ const reversearray37ALT = (array) => {
 }
 console.log(reversearray37ALT(gh));
 console.log('---------10/15/17------------');
+
+// Have something with .map (basically iterates over an array and runs functions on each element) https://codeplanet.io/es6-fat-arrow-functions/
+
+let jk = [1, 2, 3, 4, 5]
+
+const squareElementInArr = (arr) => arr.map(element => element * element)
+console.log(squareElementInArr(jk));
+console.log('---------10/16/17------------');
