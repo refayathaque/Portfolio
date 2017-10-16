@@ -428,7 +428,7 @@ print('------------10/09/17------------')
 def reverselistten(list):
     temp = 0
     i = 0
-    while i < len(list) - 1:
+    while i < len(list) / 2:
         temp = list[i]
         list[i] = list[(len(list) - 1) - i]
         list[(len(list) - 1) - i] = temp
@@ -480,3 +480,32 @@ def fizzbuzz13():
         i -= 1
 fizzbuzz13()
 print('------------10/16/17------------')
+
+def reverseList11(list):
+    temp = 0
+    i = 0
+    while i < len(list) / 2:
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+        i += 1
+    return list
+k = [12, 13, 14, 15, 16]
+print reverseList11(k)
+print('------------10/16/17------------')
+
+def reverseList11ALT1(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+print reverseList11ALT(k)
+print('------------10/16/17------------')
+
+def 
