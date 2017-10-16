@@ -465,3 +465,18 @@ print(newListInReverse(mm))
 print('------------10/12/17------------')
 
 #/////////////////////////////
+
+def fizzbuzz13():
+    i = 100
+    while i > 0:
+        if i % 3 == 0 and i % 5 == 0:
+            print 'FizzBuzz'
+        elif i % 3 == 0:
+            print 'Fizz'
+        elif i % 5 == 0:
+            print 'Buzz'
+        else:
+            print i
+        i -= 1
+fizzbuzz13()
+print('------------10/16/17------------')
