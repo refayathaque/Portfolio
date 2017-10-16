@@ -632,3 +632,34 @@ let jk = [1, 2, 3, 4, 5]
 const squareElementInArr = (arr) => arr.map(element => element * element)
 console.log(squareElementInArr(jk));
 console.log('---------10/16/17------------');
+
+////////////////////////////////////
+
+const reverseArr38 = (arr) => {
+    let temp = 0
+    for (left = 0, right = arr.length - 1; left < right; left++, right--) {
+        temp = arr[left]
+        arr[left] = arr[right]
+        arr[right] = temp
+    }
+    return arr
+}
+let lz = [12, 13, 14, 15, 16]
+console.log(reverseArr38(lz));
+console.log('---------10/16/17------------');
+
+const reverseArr38ALT = (arr) => {
+    let temp = 0
+    for (i = 0; i < arr.length / 2; i++) {
+        temp = arr[i]
+        arr[i] = arr[(arr.length - 1) - i]
+        arr[(arr.length - 1) - i] = temp
+    }
+    return arr
+}
+console.log(reverseArr38ALT(lz));
+console.log('---------10/16/17------------');
+
+const squareElementInArr1 = (arr) => arr.map(element => element * element)
+console.log(squareElementInArr1(lz));
+console.log('---------10/16/17------------');
