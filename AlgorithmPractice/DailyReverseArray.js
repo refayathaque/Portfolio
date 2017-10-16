@@ -663,3 +663,5 @@ console.log('---------10/16/17------------');
 const squareElementInArr1 = (arr) => arr.map(element => element * element)
 console.log(squareElementInArr1(lz));
 console.log('---------10/16/17------------');
+
+////////////////////////////////////
