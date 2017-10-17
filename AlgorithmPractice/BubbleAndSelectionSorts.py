@@ -39,3 +39,19 @@ def bubbleSortAscRec(list):
     return list
 list_b = [14, 10, 17, 16, 11, 15, 12, 13]
 print bubbleSortAscRec(list_b)
+
+def selectionSortAsc(list):
+    if len(list) == 0:
+        return 'Empty list'
+    if len(list) == 1:
+        return list
+    l = len(list)
+    for i in range(l):
+        for y in range(i + 1, l):
+            if list[y] < list[i]:
+                temp = list[y]
+                list[y] = list[i]
+                list[i] = temp
+    return list
+list_c = [111, 999, 222, 888, 333, 777, 444]
+print selectionSortAsc(list_c)
