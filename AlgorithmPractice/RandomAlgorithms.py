@@ -558,3 +558,14 @@ def reverseList12ALT(list):
     return list
 print reverseList12ALT(l)
 print('------------10/17/17------------')
+
+def reverseListALTALT(list):
+    newList = []
+    # i = 0
+    # while i < len(list):
+    for i in range (0, len(list)):
+        newList.append(list[-i - 1])
+        # i += 1
+    return newList
+print reverseListALTALT(l)
+print('------------10/17/17------------')
