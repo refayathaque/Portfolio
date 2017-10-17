@@ -665,3 +665,38 @@ console.log(squareElementInArr1(lz));
 console.log('---------10/16/17------------');
 
 ////////////////////////////////////
+
+const reverseArr39 = (arr) => {
+    let temp = 0
+    let left = 0
+    let right = arr.length - 1
+    while (left < right) {
+        temp = arr[left]
+        arr[left] = arr[right]
+        arr[right] = temp
+        left++
+        right--
+    }
+    return arr
+}
+xc = [11, 22, 33, 44]
+console.log(reverseArr39(xc));
+console.log('---------10/17/17------------');
+
+const reverseArr39ALT = (arr) => {
+    let temp = 0
+    let i = 0
+    while (i < arr.length / 2) {
+        temp = arr[i]
+        arr[i] = arr[(arr.length - 1) - i]
+        arr[(arr.length - 1) - i] = temp
+        i++
+    }
+    return arr
+}
+console.log(reverseArr39ALT(xc));
+console.log('---------10/17/17------------');
+
+const squareElementInArr2 = arr => arr.map(element => element * element)
+console.log(squareElementInArr2(xc));
+console.log('---------10/17/17------------');
