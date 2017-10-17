@@ -531,4 +531,30 @@ def fizzbuzz14():
         else:
             print i
 fizzbuzz14()
-print('------------10/16/17------------')
+print('------------10/17/17------------')
+
+l = [99, 77, 55, 33]
+
+def reverseList12(list):
+    temp = 0
+    for i in range (0, len(list) / 2):
+        temp = list[i]
+        list[i] = list[(len(list) - 1) - i]
+        list[(len(list) - 1) - i] = temp
+    return list
+print reverseList12(l)
+print('------------10/17/17------------')
+
+def reverseList12ALT(list):
+    temp = 0
+    left = 0
+    right = len(list) - 1
+    while left < right:
+        temp = list[left]
+        list[left] = list[right]
+        list[right] = temp
+        left += 1
+        right -= 1
+    return list
+print reverseList12ALT(l)
+print('------------10/17/17------------')
